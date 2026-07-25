@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.LinearProgressIndicator
@@ -26,6 +27,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.tamapoke.app.R
+import com.tamapoke.app.sprite.AnimatedSprite
 import com.tamapoke.core.PetEngine
 import com.tamapoke.core.PetState
 import com.tamapoke.core.dex.DexTable
@@ -92,7 +94,17 @@ private fun PetView(state: PetState, dex: DexTable, vm: MainViewModel, onPlayCli
                 .clickable(onClick = vm::caress),
             contentAlignment = Alignment.Center,
         ) {
-            Text(entry.name.take(1), style = MaterialTheme.typography.displayLarge)
+            val spriteAction = when {
+                state.sleeping -> "sleep"
+                mood == PetMood.EATING -> "eat"
+                else -> "idle"
+            }
+            AnimatedSprite(
+                speciesId = state.speciesId,
+                action = spriteAction,
+                modifier = Modifier.size(96.dp),
+                placeholder = { Text(entry.name.take(1), style = MaterialTheme.typography.displayLarge) },
+            )
         }
 
         Spacer(Modifier.height(16.dp))
