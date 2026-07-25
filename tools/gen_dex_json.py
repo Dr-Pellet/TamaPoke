@@ -14,7 +14,7 @@ import sys
 sys.path.insert(0, os.path.dirname(__file__))
 from dex_data import DEX, TYPE_ACCENTS, CLASSIC, RARE, LEGENDARY
 from dex_stats import BASE_STATS
-from gen_dex import TYPE_BIOME, BIOME_OVERRIDE, rgb565
+from gen_dex import TYPE_BIOME, BIOME_OVERRIDE
 
 RARITY_NAMES = {0: "EVO", 1: "COMMON", 2: "RARE", 3: "LEGENDARY"}
 
@@ -38,7 +38,7 @@ def main():
             "slug": slug,
             "name": display,
             "type": typ,
-            "accent": f"#{rgb565(TYPE_ACCENTS[typ]):04X}",
+            "accent": TYPE_ACCENTS[typ],
             "evolvesTo": evo,
             "evolveLevel": lvl,
             "rarity": RARITY_NAMES[rarity],

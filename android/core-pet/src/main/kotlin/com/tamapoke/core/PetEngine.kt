@@ -241,6 +241,8 @@ object PetEngine {
         return registerCare(s)
     }
 
+    fun rename(state: PetState, nickname: String): PetState = state.copy(nickname = nickname.take(11))
+
     fun toggleLight(state: PetState): PetState {
         if (state.ceremony != Ceremony.NONE || state.isEgg) return state
         return state.copy(sleeping = !state.sleeping)
@@ -296,6 +298,26 @@ object PetEngine {
     fun canRunawayNow(state: PetState): Boolean =
         !state.isEgg && !state.sleeping && state.ceremony == Ceremony.NONE &&
             state.neglectTicks >= PetState.RUNAWAY_TICKS
+
+    /** "Evolve?" button should show: eligible, and not already declined at this level. */
+    fun wantEvolveButton(state: PetState, dex: DexTable): Boolean =
+        canEvolveNow(state, dex) && state.level() > state.evoDeclinedLevel
+
+    /** "Say goodbye?" button should show: eligible, and not declined within the last day. */
+    fun wantFarewellButton(state: PetState, dex: DexTable): Boolean =
+        canFarewellNow(state, dex) && state.ageMinutes >= state.farewellDeclinedAgeMinutes
+
+    /** "Keep form": postpone the evolution offer until the next level-up. */
+    fun declineEvolve(state: PetState): PetState = state.copy(evoDeclinedLevel = state.level())
+
+    /** "Stay together": postpone the farewell offer by one in-game day. */
+    fun declineFarewell(state: PetState): PetState = state.copy(farewellDeclinedAgeMinutes = state.ageMinutes + 1440)
+
+    /** First game only: overrides the (already-rolled) hidden egg target with the player's chosen starter. */
+    fun chooseStarter(state: PetState, starterDex: Int): PetState {
+        if (!state.starterPick) return state
+        return state.copy(eggTarget = starterDex, starterPick = false)
+    }
 
     fun startFarewell(state: PetState): PetState {
         if (state.isEgg || state.ceremony != Ceremony.NONE) return state

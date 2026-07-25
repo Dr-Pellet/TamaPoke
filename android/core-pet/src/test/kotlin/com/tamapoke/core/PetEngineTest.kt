@@ -117,4 +117,39 @@ class PetEngineTest {
         val target = PetEngine.pickEggSpecies(fresh, dex, Random(1))
         assertTrue(target in dex.classicStarters)
     }
+
+    @Test
+    fun `choosing a starter overrides the rolled egg target only during starter pick`() {
+        val picking = PetState(starterPick = true, eggTarget = 1)
+        val chosen = PetEngine.chooseStarter(picking, 4)
+        assertEquals(4, chosen.eggTarget)
+        assertFalse(chosen.starterPick)
+
+        val notPicking = PetState(starterPick = false, eggTarget = 1)
+        assertEquals(notPicking, PetEngine.chooseStarter(notPicking, 4))
+    }
+
+    @Test
+    fun `declining evolution hides the button until the next level`() {
+        val ready = bulbasaur.copy(ageMinutes = 16 * 60L, fullness = 100, joy = 100, energy = 100, hygiene = 100)
+        assertTrue(PetEngine.wantEvolveButton(ready, dex))
+
+        val declined = PetEngine.declineEvolve(ready)
+        assertFalse(PetEngine.wantEvolveButton(declined, dex))
+
+        val nextLevel = declined.copy(ageMinutes = declined.ageMinutes + 60)
+        assertTrue(PetEngine.wantEvolveButton(nextLevel, dex))
+    }
+
+    @Test
+    fun `declining farewell postpones it by one day`() {
+        val ready = bulbasaur.copy(speciesId = 3, ageMinutes = PetState.FAREWELL_AGE_MIN)
+        assertTrue(PetEngine.wantFarewellButton(ready, dex))
+
+        val declined = PetEngine.declineFarewell(ready)
+        assertFalse(PetEngine.wantFarewellButton(declined, dex))
+
+        val nextDay = declined.copy(ageMinutes = declined.ageMinutes + 1440)
+        assertTrue(PetEngine.wantFarewellButton(nextDay, dex))
+    }
 }

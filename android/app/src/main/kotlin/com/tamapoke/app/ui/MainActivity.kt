@@ -9,13 +9,17 @@ import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.repeatOnLifecycle
 import com.tamapoke.app.TamaPokeApp
-import com.tamapoke.app.ui.main.MainScreen
 import com.tamapoke.app.ui.main.MainViewModel
+import com.tamapoke.app.ui.settings.SettingsViewModel
 import kotlinx.coroutines.delay
 
 class MainActivity : ComponentActivity() {
     private val viewModel: MainViewModel by viewModels {
-        MainViewModel.Factory((application as TamaPokeApp).repository)
+        val app = application as TamaPokeApp
+        MainViewModel.Factory(app.repository, app.sfxPlayer)
+    }
+    private val settingsViewModel: SettingsViewModel by viewModels {
+        SettingsViewModel.Factory((application as TamaPokeApp).settingsRepository)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +40,7 @@ class MainActivity : ComponentActivity() {
                 }
             }
 
-            MainScreen(viewModel)
+            AppRoot(viewModel, settingsViewModel)
         }
     }
 

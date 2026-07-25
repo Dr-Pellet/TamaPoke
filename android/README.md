@@ -48,7 +48,26 @@ just trust CI, which checks out to a clean path.
 
 ## Status
 
-Phase 1 (see the plan): core game loop (`PetEngine`), Room persistence,
-offline catch-up, a minimal main screen, and the CI pipeline are in place.
-Full species/evolution/Pokédex UI, sprites, audio and i18n are follow-up
-phases.
+- **Phase 1**: core game loop (`PetEngine`), Room persistence, offline
+  catch-up, a minimal main screen, and the CI pipeline.
+- **Phase 2**: starter picker, evolve/farewell/runaway decision flow
+  (`declineEvolve`/`declineFarewell`), ceremony dialog, bottom-nav shell
+  (Home/Pokedex/Stats/Settings), full 151-species Pokedex grid, and the
+  4-page stat card (Profile/Battle/Medals/Progress).
+- **Phase 3**: minigame and training-bag screens wired to
+  `playResult()`/`trainStrength()` — simplified tap-based mechanics rather
+  than a pixel-perfect port of the original's flappy-bird-style physics
+  (documented in `MinigameScreen.kt`). Real PMD-sprite art is **not**
+  included yet: the UI still uses placeholder shapes/initials — converting
+  the ~40MB PMD SpriteCollab pack (`tools/pack_pmd.py`'s data source) into
+  Android sprite sheets is a follow-up.
+- **Phase 4**: `ChiptuneSynth`/`SfxPlayer` port audio.cpp's square-wave SFX
+  tables to `AudioTrack` 1:1, wired to feed/pet/evolve/hatch/level-up/medal/
+  ceremony events. `tools/gen_android_strings.py` (mirrored by the Node
+  version used to bootstrap this repo) parses `i18n.h`/`i18n.cpp`'s 6-language
+  table into `res/values{,-es,-fr,-de,-it,-pt}/strings_original.xml`
+  (`orig_*` keys); language switching goes through
+  `AppCompatDelegate.setApplicationLocales`. Only a representative subset of
+  screens (main screen, stat card, ceremony dialog, starter picker) actually
+  read from these keys so far — the rest of the catalog is generated and
+  ready for the remaining screens to adopt.

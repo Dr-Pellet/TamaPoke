@@ -62,6 +62,13 @@ class PetRepository private constructor(
     suspend fun startFarewell() = mutate { PetEngine.startFarewell(it) }
     suspend fun startRunaway() = mutate { PetEngine.startRunaway(it) }
     suspend fun release() = mutate { PetEngine.release(it) }
+    suspend fun rename(nickname: String) = mutate { PetEngine.rename(it, nickname) }
+    suspend fun chooseStarter(starterDex: Int) = mutate { PetEngine.chooseStarter(it, starterDex) }
+    suspend fun declineEvolve() = mutate { PetEngine.declineEvolve(it) }
+    suspend fun declineFarewell() = mutate { PetEngine.declineFarewell(it) }
+
+    /** Acknowledges a finished ceremony and starts the next life cycle (a fresh egg). */
+    suspend fun resolveCeremony() = mutate { PetEngine.newEgg(it, dex) }
 
     /** One live game-minute tick, for the foreground "watch it happen in real time" loop. */
     suspend fun tickOnce() = mutate { PetEngine.tickOnce(it, dex).state }
