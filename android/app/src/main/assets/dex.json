@@ -1,0 +1,2584 @@
+{
+  "eeveeId": 133,
+  "eeveeEvolutions": [
+    134,
+    135,
+    136
+  ],
+  "classicStarters": [
+    1,
+    4,
+    7,
+    25,
+    133
+  ],
+  "species": [
+    {
+      "id": 1,
+      "slug": "bulbasaur",
+      "name": "BULBASAUR",
+      "type": "planta",
+      "accent": "#3C49",
+      "evolvesTo": 2,
+      "evolveLevel": 16,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 45,
+        "atk": 49,
+        "def": 49,
+        "spe": 45
+      },
+      "biome": 2
+    },
+    {
+      "id": 2,
+      "slug": "ivysaur",
+      "name": "IVYSAUR",
+      "type": "planta",
+      "accent": "#3C49",
+      "evolvesTo": 3,
+      "evolveLevel": 32,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 60,
+        "atk": 62,
+        "def": 63,
+        "spe": 60
+      },
+      "biome": 2
+    },
+    {
+      "id": 3,
+      "slug": "venusaur",
+      "name": "VENUSAUR",
+      "type": "planta",
+      "accent": "#3C49",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 80,
+        "atk": 82,
+        "def": 83,
+        "spe": 80
+      },
+      "biome": 2
+    },
+    {
+      "id": 4,
+      "slug": "charmander",
+      "name": "CHARMANDER",
+      "type": "fuego",
+      "accent": "#EA87",
+      "evolvesTo": 5,
+      "evolveLevel": 16,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 39,
+        "atk": 52,
+        "def": 43,
+        "spe": 65
+      },
+      "biome": 3
+    },
+    {
+      "id": 5,
+      "slug": "charmeleon",
+      "name": "CHARMELEON",
+      "type": "fuego",
+      "accent": "#EA87",
+      "evolvesTo": 6,
+      "evolveLevel": 36,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 58,
+        "atk": 64,
+        "def": 58,
+        "spe": 80
+      },
+      "biome": 3
+    },
+    {
+      "id": 6,
+      "slug": "charizard",
+      "name": "CHARIZARD",
+      "type": "fuego",
+      "accent": "#EA87",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 78,
+        "atk": 84,
+        "def": 78,
+        "spe": 100
+      },
+      "biome": 3
+    },
+    {
+      "id": 7,
+      "slug": "squirtle",
+      "name": "SQUIRTLE",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 8,
+      "evolveLevel": 16,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 44,
+        "atk": 48,
+        "def": 65,
+        "spe": 43
+      },
+      "biome": 1
+    },
+    {
+      "id": 8,
+      "slug": "wartortle",
+      "name": "WARTORTLE",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 9,
+      "evolveLevel": 36,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 59,
+        "atk": 63,
+        "def": 80,
+        "spe": 58
+      },
+      "biome": 1
+    },
+    {
+      "id": 9,
+      "slug": "blastoise",
+      "name": "BLASTOISE",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 79,
+        "atk": 83,
+        "def": 100,
+        "spe": 78
+      },
+      "biome": 1
+    },
+    {
+      "id": 10,
+      "slug": "caterpie",
+      "name": "CATERPIE",
+      "type": "bicho",
+      "accent": "#7CC4",
+      "evolvesTo": 11,
+      "evolveLevel": 7,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 45,
+        "atk": 30,
+        "def": 35,
+        "spe": 45
+      },
+      "biome": 2
+    },
+    {
+      "id": 11,
+      "slug": "metapod",
+      "name": "METAPOD",
+      "type": "bicho",
+      "accent": "#7CC4",
+      "evolvesTo": 12,
+      "evolveLevel": 10,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 50,
+        "atk": 20,
+        "def": 55,
+        "spe": 30
+      },
+      "biome": 2
+    },
+    {
+      "id": 12,
+      "slug": "butterfree",
+      "name": "BUTTERFREE",
+      "type": "bicho",
+      "accent": "#7CC4",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 60,
+        "atk": 45,
+        "def": 50,
+        "spe": 70
+      },
+      "biome": 2
+    },
+    {
+      "id": 13,
+      "slug": "weedle",
+      "name": "WEEDLE",
+      "type": "bicho",
+      "accent": "#7CC4",
+      "evolvesTo": 14,
+      "evolveLevel": 7,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 40,
+        "atk": 35,
+        "def": 30,
+        "spe": 50
+      },
+      "biome": 2
+    },
+    {
+      "id": 14,
+      "slug": "kakuna",
+      "name": "KAKUNA",
+      "type": "bicho",
+      "accent": "#7CC4",
+      "evolvesTo": 15,
+      "evolveLevel": 10,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 45,
+        "atk": 25,
+        "def": 50,
+        "spe": 35
+      },
+      "biome": 2
+    },
+    {
+      "id": 15,
+      "slug": "beedrill",
+      "name": "BEEDRILL",
+      "type": "bicho",
+      "accent": "#7CC4",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 65,
+        "atk": 90,
+        "def": 40,
+        "spe": 75
+      },
+      "biome": 2
+    },
+    {
+      "id": 16,
+      "slug": "pidgey",
+      "name": "PIDGEY",
+      "type": "normal",
+      "accent": "#8C4D",
+      "evolvesTo": 17,
+      "evolveLevel": 18,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 40,
+        "atk": 45,
+        "def": 40,
+        "spe": 56
+      },
+      "biome": 0
+    },
+    {
+      "id": 17,
+      "slug": "pidgeotto",
+      "name": "PIDGEOTTO",
+      "type": "normal",
+      "accent": "#8C4D",
+      "evolvesTo": 18,
+      "evolveLevel": 36,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 63,
+        "atk": 60,
+        "def": 55,
+        "spe": 71
+      },
+      "biome": 0
+    },
+    {
+      "id": 18,
+      "slug": "pidgeot",
+      "name": "PIDGEOT",
+      "type": "normal",
+      "accent": "#8C4D",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 83,
+        "atk": 80,
+        "def": 75,
+        "spe": 101
+      },
+      "biome": 0
+    },
+    {
+      "id": 19,
+      "slug": "rattata",
+      "name": "RATTATA",
+      "type": "normal",
+      "accent": "#8C4D",
+      "evolvesTo": 20,
+      "evolveLevel": 20,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 30,
+        "atk": 56,
+        "def": 35,
+        "spe": 72
+      },
+      "biome": 0
+    },
+    {
+      "id": 20,
+      "slug": "raticate",
+      "name": "RATICATE",
+      "type": "normal",
+      "accent": "#8C4D",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 55,
+        "atk": 81,
+        "def": 60,
+        "spe": 97
+      },
+      "biome": 0
+    },
+    {
+      "id": 21,
+      "slug": "spearow",
+      "name": "SPEAROW",
+      "type": "normal",
+      "accent": "#8C4D",
+      "evolvesTo": 22,
+      "evolveLevel": 20,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 40,
+        "atk": 60,
+        "def": 30,
+        "spe": 70
+      },
+      "biome": 0
+    },
+    {
+      "id": 22,
+      "slug": "fearow",
+      "name": "FEAROW",
+      "type": "normal",
+      "accent": "#8C4D",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 65,
+        "atk": 90,
+        "def": 65,
+        "spe": 100
+      },
+      "biome": 0
+    },
+    {
+      "id": 23,
+      "slug": "ekans",
+      "name": "EKANS",
+      "type": "veneno",
+      "accent": "#8A73",
+      "evolvesTo": 24,
+      "evolveLevel": 22,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 35,
+        "atk": 60,
+        "def": 44,
+        "spe": 55
+      },
+      "biome": 0
+    },
+    {
+      "id": 24,
+      "slug": "arbok",
+      "name": "ARBOK",
+      "type": "veneno",
+      "accent": "#8A73",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 60,
+        "atk": 95,
+        "def": 69,
+        "spe": 80
+      },
+      "biome": 0
+    },
+    {
+      "id": 25,
+      "slug": "pikachu",
+      "name": "PIKACHU",
+      "type": "electrico",
+      "accent": "#BCA1",
+      "evolvesTo": 26,
+      "evolveLevel": 30,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 35,
+        "atk": 55,
+        "def": 40,
+        "spe": 90
+      },
+      "biome": 0
+    },
+    {
+      "id": 26,
+      "slug": "raichu",
+      "name": "RAICHU",
+      "type": "electrico",
+      "accent": "#BCA1",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 60,
+        "atk": 90,
+        "def": 55,
+        "spe": 110
+      },
+      "biome": 0
+    },
+    {
+      "id": 27,
+      "slug": "sandshrew",
+      "name": "SANDSHREW",
+      "type": "tierra",
+      "accent": "#B447",
+      "evolvesTo": 28,
+      "evolveLevel": 22,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 50,
+        "atk": 75,
+        "def": 85,
+        "spe": 40
+      },
+      "biome": 4
+    },
+    {
+      "id": 28,
+      "slug": "sandslash",
+      "name": "SANDSLASH",
+      "type": "tierra",
+      "accent": "#B447",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 75,
+        "atk": 100,
+        "def": 110,
+        "spe": 65
+      },
+      "biome": 4
+    },
+    {
+      "id": 29,
+      "slug": "nidoranh",
+      "name": "NIDORAN H",
+      "type": "veneno",
+      "accent": "#8A73",
+      "evolvesTo": 30,
+      "evolveLevel": 16,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 55,
+        "atk": 47,
+        "def": 52,
+        "spe": 41
+      },
+      "biome": 0
+    },
+    {
+      "id": 30,
+      "slug": "nidorina",
+      "name": "NIDORINA",
+      "type": "veneno",
+      "accent": "#8A73",
+      "evolvesTo": 31,
+      "evolveLevel": 30,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 70,
+        "atk": 62,
+        "def": 67,
+        "spe": 56
+      },
+      "biome": 0
+    },
+    {
+      "id": 31,
+      "slug": "nidoqueen",
+      "name": "NIDOQUEEN",
+      "type": "veneno",
+      "accent": "#8A73",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 90,
+        "atk": 92,
+        "def": 87,
+        "spe": 76
+      },
+      "biome": 0
+    },
+    {
+      "id": 32,
+      "slug": "nidoranm",
+      "name": "NIDORAN M",
+      "type": "veneno",
+      "accent": "#8A73",
+      "evolvesTo": 33,
+      "evolveLevel": 16,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 46,
+        "atk": 57,
+        "def": 40,
+        "spe": 50
+      },
+      "biome": 0
+    },
+    {
+      "id": 33,
+      "slug": "nidorino",
+      "name": "NIDORINO",
+      "type": "veneno",
+      "accent": "#8A73",
+      "evolvesTo": 34,
+      "evolveLevel": 30,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 61,
+        "atk": 72,
+        "def": 57,
+        "spe": 65
+      },
+      "biome": 0
+    },
+    {
+      "id": 34,
+      "slug": "nidoking",
+      "name": "NIDOKING",
+      "type": "veneno",
+      "accent": "#8A73",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 81,
+        "atk": 102,
+        "def": 77,
+        "spe": 85
+      },
+      "biome": 0
+    },
+    {
+      "id": 35,
+      "slug": "clefairy",
+      "name": "CLEFAIRY",
+      "type": "normal",
+      "accent": "#8C4D",
+      "evolvesTo": 36,
+      "evolveLevel": 30,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 70,
+        "atk": 45,
+        "def": 48,
+        "spe": 35
+      },
+      "biome": 0
+    },
+    {
+      "id": 36,
+      "slug": "clefable",
+      "name": "CLEFABLE",
+      "type": "normal",
+      "accent": "#8C4D",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 95,
+        "atk": 70,
+        "def": 73,
+        "spe": 60
+      },
+      "biome": 0
+    },
+    {
+      "id": 37,
+      "slug": "vulpix",
+      "name": "VULPIX",
+      "type": "fuego",
+      "accent": "#EA87",
+      "evolvesTo": 38,
+      "evolveLevel": 30,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 38,
+        "atk": 41,
+        "def": 40,
+        "spe": 65
+      },
+      "biome": 3
+    },
+    {
+      "id": 38,
+      "slug": "ninetales",
+      "name": "NINETALES",
+      "type": "fuego",
+      "accent": "#EA87",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 73,
+        "atk": 76,
+        "def": 75,
+        "spe": 100
+      },
+      "biome": 3
+    },
+    {
+      "id": 39,
+      "slug": "jigglypuff",
+      "name": "JIGGLYPUFF",
+      "type": "normal",
+      "accent": "#8C4D",
+      "evolvesTo": 40,
+      "evolveLevel": 30,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 115,
+        "atk": 45,
+        "def": 20,
+        "spe": 20
+      },
+      "biome": 0
+    },
+    {
+      "id": 40,
+      "slug": "wigglytuff",
+      "name": "WIGGLYTUFF",
+      "type": "normal",
+      "accent": "#8C4D",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 140,
+        "atk": 70,
+        "def": 45,
+        "spe": 45
+      },
+      "biome": 0
+    },
+    {
+      "id": 41,
+      "slug": "zubat",
+      "name": "ZUBAT",
+      "type": "veneno",
+      "accent": "#8A73",
+      "evolvesTo": 42,
+      "evolveLevel": 22,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 40,
+        "atk": 45,
+        "def": 35,
+        "spe": 55
+      },
+      "biome": 0
+    },
+    {
+      "id": 42,
+      "slug": "golbat",
+      "name": "GOLBAT",
+      "type": "veneno",
+      "accent": "#8A73",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 75,
+        "atk": 80,
+        "def": 70,
+        "spe": 90
+      },
+      "biome": 0
+    },
+    {
+      "id": 43,
+      "slug": "oddish",
+      "name": "ODDISH",
+      "type": "planta",
+      "accent": "#3C49",
+      "evolvesTo": 44,
+      "evolveLevel": 21,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 45,
+        "atk": 50,
+        "def": 55,
+        "spe": 30
+      },
+      "biome": 2
+    },
+    {
+      "id": 44,
+      "slug": "gloom",
+      "name": "GLOOM",
+      "type": "planta",
+      "accent": "#3C49",
+      "evolvesTo": 45,
+      "evolveLevel": 36,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 60,
+        "atk": 65,
+        "def": 70,
+        "spe": 40
+      },
+      "biome": 2
+    },
+    {
+      "id": 45,
+      "slug": "vileplume",
+      "name": "VILEPLUME",
+      "type": "planta",
+      "accent": "#3C49",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 75,
+        "atk": 80,
+        "def": 85,
+        "spe": 50
+      },
+      "biome": 2
+    },
+    {
+      "id": 46,
+      "slug": "paras",
+      "name": "PARAS",
+      "type": "bicho",
+      "accent": "#7CC4",
+      "evolvesTo": 47,
+      "evolveLevel": 24,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 35,
+        "atk": 70,
+        "def": 55,
+        "spe": 25
+      },
+      "biome": 2
+    },
+    {
+      "id": 47,
+      "slug": "parasect",
+      "name": "PARASECT",
+      "type": "bicho",
+      "accent": "#7CC4",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 60,
+        "atk": 95,
+        "def": 80,
+        "spe": 30
+      },
+      "biome": 2
+    },
+    {
+      "id": 48,
+      "slug": "venonat",
+      "name": "VENONAT",
+      "type": "bicho",
+      "accent": "#7CC4",
+      "evolvesTo": 49,
+      "evolveLevel": 31,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 60,
+        "atk": 55,
+        "def": 50,
+        "spe": 45
+      },
+      "biome": 2
+    },
+    {
+      "id": 49,
+      "slug": "venomoth",
+      "name": "VENOMOTH",
+      "type": "bicho",
+      "accent": "#7CC4",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 70,
+        "atk": 65,
+        "def": 60,
+        "spe": 90
+      },
+      "biome": 2
+    },
+    {
+      "id": 50,
+      "slug": "diglett",
+      "name": "DIGLETT",
+      "type": "tierra",
+      "accent": "#B447",
+      "evolvesTo": 51,
+      "evolveLevel": 26,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 10,
+        "atk": 55,
+        "def": 25,
+        "spe": 95
+      },
+      "biome": 4
+    },
+    {
+      "id": 51,
+      "slug": "dugtrio",
+      "name": "DUGTRIO",
+      "type": "tierra",
+      "accent": "#B447",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 35,
+        "atk": 100,
+        "def": 50,
+        "spe": 120
+      },
+      "biome": 4
+    },
+    {
+      "id": 52,
+      "slug": "meowth",
+      "name": "MEOWTH",
+      "type": "normal",
+      "accent": "#8C4D",
+      "evolvesTo": 53,
+      "evolveLevel": 28,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 40,
+        "atk": 45,
+        "def": 35,
+        "spe": 90
+      },
+      "biome": 0
+    },
+    {
+      "id": 53,
+      "slug": "persian",
+      "name": "PERSIAN",
+      "type": "normal",
+      "accent": "#8C4D",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 65,
+        "atk": 70,
+        "def": 60,
+        "spe": 115
+      },
+      "biome": 0
+    },
+    {
+      "id": 54,
+      "slug": "psyduck",
+      "name": "PSYDUCK",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 55,
+      "evolveLevel": 33,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 50,
+        "atk": 52,
+        "def": 48,
+        "spe": 55
+      },
+      "biome": 1
+    },
+    {
+      "id": 55,
+      "slug": "golduck",
+      "name": "GOLDUCK",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 80,
+        "atk": 82,
+        "def": 78,
+        "spe": 85
+      },
+      "biome": 1
+    },
+    {
+      "id": 56,
+      "slug": "mankey",
+      "name": "MANKEY",
+      "type": "lucha",
+      "accent": "#A2A5",
+      "evolvesTo": 57,
+      "evolveLevel": 28,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 40,
+        "atk": 80,
+        "def": 35,
+        "spe": 70
+      },
+      "biome": 0
+    },
+    {
+      "id": 57,
+      "slug": "primeape",
+      "name": "PRIMEAPE",
+      "type": "lucha",
+      "accent": "#A2A5",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 65,
+        "atk": 105,
+        "def": 60,
+        "spe": 95
+      },
+      "biome": 0
+    },
+    {
+      "id": 58,
+      "slug": "growlithe",
+      "name": "GROWLITHE",
+      "type": "fuego",
+      "accent": "#EA87",
+      "evolvesTo": 59,
+      "evolveLevel": 30,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 55,
+        "atk": 70,
+        "def": 45,
+        "spe": 60
+      },
+      "biome": 3
+    },
+    {
+      "id": 59,
+      "slug": "arcanine",
+      "name": "ARCANINE",
+      "type": "fuego",
+      "accent": "#EA87",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 90,
+        "atk": 110,
+        "def": 80,
+        "spe": 95
+      },
+      "biome": 3
+    },
+    {
+      "id": 60,
+      "slug": "poliwag",
+      "name": "POLIWAG",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 61,
+      "evolveLevel": 25,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 40,
+        "atk": 50,
+        "def": 40,
+        "spe": 90
+      },
+      "biome": 1
+    },
+    {
+      "id": 61,
+      "slug": "poliwhirl",
+      "name": "POLIWHIRL",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 62,
+      "evolveLevel": 36,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 65,
+        "atk": 65,
+        "def": 65,
+        "spe": 90
+      },
+      "biome": 1
+    },
+    {
+      "id": 62,
+      "slug": "poliwrath",
+      "name": "POLIWRATH",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 90,
+        "atk": 95,
+        "def": 95,
+        "spe": 70
+      },
+      "biome": 1
+    },
+    {
+      "id": 63,
+      "slug": "abra",
+      "name": "ABRA",
+      "type": "psiquico",
+      "accent": "#D28F",
+      "evolvesTo": 64,
+      "evolveLevel": 16,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 25,
+        "atk": 20,
+        "def": 15,
+        "spe": 90
+      },
+      "biome": 0
+    },
+    {
+      "id": 64,
+      "slug": "kadabra",
+      "name": "KADABRA",
+      "type": "psiquico",
+      "accent": "#D28F",
+      "evolvesTo": 65,
+      "evolveLevel": 40,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 40,
+        "atk": 35,
+        "def": 30,
+        "spe": 105
+      },
+      "biome": 0
+    },
+    {
+      "id": 65,
+      "slug": "alakazam",
+      "name": "ALAKAZAM",
+      "type": "psiquico",
+      "accent": "#D28F",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 55,
+        "atk": 50,
+        "def": 45,
+        "spe": 120
+      },
+      "biome": 0
+    },
+    {
+      "id": 66,
+      "slug": "machop",
+      "name": "MACHOP",
+      "type": "lucha",
+      "accent": "#A2A5",
+      "evolvesTo": 67,
+      "evolveLevel": 28,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 70,
+        "atk": 80,
+        "def": 50,
+        "spe": 35
+      },
+      "biome": 0
+    },
+    {
+      "id": 67,
+      "slug": "machoke",
+      "name": "MACHOKE",
+      "type": "lucha",
+      "accent": "#A2A5",
+      "evolvesTo": 68,
+      "evolveLevel": 40,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 80,
+        "atk": 100,
+        "def": 70,
+        "spe": 45
+      },
+      "biome": 0
+    },
+    {
+      "id": 68,
+      "slug": "machamp",
+      "name": "MACHAMP",
+      "type": "lucha",
+      "accent": "#A2A5",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 90,
+        "atk": 130,
+        "def": 80,
+        "spe": 55
+      },
+      "biome": 0
+    },
+    {
+      "id": 69,
+      "slug": "bellsprout",
+      "name": "BELLSPROUT",
+      "type": "planta",
+      "accent": "#3C49",
+      "evolvesTo": 70,
+      "evolveLevel": 21,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 50,
+        "atk": 75,
+        "def": 35,
+        "spe": 40
+      },
+      "biome": 2
+    },
+    {
+      "id": 70,
+      "slug": "weepinbell",
+      "name": "WEEPINBELL",
+      "type": "planta",
+      "accent": "#3C49",
+      "evolvesTo": 71,
+      "evolveLevel": 36,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 65,
+        "atk": 90,
+        "def": 50,
+        "spe": 55
+      },
+      "biome": 2
+    },
+    {
+      "id": 71,
+      "slug": "victreebel",
+      "name": "VICTREEBEL",
+      "type": "planta",
+      "accent": "#3C49",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 80,
+        "atk": 105,
+        "def": 65,
+        "spe": 70
+      },
+      "biome": 2
+    },
+    {
+      "id": 72,
+      "slug": "tentacool",
+      "name": "TENTACOOL",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 73,
+      "evolveLevel": 30,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 40,
+        "atk": 40,
+        "def": 35,
+        "spe": 70
+      },
+      "biome": 1
+    },
+    {
+      "id": 73,
+      "slug": "tentacruel",
+      "name": "TENTACRUEL",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 80,
+        "atk": 70,
+        "def": 65,
+        "spe": 100
+      },
+      "biome": 1
+    },
+    {
+      "id": 74,
+      "slug": "geodude",
+      "name": "GEODUDE",
+      "type": "roca",
+      "accent": "#9407",
+      "evolvesTo": 75,
+      "evolveLevel": 25,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 40,
+        "atk": 80,
+        "def": 100,
+        "spe": 20
+      },
+      "biome": 4
+    },
+    {
+      "id": 75,
+      "slug": "graveler",
+      "name": "GRAVELER",
+      "type": "roca",
+      "accent": "#9407",
+      "evolvesTo": 76,
+      "evolveLevel": 40,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 55,
+        "atk": 95,
+        "def": 115,
+        "spe": 35
+      },
+      "biome": 4
+    },
+    {
+      "id": 76,
+      "slug": "golem",
+      "name": "GOLEM",
+      "type": "roca",
+      "accent": "#9407",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 80,
+        "atk": 120,
+        "def": 130,
+        "spe": 45
+      },
+      "biome": 4
+    },
+    {
+      "id": 77,
+      "slug": "ponyta",
+      "name": "PONYTA",
+      "type": "fuego",
+      "accent": "#EA87",
+      "evolvesTo": 78,
+      "evolveLevel": 40,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 50,
+        "atk": 85,
+        "def": 55,
+        "spe": 90
+      },
+      "biome": 3
+    },
+    {
+      "id": 78,
+      "slug": "rapidash",
+      "name": "RAPIDASH",
+      "type": "fuego",
+      "accent": "#EA87",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 65,
+        "atk": 100,
+        "def": 70,
+        "spe": 105
+      },
+      "biome": 3
+    },
+    {
+      "id": 79,
+      "slug": "slowpoke",
+      "name": "SLOWPOKE",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 80,
+      "evolveLevel": 37,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 90,
+        "atk": 65,
+        "def": 65,
+        "spe": 15
+      },
+      "biome": 1
+    },
+    {
+      "id": 80,
+      "slug": "slowbro",
+      "name": "SLOWBRO",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 95,
+        "atk": 75,
+        "def": 110,
+        "spe": 30
+      },
+      "biome": 1
+    },
+    {
+      "id": 81,
+      "slug": "magnemite",
+      "name": "MAGNEMITE",
+      "type": "electrico",
+      "accent": "#BCA1",
+      "evolvesTo": 82,
+      "evolveLevel": 30,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 25,
+        "atk": 35,
+        "def": 70,
+        "spe": 45
+      },
+      "biome": 0
+    },
+    {
+      "id": 82,
+      "slug": "magneton",
+      "name": "MAGNETON",
+      "type": "electrico",
+      "accent": "#BCA1",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 50,
+        "atk": 60,
+        "def": 95,
+        "spe": 70
+      },
+      "biome": 0
+    },
+    {
+      "id": 83,
+      "slug": "farfetchd",
+      "name": "FARFETCHD",
+      "type": "normal",
+      "accent": "#8C4D",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 52,
+        "atk": 90,
+        "def": 55,
+        "spe": 60
+      },
+      "biome": 0
+    },
+    {
+      "id": 84,
+      "slug": "doduo",
+      "name": "DODUO",
+      "type": "normal",
+      "accent": "#8C4D",
+      "evolvesTo": 85,
+      "evolveLevel": 31,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 35,
+        "atk": 85,
+        "def": 45,
+        "spe": 75
+      },
+      "biome": 0
+    },
+    {
+      "id": 85,
+      "slug": "dodrio",
+      "name": "DODRIO",
+      "type": "normal",
+      "accent": "#8C4D",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 60,
+        "atk": 110,
+        "def": 70,
+        "spe": 110
+      },
+      "biome": 0
+    },
+    {
+      "id": 86,
+      "slug": "seel",
+      "name": "SEEL",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 87,
+      "evolveLevel": 34,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 65,
+        "atk": 45,
+        "def": 55,
+        "spe": 45
+      },
+      "biome": 1
+    },
+    {
+      "id": 87,
+      "slug": "dewgong",
+      "name": "DEWGONG",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 90,
+        "atk": 70,
+        "def": 80,
+        "spe": 70
+      },
+      "biome": 1
+    },
+    {
+      "id": 88,
+      "slug": "grimer",
+      "name": "GRIMER",
+      "type": "veneno",
+      "accent": "#8A73",
+      "evolvesTo": 89,
+      "evolveLevel": 38,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 80,
+        "atk": 80,
+        "def": 50,
+        "spe": 25
+      },
+      "biome": 0
+    },
+    {
+      "id": 89,
+      "slug": "muk",
+      "name": "MUK",
+      "type": "veneno",
+      "accent": "#8A73",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 105,
+        "atk": 105,
+        "def": 75,
+        "spe": 50
+      },
+      "biome": 0
+    },
+    {
+      "id": 90,
+      "slug": "shellder",
+      "name": "SHELLDER",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 91,
+      "evolveLevel": 30,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 30,
+        "atk": 65,
+        "def": 100,
+        "spe": 40
+      },
+      "biome": 1
+    },
+    {
+      "id": 91,
+      "slug": "cloyster",
+      "name": "CLOYSTER",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 50,
+        "atk": 95,
+        "def": 180,
+        "spe": 70
+      },
+      "biome": 1
+    },
+    {
+      "id": 92,
+      "slug": "gastly",
+      "name": "GASTLY",
+      "type": "fantasma",
+      "accent": "#6AD3",
+      "evolvesTo": 93,
+      "evolveLevel": 25,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 30,
+        "atk": 35,
+        "def": 30,
+        "spe": 80
+      },
+      "biome": 0
+    },
+    {
+      "id": 93,
+      "slug": "haunter",
+      "name": "HAUNTER",
+      "type": "fantasma",
+      "accent": "#6AD3",
+      "evolvesTo": 94,
+      "evolveLevel": 40,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 45,
+        "atk": 50,
+        "def": 45,
+        "spe": 95
+      },
+      "biome": 0
+    },
+    {
+      "id": 94,
+      "slug": "gengar",
+      "name": "GENGAR",
+      "type": "fantasma",
+      "accent": "#6AD3",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 60,
+        "atk": 65,
+        "def": 60,
+        "spe": 110
+      },
+      "biome": 0
+    },
+    {
+      "id": 95,
+      "slug": "onix",
+      "name": "ONIX",
+      "type": "roca",
+      "accent": "#9407",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 35,
+        "atk": 45,
+        "def": 160,
+        "spe": 70
+      },
+      "biome": 4
+    },
+    {
+      "id": 96,
+      "slug": "drowzee",
+      "name": "DROWZEE",
+      "type": "psiquico",
+      "accent": "#D28F",
+      "evolvesTo": 97,
+      "evolveLevel": 26,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 60,
+        "atk": 48,
+        "def": 45,
+        "spe": 42
+      },
+      "biome": 0
+    },
+    {
+      "id": 97,
+      "slug": "hypno",
+      "name": "HYPNO",
+      "type": "psiquico",
+      "accent": "#D28F",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 85,
+        "atk": 73,
+        "def": 70,
+        "spe": 67
+      },
+      "biome": 0
+    },
+    {
+      "id": 98,
+      "slug": "krabby",
+      "name": "KRABBY",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 99,
+      "evolveLevel": 28,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 30,
+        "atk": 105,
+        "def": 90,
+        "spe": 50
+      },
+      "biome": 1
+    },
+    {
+      "id": 99,
+      "slug": "kingler",
+      "name": "KINGLER",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 55,
+        "atk": 130,
+        "def": 115,
+        "spe": 75
+      },
+      "biome": 1
+    },
+    {
+      "id": 100,
+      "slug": "voltorb",
+      "name": "VOLTORB",
+      "type": "electrico",
+      "accent": "#BCA1",
+      "evolvesTo": 101,
+      "evolveLevel": 30,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 40,
+        "atk": 30,
+        "def": 50,
+        "spe": 100
+      },
+      "biome": 0
+    },
+    {
+      "id": 101,
+      "slug": "electrode",
+      "name": "ELECTRODE",
+      "type": "electrico",
+      "accent": "#BCA1",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 60,
+        "atk": 50,
+        "def": 70,
+        "spe": 150
+      },
+      "biome": 0
+    },
+    {
+      "id": 102,
+      "slug": "exeggcute",
+      "name": "EXEGGCUTE",
+      "type": "planta",
+      "accent": "#3C49",
+      "evolvesTo": 103,
+      "evolveLevel": 30,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 60,
+        "atk": 40,
+        "def": 80,
+        "spe": 40
+      },
+      "biome": 2
+    },
+    {
+      "id": 103,
+      "slug": "exeggutor",
+      "name": "EXEGGUTOR",
+      "type": "planta",
+      "accent": "#3C49",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 95,
+        "atk": 95,
+        "def": 85,
+        "spe": 55
+      },
+      "biome": 2
+    },
+    {
+      "id": 104,
+      "slug": "cubone",
+      "name": "CUBONE",
+      "type": "tierra",
+      "accent": "#B447",
+      "evolvesTo": 105,
+      "evolveLevel": 28,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 50,
+        "atk": 50,
+        "def": 95,
+        "spe": 35
+      },
+      "biome": 4
+    },
+    {
+      "id": 105,
+      "slug": "marowak",
+      "name": "MAROWAK",
+      "type": "tierra",
+      "accent": "#B447",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 60,
+        "atk": 80,
+        "def": 110,
+        "spe": 45
+      },
+      "biome": 4
+    },
+    {
+      "id": 106,
+      "slug": "hitmonlee",
+      "name": "HITMONLEE",
+      "type": "lucha",
+      "accent": "#A2A5",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 50,
+        "atk": 120,
+        "def": 53,
+        "spe": 87
+      },
+      "biome": 0
+    },
+    {
+      "id": 107,
+      "slug": "hitmonchan",
+      "name": "HITMONCHAN",
+      "type": "lucha",
+      "accent": "#A2A5",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 50,
+        "atk": 105,
+        "def": 79,
+        "spe": 76
+      },
+      "biome": 0
+    },
+    {
+      "id": 108,
+      "slug": "lickitung",
+      "name": "LICKITUNG",
+      "type": "normal",
+      "accent": "#8C4D",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 90,
+        "atk": 55,
+        "def": 75,
+        "spe": 30
+      },
+      "biome": 0
+    },
+    {
+      "id": 109,
+      "slug": "koffing",
+      "name": "KOFFING",
+      "type": "veneno",
+      "accent": "#8A73",
+      "evolvesTo": 110,
+      "evolveLevel": 35,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 40,
+        "atk": 65,
+        "def": 95,
+        "spe": 35
+      },
+      "biome": 0
+    },
+    {
+      "id": 110,
+      "slug": "weezing",
+      "name": "WEEZING",
+      "type": "veneno",
+      "accent": "#8A73",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 65,
+        "atk": 90,
+        "def": 120,
+        "spe": 60
+      },
+      "biome": 0
+    },
+    {
+      "id": 111,
+      "slug": "rhyhorn",
+      "name": "RHYHORN",
+      "type": "tierra",
+      "accent": "#B447",
+      "evolvesTo": 112,
+      "evolveLevel": 42,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 80,
+        "atk": 85,
+        "def": 95,
+        "spe": 25
+      },
+      "biome": 4
+    },
+    {
+      "id": 112,
+      "slug": "rhydon",
+      "name": "RHYDON",
+      "type": "tierra",
+      "accent": "#B447",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 105,
+        "atk": 130,
+        "def": 120,
+        "spe": 40
+      },
+      "biome": 4
+    },
+    {
+      "id": 113,
+      "slug": "chansey",
+      "name": "CHANSEY",
+      "type": "normal",
+      "accent": "#8C4D",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 250,
+        "atk": 5,
+        "def": 5,
+        "spe": 50
+      },
+      "biome": 0
+    },
+    {
+      "id": 114,
+      "slug": "tangela",
+      "name": "TANGELA",
+      "type": "planta",
+      "accent": "#3C49",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 65,
+        "atk": 55,
+        "def": 115,
+        "spe": 60
+      },
+      "biome": 2
+    },
+    {
+      "id": 115,
+      "slug": "kangaskhan",
+      "name": "KANGASKHAN",
+      "type": "normal",
+      "accent": "#8C4D",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 105,
+        "atk": 95,
+        "def": 80,
+        "spe": 90
+      },
+      "biome": 0
+    },
+    {
+      "id": 116,
+      "slug": "horsea",
+      "name": "HORSEA",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 117,
+      "evolveLevel": 32,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 30,
+        "atk": 40,
+        "def": 70,
+        "spe": 60
+      },
+      "biome": 1
+    },
+    {
+      "id": 117,
+      "slug": "seadra",
+      "name": "SEADRA",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 55,
+        "atk": 65,
+        "def": 95,
+        "spe": 85
+      },
+      "biome": 1
+    },
+    {
+      "id": 118,
+      "slug": "goldeen",
+      "name": "GOLDEEN",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 119,
+      "evolveLevel": 33,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 45,
+        "atk": 67,
+        "def": 60,
+        "spe": 63
+      },
+      "biome": 1
+    },
+    {
+      "id": 119,
+      "slug": "seaking",
+      "name": "SEAKING",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 80,
+        "atk": 92,
+        "def": 65,
+        "spe": 68
+      },
+      "biome": 1
+    },
+    {
+      "id": 120,
+      "slug": "staryu",
+      "name": "STARYU",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 121,
+      "evolveLevel": 30,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 30,
+        "atk": 45,
+        "def": 55,
+        "spe": 85
+      },
+      "biome": 1
+    },
+    {
+      "id": 121,
+      "slug": "starmie",
+      "name": "STARMIE",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 60,
+        "atk": 75,
+        "def": 85,
+        "spe": 115
+      },
+      "biome": 1
+    },
+    {
+      "id": 122,
+      "slug": "mr.mime",
+      "name": "MR. MIME",
+      "type": "psiquico",
+      "accent": "#D28F",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 40,
+        "atk": 45,
+        "def": 65,
+        "spe": 90
+      },
+      "biome": 0
+    },
+    {
+      "id": 123,
+      "slug": "scyther",
+      "name": "SCYTHER",
+      "type": "bicho",
+      "accent": "#7CC4",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 70,
+        "atk": 110,
+        "def": 80,
+        "spe": 105
+      },
+      "biome": 2
+    },
+    {
+      "id": 124,
+      "slug": "jynx",
+      "name": "JYNX",
+      "type": "hielo",
+      "accent": "#4DB8",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 65,
+        "atk": 50,
+        "def": 35,
+        "spe": 95
+      },
+      "biome": 5
+    },
+    {
+      "id": 125,
+      "slug": "electabuzz",
+      "name": "ELECTABUZZ",
+      "type": "electrico",
+      "accent": "#BCA1",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 65,
+        "atk": 83,
+        "def": 57,
+        "spe": 105
+      },
+      "biome": 0
+    },
+    {
+      "id": 126,
+      "slug": "magmar",
+      "name": "MAGMAR",
+      "type": "fuego",
+      "accent": "#EA87",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 65,
+        "atk": 95,
+        "def": 57,
+        "spe": 93
+      },
+      "biome": 3
+    },
+    {
+      "id": 127,
+      "slug": "pinsir",
+      "name": "PINSIR",
+      "type": "bicho",
+      "accent": "#7CC4",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 65,
+        "atk": 125,
+        "def": 100,
+        "spe": 85
+      },
+      "biome": 2
+    },
+    {
+      "id": 128,
+      "slug": "tauros",
+      "name": "TAUROS",
+      "type": "normal",
+      "accent": "#8C4D",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 75,
+        "atk": 100,
+        "def": 95,
+        "spe": 110
+      },
+      "biome": 0
+    },
+    {
+      "id": 129,
+      "slug": "magikarp",
+      "name": "MAGIKARP",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 130,
+      "evolveLevel": 20,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 20,
+        "atk": 10,
+        "def": 55,
+        "spe": 80
+      },
+      "biome": 1
+    },
+    {
+      "id": 130,
+      "slug": "gyarados",
+      "name": "GYARADOS",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 95,
+        "atk": 125,
+        "def": 79,
+        "spe": 81
+      },
+      "biome": 1
+    },
+    {
+      "id": 131,
+      "slug": "lapras",
+      "name": "LAPRAS",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 130,
+        "atk": 85,
+        "def": 80,
+        "spe": 60
+      },
+      "biome": 1
+    },
+    {
+      "id": 132,
+      "slug": "ditto",
+      "name": "DITTO",
+      "type": "normal",
+      "accent": "#8C4D",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 48,
+        "atk": 48,
+        "def": 48,
+        "spe": 48
+      },
+      "biome": 0
+    },
+    {
+      "id": 133,
+      "slug": "eevee",
+      "name": "EEVEE",
+      "type": "normal",
+      "accent": "#8C4D",
+      "evolvesTo": 134,
+      "evolveLevel": 30,
+      "rarity": "COMMON",
+      "baseStats": {
+        "hp": 55,
+        "atk": 55,
+        "def": 50,
+        "spe": 55
+      },
+      "biome": 0
+    },
+    {
+      "id": 134,
+      "slug": "vaporeon",
+      "name": "VAPOREON",
+      "type": "agua",
+      "accent": "#4C98",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 130,
+        "atk": 65,
+        "def": 60,
+        "spe": 65
+      },
+      "biome": 1
+    },
+    {
+      "id": 135,
+      "slug": "jolteon",
+      "name": "JOLTEON",
+      "type": "electrico",
+      "accent": "#BCA1",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 65,
+        "atk": 65,
+        "def": 60,
+        "spe": 130
+      },
+      "biome": 0
+    },
+    {
+      "id": 136,
+      "slug": "flareon",
+      "name": "FLAREON",
+      "type": "fuego",
+      "accent": "#EA87",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 65,
+        "atk": 130,
+        "def": 60,
+        "spe": 65
+      },
+      "biome": 3
+    },
+    {
+      "id": 137,
+      "slug": "porygon",
+      "name": "PORYGON",
+      "type": "normal",
+      "accent": "#8C4D",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 70,
+        "spe": 40
+      },
+      "biome": 0
+    },
+    {
+      "id": 138,
+      "slug": "omanyte",
+      "name": "OMANYTE",
+      "type": "roca",
+      "accent": "#9407",
+      "evolvesTo": 139,
+      "evolveLevel": 40,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 35,
+        "atk": 40,
+        "def": 100,
+        "spe": 35
+      },
+      "biome": 1
+    },
+    {
+      "id": 139,
+      "slug": "omastar",
+      "name": "OMASTAR",
+      "type": "roca",
+      "accent": "#9407",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 70,
+        "atk": 60,
+        "def": 125,
+        "spe": 55
+      },
+      "biome": 1
+    },
+    {
+      "id": 140,
+      "slug": "kabuto",
+      "name": "KABUTO",
+      "type": "roca",
+      "accent": "#9407",
+      "evolvesTo": 141,
+      "evolveLevel": 40,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 30,
+        "atk": 80,
+        "def": 90,
+        "spe": 55
+      },
+      "biome": 1
+    },
+    {
+      "id": 141,
+      "slug": "kabutops",
+      "name": "KABUTOPS",
+      "type": "roca",
+      "accent": "#9407",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 60,
+        "atk": 115,
+        "def": 105,
+        "spe": 80
+      },
+      "biome": 1
+    },
+    {
+      "id": 142,
+      "slug": "aerodactyl",
+      "name": "AERODACTYL",
+      "type": "roca",
+      "accent": "#9407",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 80,
+        "atk": 105,
+        "def": 65,
+        "spe": 130
+      },
+      "biome": 4
+    },
+    {
+      "id": 143,
+      "slug": "snorlax",
+      "name": "SNORLAX",
+      "type": "normal",
+      "accent": "#8C4D",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 160,
+        "atk": 110,
+        "def": 65,
+        "spe": 30
+      },
+      "biome": 0
+    },
+    {
+      "id": 144,
+      "slug": "articuno",
+      "name": "ARTICUNO",
+      "type": "hielo",
+      "accent": "#4DB8",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "LEGENDARY",
+      "baseStats": {
+        "hp": 90,
+        "atk": 85,
+        "def": 100,
+        "spe": 85
+      },
+      "biome": 5
+    },
+    {
+      "id": 145,
+      "slug": "zapdos",
+      "name": "ZAPDOS",
+      "type": "electrico",
+      "accent": "#BCA1",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "LEGENDARY",
+      "baseStats": {
+        "hp": 90,
+        "atk": 90,
+        "def": 85,
+        "spe": 100
+      },
+      "biome": 0
+    },
+    {
+      "id": 146,
+      "slug": "moltres",
+      "name": "MOLTRES",
+      "type": "fuego",
+      "accent": "#EA87",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "LEGENDARY",
+      "baseStats": {
+        "hp": 90,
+        "atk": 100,
+        "def": 90,
+        "spe": 90
+      },
+      "biome": 3
+    },
+    {
+      "id": 147,
+      "slug": "dratini",
+      "name": "DRATINI",
+      "type": "dragon",
+      "accent": "#5A98",
+      "evolvesTo": 148,
+      "evolveLevel": 30,
+      "rarity": "RARE",
+      "baseStats": {
+        "hp": 41,
+        "atk": 64,
+        "def": 45,
+        "spe": 50
+      },
+      "biome": 1
+    },
+    {
+      "id": 148,
+      "slug": "dragonair",
+      "name": "DRAGONAIR",
+      "type": "dragon",
+      "accent": "#5A98",
+      "evolvesTo": 149,
+      "evolveLevel": 55,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 61,
+        "atk": 84,
+        "def": 65,
+        "spe": 70
+      },
+      "biome": 1
+    },
+    {
+      "id": 149,
+      "slug": "dragonite",
+      "name": "DRAGONITE",
+      "type": "dragon",
+      "accent": "#5A98",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "EVO",
+      "baseStats": {
+        "hp": 91,
+        "atk": 134,
+        "def": 95,
+        "spe": 80
+      },
+      "biome": 1
+    },
+    {
+      "id": 150,
+      "slug": "mewtwo",
+      "name": "MEWTWO",
+      "type": "psiquico",
+      "accent": "#D28F",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "LEGENDARY",
+      "baseStats": {
+        "hp": 106,
+        "atk": 110,
+        "def": 90,
+        "spe": 130
+      },
+      "biome": 0
+    },
+    {
+      "id": 151,
+      "slug": "mew",
+      "name": "MEW",
+      "type": "psiquico",
+      "accent": "#D28F",
+      "evolvesTo": 0,
+      "evolveLevel": 0,
+      "rarity": "LEGENDARY",
+      "baseStats": {
+        "hp": 100,
+        "atk": 100,
+        "def": 100,
+        "spe": 100
+      },
+      "biome": 0
+    }
+  ]
+}

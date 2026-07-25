@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TamaPoke</string>
+    <string name="widget_feed">Feed</string>
+    <string name="widget_pet">Pet</string>
+    <string name="action_feed">Feed</string>
+    <string name="action_play">Play</string>
+    <string name="action_bath">Bath</string>
+    <string name="action_sleep">Sleep</string>
+    <string name="action_wake">Wake</string>
+</resources>
