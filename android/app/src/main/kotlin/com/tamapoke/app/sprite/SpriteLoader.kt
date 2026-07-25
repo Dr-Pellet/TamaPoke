@@ -22,20 +22,29 @@ data class SpriteFrameSet(
 }
 
 /**
- * Loads sprites from assets/sprites/<speciesId>/<action>.{png,json}. Only a
- * starter-species subset is bundled so far (see android/README.md) - callers
- * should treat a null result as "fall back to a placeholder" rather than a bug.
+ * Loads sprites from assets/sprites/<speciesId>/<action>.{png,json} (normal)
+ * or assets/sprites/<speciesId>/shiny/<action>.{png,json} (shiny). All 151
+ * species are bundled for Idle/Walk-L/Walk-R/Sleep/Eat/Hurt/Attack/Pose,
+ * both variants, where the source sheet has that animation at all - a null
+ * result just means "fall back to a placeholder / the non-shiny variant",
+ * not a bug (see android/README.md).
  */
 object SpriteLoader {
     private val cache = mutableMapOf<String, SpriteFrameSet?>()
 
-    fun load(context: Context, speciesId: Int, action: String): SpriteFrameSet? {
-        val key = "$speciesId/$action"
-        if (cache.containsKey(key)) return cache[key]
+    fun load(context: Context, speciesId: Int, action: String, shiny: Boolean = false): SpriteFrameSet? {
+        if (shiny) {
+            loadInternal(context, "sprites/$speciesId/shiny/$action")?.let { return it }
+        }
+        return loadInternal(context, "sprites/$speciesId/$action")
+    }
+
+    private fun loadInternal(context: Context, basePath: String): SpriteFrameSet? {
+        if (cache.containsKey(basePath)) return cache[basePath]
         val result = runCatching {
-            val jsonText = context.assets.open("sprites/$speciesId/$action.json").bufferedReader().use { it.readText() }
+            val jsonText = context.assets.open("$basePath.json").bufferedReader().use { it.readText() }
             val json = JSONObject(jsonText)
-            val bitmap = context.assets.open("sprites/$speciesId/$action.png").use {
+            val bitmap = context.assets.open("$basePath.png").use {
                 BitmapFactory.decodeStream(it)
             }.asImageBitmap()
             val durationsJson = json.getJSONArray("frameDurationsMs")
@@ -48,7 +57,7 @@ object SpriteLoader {
                 frameDurationsMs = durations,
             )
         }.getOrNull()
-        cache[key] = result
+        cache[basePath] = result
         return result
     }
 }

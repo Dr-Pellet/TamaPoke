@@ -103,6 +103,7 @@ private fun PetView(state: PetState, dex: DexTable, vm: MainViewModel, onPlayCli
                 speciesId = state.speciesId,
                 action = spriteAction,
                 modifier = Modifier.size(96.dp),
+                shiny = state.shiny,
                 placeholder = { Text(entry.name.take(1), style = MaterialTheme.typography.displayLarge) },
             )
         }

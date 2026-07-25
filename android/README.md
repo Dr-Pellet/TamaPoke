@@ -58,18 +58,20 @@ just trust CI, which checks out to a clean path.
   `playResult()`/`trainStrength()` — simplified tap-based mechanics rather
   than a pixel-perfect port of the original's real physics (gravity, circular
   wall bounce, tap impulse - see `TamaPoke.ino`'s `stepGame()`).
-  **Real animated PMD sprites** are wired up for all 151 species: `tools/
-  pack_pmd_android.py` fetches the same `PMDCollab/SpriteCollab` sheets the
-  firmware's `tools/pack_pmd.py` uses, but (unlike the firmware) keeps the
-  original PNG as-is and stores frame-rect/timing metadata in a sidecar
-  `.json` instead of re-encoding into the TPK2 binary format - Android crops
-  frames at render time (`AnimatedSprite.kt`, `Canvas.drawImage` with
-  `srcOffset`/`srcSize`). Bundled: all 151 species × Idle/Walk-L/Walk-R/
-  Sleep/Eat (where the source sheet has that animation - not all species
-  have all five), ~7MB total. `hurt`/`attack`/`pose` are supported by the
-  script's `ACTIONS` table but not fetched yet; rerun
-  `python3 tools/pack_pmd_android.py all` to add them. Shiny variants are
-  also not bundled yet.
+  **Real animated PMD sprites** are wired up for all 151 species, normal
+  *and* shiny: `tools/pack_pmd_android.py` fetches the same
+  `PMDCollab/SpriteCollab` sheets the firmware's `tools/pack_pmd.py` uses
+  (shiny at `sprite/<dex>/0000/0001/...`, same layout as normal), but
+  (unlike the firmware) keeps the original PNG as-is and stores
+  frame-rect/timing metadata in a sidecar `.json` instead of re-encoding
+  into the TPK2 binary format - Android crops frames at render time
+  (`AnimatedSprite.kt`, `Canvas.drawImage` with `srcOffset`/`srcSize`).
+  Bundled: all 151 species × Idle/Walk-L/Walk-R/Sleep/Eat/Hurt/Attack/Pose
+  (where the source sheet has that animation - not every species has all
+  eight), both variants, ~26MB total (`assets/sprites/<dex>/<action>.png`
+  for normal, `assets/sprites/<dex>/shiny/<action>.png` for shiny).
+  `SpriteLoader.load(..., shiny = true)` falls back to the normal variant
+  if a species has no shiny sheet at all.
 - **Phase 4**: `ChiptuneSynth`/`SfxPlayer` port audio.cpp's square-wave SFX
   tables to `AudioTrack` 1:1, wired to feed/pet/evolve/hatch/level-up/medal/
   ceremony events. `tools/gen_android_strings.py` (mirrored by the Node

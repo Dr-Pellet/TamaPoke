@@ -59,7 +59,7 @@ fun PokedexScreen(state: PetState?, dex: DexTable) {
                     contentAlignment = Alignment.Center,
                 ) {
                     if (registered) {
-                        StaticSpriteThumb(id, modifier = Modifier.size(36.dp))
+                        StaticSpriteThumb(id, shiny = shiny, modifier = Modifier.size(36.dp))
                     }
                     Text(
                         text = if (registered) "#$id${if (shiny) " ✨" else ""}\n${entry.name}" else "#$id\n???",
@@ -75,9 +75,9 @@ fun PokedexScreen(state: PetState?, dex: DexTable) {
 
 /** Single static idle frame (no animation timer) - cheap enough for a 151-cell grid. */
 @Composable
-private fun StaticSpriteThumb(speciesId: Int, modifier: Modifier = Modifier) {
+private fun StaticSpriteThumb(speciesId: Int, shiny: Boolean, modifier: Modifier = Modifier) {
     val context = LocalContext.current
-    val frames = remember(speciesId) { SpriteLoader.load(context, speciesId, "idle") } ?: return
+    val frames = remember(speciesId, shiny) { SpriteLoader.load(context, speciesId, "idle", shiny) } ?: return
     Canvas(modifier) {
         drawImage(
             image = frames.bitmap,

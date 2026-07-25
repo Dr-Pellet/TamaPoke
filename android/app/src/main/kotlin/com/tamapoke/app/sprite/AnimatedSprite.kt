@@ -28,12 +28,14 @@ fun AnimatedSprite(
     speciesId: Int,
     action: String,
     modifier: Modifier = Modifier,
+    shiny: Boolean = false,
     fallbackAction: String = "idle",
     placeholder: @Composable () -> Unit = {},
 ) {
     val context = LocalContext.current
-    val frames = remember(speciesId, action) {
-        SpriteLoader.load(context, speciesId, action) ?: SpriteLoader.load(context, speciesId, fallbackAction)
+    val frames = remember(speciesId, action, shiny) {
+        SpriteLoader.load(context, speciesId, action, shiny)
+            ?: SpriteLoader.load(context, speciesId, fallbackAction, shiny)
     }
 
     if (frames == null || frames.frameCount == 0) {
