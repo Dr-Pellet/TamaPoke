@@ -1,91 +1,120 @@
 package com.tamapoke.app.ui.minigame
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableFloatStateOf
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.drawscope.clipRect
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.tamapoke.app.R
 import kotlinx.coroutines.delay
-import kotlin.random.Random
+
+private const val STEP_MS = 85L // matches the firmware's render/step cadence while the minigame is open
+private const val GAME_OVER_PAUSE_MS = 1500L
 
 /**
- * Simplified stand-in for the firmware's physics-based "dodge the obstacles"
- * minigame: tap the ball before it vanishes. Score maps 1:1 into
- * PetEngine.playResult(score) - same reward curve, different mechanic; a
- * faithful pixel-perfect port of the original's flappy-bird-style physics
- * is deferred (see project plan, Phase 3 notes).
+ * The firmware's real minigame: juggle a Pokeball inside a circular arena
+ * (gravity, wall bounce, tap-to-lift), 3 misses ends the round - ported
+ * 1:1 from TamaPoke.ino's stepGame()/gameTap() via [PokeballGame]. Score
+ * feeds PetEngine.playResult() exactly like pet.playResult(gameScore) did
+ * on the device.
  */
-private const val SESSION_MS = 15_000L
-
 @Composable
 fun MinigameScreen(onFinish: (score: Int) -> Unit) {
-    var score by remember { mutableIntStateOf(0) }
-    var timeLeftMs by remember { mutableStateOf(SESSION_MS) }
-    var targetVisible by remember { mutableStateOf(false) }
-    var targetX by remember { mutableFloatStateOf(0.5f) }
-    var targetY by remember { mutableFloatStateOf(0.5f) }
-    var finished by remember { mutableStateOf(false) }
+    var state by remember { mutableStateOf(PokeballGame.newGame()) }
+    var quit by remember { mutableStateOf(false) }
 
     LaunchedEffect(Unit) {
-        val start = System.currentTimeMillis()
-        while (true) {
-            val elapsed = System.currentTimeMillis() - start
-            timeLeftMs = (SESSION_MS - elapsed).coerceAtLeast(0)
-            if (timeLeftMs <= 0) break
-
-            targetX = 0.15f + Random.nextFloat() * 0.7f
-            targetY = 0.15f + Random.nextFloat() * 0.6f
-            targetVisible = true
-            val visibleMs = (900L - score * 20).coerceAtLeast(350L)
-            delay(visibleMs)
-            targetVisible = false
-            delay(150)
+        while (!state.gameOver && !quit) {
+            delay(STEP_MS)
+            state = PokeballGame.step(state)
         }
-        finished = true
     }
 
-    LaunchedEffect(finished) {
-        if (finished) onFinish(score)
+    LaunchedEffect(state.gameOver) {
+        if (state.gameOver) {
+            delay(GAME_OVER_PAUSE_MS)
+            onFinish(state.score)
+        }
+    }
+
+    LaunchedEffect(quit) {
+        if (quit) onFinish(state.score)
     }
 
     Box(Modifier.fillMaxSize().padding(16.dp)) {
-        Text("SCORE: $score   ${timeLeftMs / 1000}s", style = MaterialTheme.typography.titleMedium)
-        if (targetVisible) {
-            Box(
+        Text(
+            stringResource(R.string.orig_score_fmt, state.score) + "   ${state.misses}/${PokeballGame.MAX_MISSES}",
+            style = MaterialTheme.typography.titleMedium,
+        )
+        Box(Modifier.fillMaxSize().padding(top = 48.dp)) {
+            Canvas(
                 Modifier
-                    .fillMaxSize()
-                    .padding(top = 40.dp),
+                    .fillMaxWidth()
+                    .aspectRatio(1f)
+                    .pointerInput(Unit) {
+                        detectTapGestures { offset ->
+                            val scale = size.width / PokeballGame.ARENA_SIZE
+                            val lx = offset.x / scale
+                            val ly = offset.y / scale
+                            if (ly < PokeballGame.HEADER_Y) {
+                                quit = true
+                            } else {
+                                state = PokeballGame.tap(state, lx, ly)
+                            }
+                        }
+                    },
             ) {
-                Box(
-                    Modifier
-                        .size(56.dp)
-                        .align(Alignment.TopStart)
-                        .padding(
-                            start = (targetX * 260).dp,
-                            top = (targetY * 400).dp,
-                        )
-                        .background(Color(0xFFEA503A), CircleShape)
-                        .clickable {
-                            score++
-                            targetVisible = false
-                        },
+                val scale = size.width / PokeballGame.ARENA_SIZE
+                fun p(x: Float, y: Float) = Offset(x * scale, y * scale)
+
+                drawCircle(
+                    color = Color(0xFFE5E5E5),
+                    radius = PokeballGame.RADIUS * scale,
+                    center = p(PokeballGame.CX, PokeballGame.CY),
+                    style = Stroke(width = 2f),
                 )
+
+                val ballRadius = 20f * scale
+                val ballCenter = p(state.ball.x, state.ball.y)
+                clipRect(
+                    left = ballCenter.x - ballRadius, top = ballCenter.y - ballRadius,
+                    right = ballCenter.x + ballRadius, bottom = ballCenter.y,
+                ) {
+                    drawCircle(color = Color(0xFFE5382E), radius = ballRadius, center = ballCenter)
+                }
+                clipRect(
+                    left = ballCenter.x - ballRadius, top = ballCenter.y,
+                    right = ballCenter.x + ballRadius, bottom = ballCenter.y + ballRadius,
+                ) {
+                    drawCircle(color = Color.White, radius = ballRadius, center = ballCenter)
+                }
+                drawCircle(color = Color.Black, radius = ballRadius, center = ballCenter, style = Stroke(width = 2f))
+                drawLine(
+                    color = Color.Black,
+                    start = Offset(ballCenter.x - ballRadius, ballCenter.y),
+                    end = Offset(ballCenter.x + ballRadius, ballCenter.y),
+                    strokeWidth = 2f,
+                )
+                drawCircle(color = Color.Black, radius = ballRadius * 0.28f, center = ballCenter, style = Stroke(width = 2f))
+                drawCircle(color = Color.White, radius = ballRadius * 0.16f, center = ballCenter)
             }
         }
     }

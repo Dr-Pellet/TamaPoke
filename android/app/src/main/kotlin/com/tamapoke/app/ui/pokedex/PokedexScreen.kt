@@ -24,7 +24,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.tamapoke.app.R
 import com.tamapoke.app.sprite.SpriteLoader
 import com.tamapoke.core.PetState
 import com.tamapoke.core.dex.DexTable
@@ -35,7 +37,7 @@ fun PokedexScreen(state: PetState?, dex: DexTable) {
 
     Box(Modifier.fillMaxSize().padding(8.dp)) {
         Text(
-            "POKEDEX $registeredCount/${dex.count}",
+            stringResource(R.string.orig_pokedex_fmt, registeredCount),
             modifier = Modifier.padding(8.dp),
             style = MaterialTheme.typography.titleMedium,
         )

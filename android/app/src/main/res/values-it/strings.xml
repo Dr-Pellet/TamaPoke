@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_feed">Nutri</string>
+    <string name="widget_pet">Accarezza</string>
+    <string name="action_feed">Nutri</string>
+    <string name="action_play">Gioca</string>
+    <string name="action_bath">Bagno</string>
+    <string name="action_sleep">Dormi</string>
+    <string name="action_wake">Sveglia</string>
+    <string name="settings_sound">Audio</string>
+    <string name="settings_language">Lingua</string>
+</resources>

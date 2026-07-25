@@ -83,7 +83,10 @@ private fun PetView(state: PetState, dex: DexTable, vm: MainViewModel, onPlayCli
             style = MaterialTheme.typography.headlineMedium,
             fontWeight = FontWeight.Bold,
         )
-        Text("Lv.${state.level()} · ${moodLabel(mood)}", style = MaterialTheme.typography.bodyMedium)
+        Text(
+            stringResource(R.string.orig_lvl_fmt, state.level()) + " · " + moodLabel(mood),
+            style = MaterialTheme.typography.bodyMedium,
+        )
 
         Spacer(Modifier.height(16.dp))
         Box(
@@ -116,10 +119,12 @@ private fun PetView(state: PetState, dex: DexTable, vm: MainViewModel, onPlayCli
 
         Spacer(Modifier.height(16.dp))
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            Button(onClick = vm::feed) { Text("Feed") }
-            Button(onClick = onPlayClick) { Text("Play") }
-            Button(onClick = vm::clean) { Text("Bath") }
-            Button(onClick = vm::toggleLight) { Text(if (state.sleeping) "Wake" else "Sleep") }
+            Button(onClick = vm::feed) { Text(stringResource(R.string.action_feed)) }
+            Button(onClick = onPlayClick) { Text(stringResource(R.string.action_play)) }
+            Button(onClick = vm::clean) { Text(stringResource(R.string.action_bath)) }
+            Button(onClick = vm::toggleLight) {
+                Text(stringResource(if (state.sleeping) R.string.action_wake else R.string.action_sleep))
+            }
         }
 
         val displayName = state.nickname.ifBlank { entry.name }
@@ -172,9 +177,10 @@ private fun StatBar(label: String, value: Int) {
     }
 }
 
+@Composable
 private fun moodLabel(mood: PetMood): String = when (mood) {
-    PetMood.HAPPY -> "Happy"
-    PetMood.SAD -> "Sad"
-    PetMood.EATING -> "Eating"
-    PetMood.SLEEPING -> "Sleeping"
+    PetMood.HAPPY -> stringResource(R.string.orig_happy)
+    PetMood.SAD -> stringResource(R.string.orig_sad)
+    PetMood.EATING -> stringResource(R.string.orig_eating)
+    PetMood.SLEEPING -> "Sleeping" // no direct equivalent in the original's status strings
 }

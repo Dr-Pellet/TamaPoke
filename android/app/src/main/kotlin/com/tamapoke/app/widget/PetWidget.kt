@@ -13,6 +13,7 @@ import androidx.glance.layout.Row
 import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.padding
 import androidx.glance.text.Text
+import com.tamapoke.app.R
 import com.tamapoke.app.data.PetRepository
 
 /**
@@ -30,21 +31,21 @@ class PetWidget : GlanceAppWidget() {
         provideContent {
             Column(modifier = GlanceModifier.fillMaxSize().padding(12.dp)) {
                 if (state == null || state.isEgg) {
-                    Text("🥚 Egg")
+                    Text("🥚 " + context.getString(R.string.orig_egg_hdr))
                 } else {
                     val entry = repository.dex[state.speciesId]
                     val name = state.nickname.ifBlank { entry.name }
                     Text("$name · Lv.${state.level()}")
-                    Text("Food ${state.fullness}  Joy ${state.joy}  Energy ${state.energy}")
+                    Text("${context.getString(R.string.orig_bar_food)} ${state.fullness}  ${context.getString(R.string.orig_bar_joy)} ${state.joy}  ${context.getString(R.string.orig_bar_ene)} ${state.energy}")
                     Row {
                         Text(
-                            "Feed",
+                            context.getString(R.string.widget_feed),
                             modifier = GlanceModifier.clickable(
                                 actionRunCallback<FeedWidgetAction>(),
                             ),
                         )
                         Text(
-                            "  Pet",
+                            "  " + context.getString(R.string.widget_pet),
                             modifier = GlanceModifier.clickable(
                                 actionRunCallback<PetWidgetAction>(),
                             ),

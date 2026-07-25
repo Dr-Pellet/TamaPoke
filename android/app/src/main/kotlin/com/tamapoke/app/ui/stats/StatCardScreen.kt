@@ -69,7 +69,12 @@ private fun ProfileTab(state: PetState, dex: DexTable, onRename: (String) -> Uni
     Column(Modifier.fillMaxSize().padding(16.dp)) {
         Text("${entry.name}${if (state.shiny) " ✨ SHINY" else ""}   AGE ${ageDays}d", style = MaterialTheme.typography.titleMedium)
         Row(Modifier.padding(top = 12.dp), verticalAlignment = androidx.compose.ui.Alignment.CenterVertically) {
-            OutlinedTextField(value = name, onValueChange = { name = it.take(11) }, label = { Text("Name") }, modifier = Modifier.weight(1f))
+            OutlinedTextField(
+                value = name,
+                onValueChange = { name = it.take(11) },
+                label = { Text(stringResource(R.string.orig_name)) },
+                modifier = Modifier.weight(1f),
+            )
             Button(onClick = { onRename(name) }, modifier = Modifier.padding(start = 8.dp)) { Text("Save") }
         }
         Text(stringResource(R.string.orig_streak_fmt, state.streak, state.bestStreak), Modifier.padding(top = 16.dp))

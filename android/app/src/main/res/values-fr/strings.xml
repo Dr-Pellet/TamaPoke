@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_feed">Nourrir</string>
+    <string name="widget_pet">Caresser</string>
+    <string name="action_feed">Nourrir</string>
+    <string name="action_play">Jouer</string>
+    <string name="action_bath">Bain</string>
+    <string name="action_sleep">Dormir</string>
+    <string name="action_wake">Reveiller</string>
+    <string name="settings_sound">Son</string>
+    <string name="settings_language">Langue</string>
+</resources>

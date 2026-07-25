@@ -17,10 +17,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.tamapoke.app.R
 import kotlinx.coroutines.delay
 
-private const val SESSION_MS = 8_000L
+private const val SESSION_MS = 10_000L // matches sackUntil = millis() + 10000 in TamaPoke.ino
 
 /** Tap-count challenge, matches Pet::trainStrength()'s "~4 hits = +1 STRENGTH" reward curve. */
 @Composable
@@ -43,13 +45,16 @@ fun TrainingBagScreen(onFinish: (hits: Int) -> Unit) {
     }
 
     Column(Modifier.fillMaxSize().padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-        Text("$hits HITS   ${timeLeftMs / 1000}s", style = MaterialTheme.typography.titleMedium)
+        Text(
+            stringResource(R.string.orig_hits_fmt, hits) + "   ${timeLeftMs / 1000}s",
+            style = MaterialTheme.typography.titleMedium,
+        )
         Box(Modifier.fillMaxSize().padding(top = 24.dp)) {
             Button(
                 onClick = { hits++ },
                 modifier = Modifier.fillMaxSize().padding(24.dp).height(200.dp),
             ) {
-                Text("HIT FAST!", style = MaterialTheme.typography.headlineSmall)
+                Text(stringResource(R.string.orig_hit_fast), style = MaterialTheme.typography.headlineSmall)
             }
         }
     }

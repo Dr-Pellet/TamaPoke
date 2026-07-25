@@ -54,10 +54,13 @@ just trust CI, which checks out to a clean path.
   (`declineEvolve`/`declineFarewell`), ceremony dialog, bottom-nav shell
   (Home/Pokedex/Stats/Settings), full 151-species Pokedex grid, and the
   4-page stat card (Profile/Battle/Medals/Progress).
-- **Phase 3**: minigame and training-bag screens wired to
-  `playResult()`/`trainStrength()` — simplified tap-based mechanics rather
-  than a pixel-perfect port of the original's real physics (gravity, circular
-  wall bounce, tap impulse - see `TamaPoke.ino`'s `stepGame()`).
+- **Phase 3**: the minigame is now a faithful port of the firmware's real
+  physics (`PokeballGame.kt`, mirroring `TamaPoke.ino`'s `respawnBall()`/
+  `gameTap()`/`stepGame()`): juggle a Pokeball in a circular arena against
+  gravity, with wall bounce and tap-impulse, 3 misses ends the round, same
+  85ms step cadence as the device. Training bag stays a tap-count challenge
+  (matches `trainStrength()`'s "~4 hits = +1 STRENGTH" curve; the original's
+  version is also just a tap counter, so no simplification there).
   **Real animated PMD sprites** are wired up for all 151 species, normal
   *and* shiny: `tools/pack_pmd_android.py` fetches the same
   `PMDCollab/SpriteCollab` sheets the firmware's `tools/pack_pmd.py` uses
@@ -78,7 +81,12 @@ just trust CI, which checks out to a clean path.
   version used to bootstrap this repo) parses `i18n.h`/`i18n.cpp`'s 6-language
   table into `res/values{,-es,-fr,-de,-it,-pt}/strings_original.xml`
   (`orig_*` keys); language switching goes through
-  `AppCompatDelegate.setApplicationLocales`. Only a representative subset of
-  screens (main screen, stat card, ceremony dialog, starter picker) actually
-  read from these keys so far — the rest of the catalog is generated and
-  ready for the remaining screens to adopt.
+  `AppCompatDelegate.setApplicationLocales`. All screens that display
+  original-firmware text now read from these keys (main screen, Pokedex,
+  stat card, minigame/training-bag, ceremony dialog, starter picker, and the
+  home-screen widget via `context.getString`); app-only UI chrome that has
+  no firmware equivalent (Feed/Play/Bath/Sleep button labels, tab names,
+  Settings category labels) is translated separately in
+  `res/values{,-es,-fr,-de,-it,-pt}/strings.xml`. A few purely decorative
+  bits (e.g. "Sleeping" mood, "Total earned across all pets") are still
+  English-only where the original had no equivalent string at all.

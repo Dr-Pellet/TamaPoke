@@ -13,7 +13,9 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.tamapoke.app.R
 
 /** Codes match the firmware's 6 supported languages (i18n.cpp); English is the shared default. */
 private val LANGUAGES = listOf(
@@ -32,11 +34,19 @@ fun SettingsScreen(viewModel: SettingsViewModel) {
 
     Column(Modifier.fillMaxSize().padding(16.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Text("Sound", style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(end = 12.dp))
+            Text(
+                stringResource(R.string.settings_sound),
+                style = MaterialTheme.typography.titleMedium,
+                modifier = Modifier.padding(end = 12.dp),
+            )
             Switch(checked = soundOn, onCheckedChange = viewModel::setSoundOn)
         }
 
-        Text("Language", style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(top = 24.dp, bottom = 8.dp))
+        Text(
+            stringResource(R.string.settings_language),
+            style = MaterialTheme.typography.titleMedium,
+            modifier = Modifier.padding(top = 24.dp, bottom = 8.dp),
+        )
         Column {
             LANGUAGES.chunked(3).forEach { row ->
                 Row {
