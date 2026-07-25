@@ -11,7 +11,12 @@ Salida: android/app/src/main/assets/sprites/<dex>/<accion>.png
 
   python3 tools/pack_pmd_android.py                 # set por defecto (ver DEFAULT_DEX)
   python3 tools/pack_pmd_android.py 1 4 7            # dex concretos
-  python3 tools/pack_pmd_android.py all              # los 151 (tarda; solo Idle)
+  python3 tools/pack_pmd_android.py all              # las 151 especies, todas las ACTIONS
+
+Nota: los assets ya empaquetados en el repo (android/app/src/main/assets/
+sprites/) se generaron con una barrida de las 151 especies pero solo 5
+acciones (idle/walk_l/walk_r/sleep/eat) por velocidad; correr `all` con este
+script anadira tambien hurt/attack/pose donde el sprite las tenga.
 """
 import json
 import os

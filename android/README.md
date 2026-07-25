@@ -58,16 +58,18 @@ just trust CI, which checks out to a clean path.
   `playResult()`/`trainStrength()` — simplified tap-based mechanics rather
   than a pixel-perfect port of the original's real physics (gravity, circular
   wall bounce, tap impulse - see `TamaPoke.ino`'s `stepGame()`).
-  **Real animated PMD sprites** are wired up for a starter subset: `tools/
+  **Real animated PMD sprites** are wired up for all 151 species: `tools/
   pack_pmd_android.py` fetches the same `PMDCollab/SpriteCollab` sheets the
   firmware's `tools/pack_pmd.py` uses, but (unlike the firmware) keeps the
   original PNG as-is and stores frame-rect/timing metadata in a sidecar
   `.json` instead of re-encoding into the TPK2 binary format - Android crops
   frames at render time (`AnimatedSprite.kt`, `Canvas.drawImage` with
-  `srcOffset`/`srcSize`). Bundled species: `DEFAULT_DEX` in that script
-  (starters 1-9 + Eevee line 133-136), Idle/Walk/Sleep/Eat actions. Run
-  `python3 tools/pack_pmd_android.py all` to sweep all 151 species (not done
-  yet - would meaningfully grow APK size, see the licensing note above).
+  `srcOffset`/`srcSize`). Bundled: all 151 species × Idle/Walk-L/Walk-R/
+  Sleep/Eat (where the source sheet has that animation - not all species
+  have all five), ~7MB total. `hurt`/`attack`/`pose` are supported by the
+  script's `ACTIONS` table but not fetched yet; rerun
+  `python3 tools/pack_pmd_android.py all` to add them. Shiny variants are
+  also not bundled yet.
 - **Phase 4**: `ChiptuneSynth`/`SfxPlayer` port audio.cpp's square-wave SFX
   tables to `AudioTrack` 1:1, wired to feed/pet/evolve/hatch/level-up/medal/
   ceremony events. `tools/gen_android_strings.py` (mirrored by the Node
