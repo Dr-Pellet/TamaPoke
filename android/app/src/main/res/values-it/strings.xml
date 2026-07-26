@@ -9,4 +9,8 @@
     <string name="action_wake">Sveglia</string>
     <string name="settings_sound">Audio</string>
     <string name="settings_language">Lingua</string>
+    <string name="mood_sleeping">Dorme</string>
+    <string name="medals_total_fmt">Totale guadagnato su tutti gli animali: %1$d</string>
+    <string name="no_pet_yet">Ancora nessun animale</string>
+    <string name="loading">…</string>
 </resources>

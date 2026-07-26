@@ -9,6 +9,8 @@ import com.tamapoke.app.data.PetRepository
 import com.tamapoke.core.PetState
 import com.tamapoke.core.dex.DexTable
 import com.tamapoke.core.enums.Ceremony
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.runningFold
@@ -20,6 +22,10 @@ class MainViewModel(
 ) : ViewModel() {
     val state = repository.state
     val dex: DexTable get() = repository.dex
+
+    /** Last training-bag strength gain (Pet::trainStrength()'s "STR +%u" feedback); UI clears it after showing. */
+    private val _lastStrengthGain = MutableStateFlow<Int?>(null)
+    val lastStrengthGain: StateFlow<Int?> = _lastStrengthGain
 
     init {
         viewModelScope.launch { repository.catchUp() }
@@ -57,7 +63,15 @@ class MainViewModel(
     fun feedCandy() = viewModelScope.launch { repository.feedCandy(); sfx.play(Sfx.EAT) }
     fun play() = viewModelScope.launch { repository.play() }
     fun playResult(score: Int) = viewModelScope.launch { repository.playResult(score); sfx.play(Sfx.PLAY) }
-    fun trainStrength(hits: Int) = viewModelScope.launch { repository.trainStrength(hits); sfx.play(Sfx.PLAY) }
+    fun trainStrength(hits: Int) = viewModelScope.launch {
+        _lastStrengthGain.value = repository.trainStrength(hits)
+        sfx.play(Sfx.PLAY)
+    }
+
+    fun clearStrengthGainMessage() {
+        _lastStrengthGain.value = null
+    }
+
     fun clean() = viewModelScope.launch { repository.clean() }
     fun caress() = viewModelScope.launch { repository.caress(); sfx.play(Sfx.HEART) }
     fun toggleLight() = viewModelScope.launch { repository.toggleLight(); sfx.play(Sfx.TAP) }

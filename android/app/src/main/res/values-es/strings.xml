@@ -9,4 +9,8 @@
     <string name="action_wake">Despertar</string>
     <string name="settings_sound">Sonido</string>
     <string name="settings_language">Idioma</string>
+    <string name="mood_sleeping">Durmiendo</string>
+    <string name="medals_total_fmt">Total ganado en todas las mascotas: %1$d</string>
+    <string name="no_pet_yet">Aun sin mascota</string>
+    <string name="loading">…</string>
 </resources>

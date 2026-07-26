@@ -34,12 +34,15 @@ class PetRepository private constructor(
     }
 
     private suspend fun mutate(block: (PetState) -> PetState) {
-        mutex.withLock {
-            val current = _state.value ?: dao.getOnce()?.toState() ?: PetState()
-            val next = block(current)
-            _state.value = next
-            dao.upsert(next.toEntity())
-        }
+        mutateWithResult { Pair(block(it), Unit) }
+    }
+
+    private suspend fun <T> mutateWithResult(block: (PetState) -> Pair<PetState, T>): T = mutex.withLock {
+        val current = _state.value ?: dao.getOnce()?.toState() ?: PetState()
+        val (next, result) = block(current)
+        _state.value = next
+        dao.upsert(next.toEntity())
+        result
     }
 
     /** Call whenever the app/widget is touched: replays elapsed minutes since the last tick, exactly like Pet::syncClock(). */
@@ -53,7 +56,8 @@ class PetRepository private constructor(
     suspend fun feedCandy() = mutate { PetEngine.feedCandy(it) }
     suspend fun play() = mutate { PetEngine.play(it) }
     suspend fun playResult(score: Int) = mutate { PetEngine.playResult(it, score) }
-    suspend fun trainStrength(hits: Int) = mutate { PetEngine.trainStrength(it, hits).first }
+    /** Returns the strength gained this session (Pet::trainStrength()'s return value). */
+    suspend fun trainStrength(hits: Int): Int = mutateWithResult { PetEngine.trainStrength(it, hits) }
     suspend fun clean() = mutate { PetEngine.clean(it) }
     suspend fun caress() = mutate { PetEngine.caress(it) }
     suspend fun toggleLight() = mutate { PetEngine.toggleLight(it) }

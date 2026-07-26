@@ -10,4 +10,8 @@
     <string name="action_wake">Wake</string>
     <string name="settings_sound">Sound</string>
     <string name="settings_language">Language</string>
+    <string name="mood_sleeping">Sleeping</string>
+    <string name="medals_total_fmt">Total earned across all pets: %1$d</string>
+    <string name="no_pet_yet">No pet yet</string>
+    <string name="loading">…</string>
 </resources>

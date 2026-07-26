@@ -48,7 +48,7 @@ fun StatCardScreen(
             }
         }
         if (state == null || state.isEgg) {
-            Text("No pet yet", Modifier.padding(16.dp))
+            Text(stringResource(R.string.no_pet_yet), Modifier.padding(16.dp))
             return
         }
         when (tab) {
@@ -107,7 +107,7 @@ private fun MedalsTab(state: PetState) {
             stringResource(R.string.orig_medals_fmt, state.medals.size, ALL_MEDALS.size),
             style = MaterialTheme.typography.titleMedium,
         )
-        Text("Total earned across all pets: ${state.totalMedals}")
+        Text(stringResource(R.string.medals_total_fmt, state.totalMedals))
         LazyVerticalGrid(columns = GridCells.Fixed(4), modifier = Modifier.padding(top = 12.dp)) {
             items(ALL_MEDALS) { medal ->
                 val earned = medal in state.medals

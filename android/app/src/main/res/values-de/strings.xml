@@ -9,4 +9,8 @@
     <string name="action_wake">Aufwecken</string>
     <string name="settings_sound">Ton</string>
     <string name="settings_language">Sprache</string>
+    <string name="mood_sleeping">Schlafend</string>
+    <string name="medals_total_fmt">Insgesamt bei allen Tieren verdient: %1$d</string>
+    <string name="no_pet_yet">Noch kein Tier</string>
+    <string name="loading">…</string>
 </resources>

@@ -23,11 +23,16 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.tamapoke.app.R
 import com.tamapoke.app.sprite.AnimatedSprite
+import com.tamapoke.app.ui.device.ArcButton
+import com.tamapoke.app.ui.device.ArcButtonBar
+import com.tamapoke.app.ui.device.BiomeBackground
+import com.tamapoke.app.ui.device.RoundDeviceFrame
 import com.tamapoke.core.PetEngine
 import com.tamapoke.core.PetState
 import com.tamapoke.core.dex.DexTable
@@ -51,7 +56,7 @@ fun MainScreen(viewModel: MainViewModel, onPlayClick: () -> Unit) {
 @Composable
 private fun LoadingView() {
     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Text("...")
+        Text(stringResource(R.string.loading))
     }
 }
 
@@ -89,41 +94,53 @@ private fun PetView(state: PetState, dex: DexTable, vm: MainViewModel, onPlayCli
         )
 
         Spacer(Modifier.height(16.dp))
-        Box(
-            Modifier
-                .fillMaxWidth()
-                .height(160.dp)
-                .background(androidx.compose.ui.graphics.Color(0xFFEFEFEF), RoundedCornerShape(24.dp))
-                .clickable(onClick = vm::caress),
-            contentAlignment = Alignment.Center,
-        ) {
+        RoundDeviceFrame(Modifier.fillMaxWidth(0.86f)) {
             val spriteAction = when {
                 state.sleeping -> "sleep"
                 mood == PetMood.EATING -> "eat"
                 else -> "idle"
             }
-            AnimatedSprite(
-                speciesId = state.speciesId,
-                action = spriteAction,
-                modifier = Modifier.size(96.dp),
-                shiny = state.shiny,
-                placeholder = { Text(entry.name.take(1), style = MaterialTheme.typography.displayLarge) },
-            )
-        }
+            BiomeBackground(biome = entry.biome, modifier = Modifier.fillMaxSize().clickable(onClick = vm::caress)) {
+                Column(Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
+                    Spacer(Modifier.height(36.dp))
+                    Box(
+                        Modifier
+                            .padding(horizontal = 40.dp)
+                            .background(Color(0x991A1D24), RoundedCornerShape(12.dp))
+                            .padding(horizontal = 10.dp, vertical = 6.dp),
+                    ) {
+                        Column {
+                            StatBar(stringResource(R.string.orig_bar_food), state.fullness)
+                            StatBar(stringResource(R.string.orig_bar_joy), state.joy)
+                            StatBar(stringResource(R.string.orig_bar_ene), state.energy)
+                            StatBar(stringResource(R.string.orig_bar_hyg), state.hygiene)
+                        }
+                    }
 
-        Spacer(Modifier.height(16.dp))
-        StatBar(stringResource(R.string.orig_bar_food), state.fullness)
-        StatBar(stringResource(R.string.orig_bar_joy), state.joy)
-        StatBar(stringResource(R.string.orig_bar_ene), state.energy)
-        StatBar(stringResource(R.string.orig_bar_hyg), state.hygiene)
+                    Spacer(Modifier.weight(1f))
+                    AnimatedSprite(
+                        speciesId = state.speciesId,
+                        action = spriteAction,
+                        modifier = Modifier.size(96.dp),
+                        shiny = state.shiny,
+                        placeholder = { Text(entry.name.take(1), style = MaterialTheme.typography.displayLarge) },
+                    )
+                    Spacer(Modifier.weight(1f))
 
-        Spacer(Modifier.height(16.dp))
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            Button(onClick = vm::feed) { Text(stringResource(R.string.action_feed)) }
-            Button(onClick = onPlayClick) { Text(stringResource(R.string.action_play)) }
-            Button(onClick = vm::clean) { Text(stringResource(R.string.action_bath)) }
-            Button(onClick = vm::toggleLight) {
-                Text(stringResource(if (state.sleeping) R.string.action_wake else R.string.action_sleep))
+                    ArcButtonBar(
+                        buttons = listOf(
+                            ArcButton("🍎", stringResource(R.string.action_feed), vm::feed),
+                            ArcButton("⚽", stringResource(R.string.action_play), onPlayClick),
+                            ArcButton(
+                                "🌙",
+                                stringResource(if (state.sleeping) R.string.action_wake else R.string.action_sleep),
+                                vm::toggleLight,
+                            ),
+                            ArcButton("🫧", stringResource(R.string.action_bath), vm::clean),
+                        ),
+                    )
+                    Spacer(Modifier.height(18.dp))
+                }
             }
         }
 
@@ -166,13 +183,13 @@ private fun PetView(state: PetState, dex: DexTable, vm: MainViewModel, onPlayCli
 
 @Composable
 private fun StatBar(label: String, value: Int) {
-    Column(Modifier.fillMaxWidth().padding(vertical = 4.dp)) {
-        Text("$label: $value", style = MaterialTheme.typography.labelMedium)
+    Column(Modifier.fillMaxWidth().padding(vertical = 3.dp)) {
+        Text("$label: $value", style = MaterialTheme.typography.labelSmall, color = Color.White)
         LinearProgressIndicator(
             progress = { value / 100f },
             modifier = Modifier
                 .fillMaxWidth()
-                .height(8.dp),
+                .height(6.dp),
         )
     }
 }
@@ -182,5 +199,5 @@ private fun moodLabel(mood: PetMood): String = when (mood) {
     PetMood.HAPPY -> stringResource(R.string.orig_happy)
     PetMood.SAD -> stringResource(R.string.orig_sad)
     PetMood.EATING -> stringResource(R.string.orig_eating)
-    PetMood.SLEEPING -> "Sleeping" // no direct equivalent in the original's status strings
+    PetMood.SLEEPING -> stringResource(R.string.mood_sleeping) // no direct equivalent in the original's status strings
 }

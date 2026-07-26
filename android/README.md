@@ -86,7 +86,21 @@ just trust CI, which checks out to a clean path.
   stat card, minigame/training-bag, ceremony dialog, starter picker, and the
   home-screen widget via `context.getString`); app-only UI chrome that has
   no firmware equivalent (Feed/Play/Bath/Sleep button labels, tab names,
-  Settings category labels) is translated separately in
-  `res/values{,-es,-fr,-de,-it,-pt}/strings.xml`. A few purely decorative
-  bits (e.g. "Sleeping" mood, "Total earned across all pets") are still
-  English-only where the original had no equivalent string at all.
+  Settings category labels, "Sleeping" mood, medal total) is also fully
+  translated in `res/values{,-es,-fr,-de,-it,-pt}/strings.xml` - all 6
+  languages now cover every string the app displays, including the
+  training bag's "STR +N" feedback (shown as a Snackbar, matching the
+  firmware's on-screen confirmation).
+- **Phase 5 (visual, in progress)**: the app started out as generic
+  Material3 chrome, which looks nothing like the device's round 466x466
+  AMOLED UI. First step: `ui/device/RoundDeviceFrame.kt` clips the main
+  screen into a circular bezel, and `ui/device/BiomeBackground.kt` renders
+  the sky/ground using the *exact* hex colors from `TamaPoke.ino`'s
+  `drawScene()`/`BIOME_SOIL` (time-of-day sky gradient + per-species biome
+  ground color, night-tinted). `ui/device/ArcButtonBar.kt` replaces the
+  text Feed/Play/Bath/Sleep buttons with icon-only round buttons near the
+  bottom of the circle (a straight row rather than a literal curved arc -
+  good enough at this size, real trig placement would be the next
+  refinement). Not yet done: swipe-based navigation (currently a Material
+  bottom nav bar instead of the original's swipe gestures), evolution/
+  ceremony animations, and applying the round frame to the other screens.
