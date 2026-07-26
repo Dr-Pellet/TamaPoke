@@ -8,6 +8,10 @@
     <string name="action_sleep">Dormi</string>
     <string name="action_wake">Sveglia</string>
     <string name="settings_sound">Audio</string>
+    <string name="sound_off">Disattivato</string>
+    <string name="sound_low">Basso</string>
+    <string name="sound_med">Medio</string>
+    <string name="sound_full">Completo</string>
     <string name="settings_language">Lingua</string>
     <string name="mood_sleeping">Dorme</string>
     <string name="medals_total_fmt">Totale guadagnato su tutti gli animali: %1$d</string>
@@ -16,4 +20,47 @@
     <string name="settings_save_data">Dati salvati</string>
     <string name="settings_export">Esporta</string>
     <string name="settings_import">Importa</string>
+
+    <string name="battle_wild_appeared">Un %1$s selvatico (Lv. %2$d) e apparso!</string>
+    <string name="battle_you">Tu</string>
+    <string name="battle_attack">Attacco</string>
+    <string name="battle_quick">Rapido</string>
+    <string name="battle_heavy">Pesante</string>
+    <string name="battle_dodge">Schiva</string>
+    <string name="battle_rest_fmt">Riposo (%1$d)</string>
+    <string name="battle_win">Hai vinto!</string>
+    <string name="battle_lose">Hai perso…</string>
+    <string name="battle_reward_fmt">Allenamento %1$s +%2$d</string>
+    <string name="battle_catch">Cattura!</string>
+    <string name="battle_respect_catch">Cattura di rispetto</string>
+    <string name="battle_catch_chance_fmt">%1$d%% di probabilita</string>
+    <string name="battle_caught">Catturato!</string>
+    <string name="battle_escaped">E scappato.</string>
+    <string name="battle_close">Chiudi</string>
+    <string name="battle_start">Combattimento selvatico</string>
+
+    <string name="personality_title">Personalita</string>
+    <string name="personality_balanced">Equilibrato</string>
+    <string name="personality_playful">Giocoso</string>
+    <string name="personality_brave">Coraggioso</string>
+    <string name="personality_calm">Calmo</string>
+    <string name="personality_lazy">Pigro</string>
+
+    <string name="daily_goals_title">Obiettivi giornalieri</string>
+    <string name="daily_goal_care">Cura</string>
+    <string name="daily_goal_play">Gioco</string>
+    <string name="daily_goal_battle">Combattimento</string>
+    <string name="daily_goal_catch">Cattura</string>
+    <string name="daily_goal_memo">Memo</string>
+    <string name="daily_goal_progress_fmt">%1$d/%2$d</string>
+
+    <string name="box_title">Scatola</string>
+    <string name="box_empty">Nessun Pokemon selvatico catturato</string>
+    <string name="box_count_fmt">Catturati: %1$d/151</string>
+
+    <string name="minigame_catch_title">Cattura</string>
+    <string name="minigame_memo_title">Memo</string>
+    <string name="minigame_clean_title">Pulizia</string>
+    <string name="minigame_type_title">Tipi</string>
+    <string name="minigame_menu_title">Giochi</string>
 </resources>

@@ -4,8 +4,10 @@ import android.content.Context
 import com.tamapoke.app.data.db.PetDatabase
 import com.tamapoke.app.data.db.toEntity
 import com.tamapoke.app.data.db.toState
+import com.tamapoke.core.BattleReward
 import com.tamapoke.core.PetEngine
 import com.tamapoke.core.PetState
+import com.tamapoke.core.dex.DexEntry
 import com.tamapoke.core.dex.DexTable
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -76,6 +78,17 @@ class PetRepository private constructor(
 
     /** One live game-minute tick, for the foreground "watch it happen in real time" loop. */
     suspend fun tickOnce() = mutate { PetEngine.tickOnce(it, dex).state }
+
+    /** Wild-battle win: trains a stat and registers the streak; returns what was rewarded. */
+    suspend fun applyBattleWin(wild: DexEntry, closeWin: Boolean): BattleReward =
+        mutateWithResult { PetEngine.applyBattleWin(it, wild, closeWin) }
+    suspend fun applyBattleLoss() = mutate { PetEngine.applyBattleLoss(it) }
+    suspend fun registerCaught(dexId: Int) = mutate { PetEngine.registerCaught(it, dexId) }
+
+    suspend fun applyCatchResult(score: Int): Int = mutateWithResult { PetEngine.applyCatchResult(it, score) }
+    suspend fun applyMemoResult(rounds: Int): Int = mutateWithResult { PetEngine.applyMemoResult(it, rounds) }
+    suspend fun applyCleanResult(score: Int): Int = mutateWithResult { PetEngine.applyCleanResult(it, score) }
+    suspend fun applyTypeResult(score: Int): Int = mutateWithResult { PetEngine.applyTypeResult(it, score) }
 
     /** Serializes the current save to JSON, for exporting to a user-chosen local file. */
     suspend fun exportSave(): String = SaveFileCodec.encode(ensureLoaded())

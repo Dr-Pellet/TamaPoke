@@ -24,4 +24,11 @@ class Converters {
     @TypeConverter
     fun stringToMedalSet(value: String): Set<Medal> =
         if (value.isEmpty()) emptySet() else value.split(",").map { Medal.valueOf(it) }.toSet()
+
+    @TypeConverter
+    fun intListToString(value: List<Int>): String = value.joinToString(",")
+
+    @TypeConverter
+    fun stringToIntList(value: String): List<Int> =
+        if (value.isEmpty()) emptyList() else value.split(",").map { it.toInt() }
 }

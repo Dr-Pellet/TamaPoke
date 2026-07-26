@@ -4,7 +4,7 @@ import android.media.AudioAttributes
 import android.media.AudioFormat
 import android.media.AudioTrack
 import java.util.concurrent.LinkedBlockingQueue
-import java.util.concurrent.atomic.AtomicBoolean
+import java.util.concurrent.atomic.AtomicReference
 import kotlin.concurrent.thread
 
 /**
@@ -14,7 +14,7 @@ import kotlin.concurrent.thread
  * original's blocking i2s.write() calls - never touches the caller's thread.
  */
 class SfxPlayer {
-    private val enabled = AtomicBoolean(true)
+    private val mode = AtomicReference(SoundMode.FULL)
     private val queue = LinkedBlockingQueue<Sfx>(8)
 
     private val track = AudioTrack.Builder()
@@ -50,17 +50,18 @@ class SfxPlayer {
     }
 
     fun play(sfx: Sfx) {
-        if (enabled.get()) queue.offer(sfx)
+        if (mode.get() != SoundMode.OFF) queue.offer(sfx)
     }
 
-    fun setEnabled(on: Boolean) {
-        enabled.set(on)
+    fun setMode(newMode: SoundMode) {
+        mode.set(newMode)
+        track.setVolume(newMode.gain)
     }
 
     private fun workerLoop() {
         while (true) {
             val sfx = queue.take()
-            if (!enabled.get()) continue
+            if (mode.get() == SoundMode.OFF) continue
             val pcm = ChiptuneSynth.renderSequence(SfxTable[sfx])
             track.write(pcm, 0, pcm.size)
         }

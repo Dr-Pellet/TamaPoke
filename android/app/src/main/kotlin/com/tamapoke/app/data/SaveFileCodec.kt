@@ -13,7 +13,7 @@ import org.json.JSONObject
  * on the device itself), but a natural fit for a phone.
  */
 object SaveFileCodec {
-    private const val FORMAT_VERSION = 1
+    private const val FORMAT_VERSION = 2
 
     fun encode(state: PetState): String {
         val o = JSONObject()
@@ -62,14 +62,34 @@ object SaveFileCodec {
         o.put("neglectTicks", state.neglectTicks)
         o.put("goodTicks", state.goodTicks)
         o.put("bondToday", state.bondToday)
+        // v2: battle/catch/minigames/daily-goals (ShadowEnemy expanded fork port)
+        o.put("dexCaught", JSONArray(state.dexCaught.toList()))
+        o.put("catchHi", state.catchHi)
+        o.put("memoHi", state.memoHi)
+        o.put("cleanHi", state.cleanHi)
+        o.put("typeHi", state.typeHi)
+        o.put("battleWins", state.battleWins)
+        o.put("battleLosses", state.battleLosses)
+        o.put("battleStreak", state.battleStreak)
+        o.put("bestBattleStreak", state.bestBattleStreak)
+        o.put("lastPetInteractMinute", state.lastPetInteractMinute)
+        o.put("dexRewardMask", state.dexRewardMask)
+        o.put("dailyGoalDay", state.dailyGoalDay)
+        o.put("dailyGoalType", JSONArray(state.dailyGoalType))
+        o.put("dailyGoalProgress", JSONArray(state.dailyGoalProgress))
+        o.put("dailyGoalDone", state.dailyGoalDone)
         return o.toString(2)
     }
 
     fun decode(json: String): PetState {
         val o = JSONObject(json)
         fun intSet(key: String): Set<Int> {
-            val arr = o.getJSONArray(key)
+            val arr = o.optJSONArray(key) ?: return emptySet()
             return (0 until arr.length()).map { arr.getInt(it) }.toSet()
+        }
+        fun intList(key: String, default: List<Int>): List<Int> {
+            val arr = o.optJSONArray(key) ?: return default
+            return (0 until arr.length()).map { arr.getInt(it) }
         }
         return PetState(
             fullness = o.getInt("fullness"),
@@ -118,6 +138,22 @@ object SaveFileCodec {
             neglectTicks = o.getInt("neglectTicks"),
             goodTicks = o.getInt("goodTicks"),
             bondToday = o.getInt("bondToday"),
+            // v2 fields: default gracefully when importing an older (v1) save file
+            dexCaught = intSet("dexCaught"),
+            catchHi = o.optInt("catchHi", 0),
+            memoHi = o.optInt("memoHi", 0),
+            cleanHi = o.optInt("cleanHi", 0),
+            typeHi = o.optInt("typeHi", 0),
+            battleWins = o.optInt("battleWins", 0),
+            battleLosses = o.optInt("battleLosses", 0),
+            battleStreak = o.optInt("battleStreak", 0),
+            bestBattleStreak = o.optInt("bestBattleStreak", 0),
+            lastPetInteractMinute = o.optLong("lastPetInteractMinute", 0),
+            dexRewardMask = o.optInt("dexRewardMask", 0),
+            dailyGoalDay = o.optLong("dailyGoalDay", 0),
+            dailyGoalType = intList("dailyGoalType", listOf(0, 1, 3)),
+            dailyGoalProgress = intList("dailyGoalProgress", listOf(0, 0, 0)),
+            dailyGoalDone = o.optInt("dailyGoalDone", 0),
         )
     }
 }

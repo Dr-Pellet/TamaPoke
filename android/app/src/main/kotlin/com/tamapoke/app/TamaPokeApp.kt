@@ -25,7 +25,7 @@ class TamaPokeApp : Application() {
         super.onCreate()
         schedulePeriodicCatchUp()
         appScope.launch {
-            settingsRepository.soundOn.collect { sfxPlayer.setEnabled(it) }
+            settingsRepository.soundMode.collect { sfxPlayer.setMode(it) }
         }
         appScope.launch {
             settingsRepository.language.collect { code ->

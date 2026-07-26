@@ -8,6 +8,10 @@
     <string name="action_sleep">Schlafen</string>
     <string name="action_wake">Aufwecken</string>
     <string name="settings_sound">Ton</string>
+    <string name="sound_off">Aus</string>
+    <string name="sound_low">Niedrig</string>
+    <string name="sound_med">Mittel</string>
+    <string name="sound_full">Voll</string>
     <string name="settings_language">Sprache</string>
     <string name="mood_sleeping">Schlafend</string>
     <string name="medals_total_fmt">Insgesamt bei allen Tieren verdient: %1$d</string>
@@ -16,4 +20,47 @@
     <string name="settings_save_data">Spielstand</string>
     <string name="settings_export">Exportieren</string>
     <string name="settings_import">Importieren</string>
+
+    <string name="battle_wild_appeared">Ein wildes %1$s (Lv. %2$d) erscheint!</string>
+    <string name="battle_you">Du</string>
+    <string name="battle_attack">Angriff</string>
+    <string name="battle_quick">Schnell</string>
+    <string name="battle_heavy">Wuchtig</string>
+    <string name="battle_dodge">Ausweichen</string>
+    <string name="battle_rest_fmt">Rasten (%1$d)</string>
+    <string name="battle_win">Gewonnen!</string>
+    <string name="battle_lose">Verloren…</string>
+    <string name="battle_reward_fmt">%1$s Training +%2$d</string>
+    <string name="battle_catch">Fangen!</string>
+    <string name="battle_respect_catch">Respekt-Fang</string>
+    <string name="battle_catch_chance_fmt">%1$d%% Chance</string>
+    <string name="battle_caught">Gefangen!</string>
+    <string name="battle_escaped">Es ist entkommen.</string>
+    <string name="battle_close">Schliessen</string>
+    <string name="battle_start">Wildkampf</string>
+
+    <string name="personality_title">Persoenlichkeit</string>
+    <string name="personality_balanced">Ausgeglichen</string>
+    <string name="personality_playful">Verspielt</string>
+    <string name="personality_brave">Mutig</string>
+    <string name="personality_calm">Ruhig</string>
+    <string name="personality_lazy">Faul</string>
+
+    <string name="daily_goals_title">Tagesziele</string>
+    <string name="daily_goal_care">Pflege</string>
+    <string name="daily_goal_play">Spielen</string>
+    <string name="daily_goal_battle">Kampf</string>
+    <string name="daily_goal_catch">Fangen</string>
+    <string name="daily_goal_memo">Memo</string>
+    <string name="daily_goal_progress_fmt">%1$d/%2$d</string>
+
+    <string name="box_title">Box</string>
+    <string name="box_empty">Noch keine wilden Pokemon gefangen</string>
+    <string name="box_count_fmt">Gefangen: %1$d/151</string>
+
+    <string name="minigame_catch_title">Fangen</string>
+    <string name="minigame_memo_title">Memo</string>
+    <string name="minigame_clean_title">Putzen</string>
+    <string name="minigame_type_title">Typ-Match</string>
+    <string name="minigame_menu_title">Spiele</string>
 </resources>

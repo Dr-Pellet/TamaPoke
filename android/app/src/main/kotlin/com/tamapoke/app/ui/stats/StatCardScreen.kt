@@ -38,9 +38,11 @@ import com.tamapoke.app.ui.device.RoundDeviceFrame
 import com.tamapoke.core.PetEngine
 import com.tamapoke.core.PetState
 import com.tamapoke.core.dex.DexTable
+import com.tamapoke.core.enums.DailyGoalType
 import com.tamapoke.core.enums.Medal
+import com.tamapoke.core.enums.PetPersonality
 
-private val TABS = listOf("Profile", "Battle", "Medals", "Progress")
+private val TABS = listOf("Profile", "Battle", "Medals", "Progress", "Goals", "Games")
 
 @Composable
 fun StatCardScreen(
@@ -48,6 +50,11 @@ fun StatCardScreen(
     dex: DexTable,
     onRename: (String) -> Unit,
     onTrain: () -> Unit,
+    onWildBattle: () -> Unit = {},
+    onCatchGame: () -> Unit = {},
+    onMemoGame: () -> Unit = {},
+    onCleanGame: () -> Unit = {},
+    onTypeGame: () -> Unit = {},
 ) {
     var tab by remember { mutableIntStateOf(0) }
 
@@ -71,9 +78,11 @@ fun StatCardScreen(
                         } else {
                             when (tab) {
                                 0 -> ProfileTab(state, dex, onRename)
-                                1 -> BattleTab(state, dex, onTrain)
+                                1 -> BattleTab(state, dex, onTrain, onWildBattle)
                                 2 -> MedalsTab(state)
                                 3 -> ProgressTab(state, dex)
+                                4 -> GoalsTab(state)
+                                5 -> GamesTab(state, onCatchGame, onMemoGame, onCleanGame, onTypeGame)
                             }
                         }
                     }
@@ -118,7 +127,7 @@ private fun ProfileTab(state: PetState, dex: DexTable, onRename: (String) -> Uni
 }
 
 @Composable
-private fun BattleTab(state: PetState, dex: DexTable, onTrain: () -> Unit) {
+private fun BattleTab(state: PetState, dex: DexTable, onTrain: () -> Unit, onWildBattle: () -> Unit) {
     Column(Modifier.fillMaxSize().padding(20.dp)) {
         Text(stringResource(R.string.orig_battle), style = MaterialTheme.typography.titleMedium)
         Text("${stringResource(R.string.orig_stat_atk)} ${PetEngine.atkStat(state, dex)}")
@@ -127,7 +136,24 @@ private fun BattleTab(state: PetState, dex: DexTable, onTrain: () -> Unit) {
         Text("${stringResource(R.string.orig_stat_wgt)} ${state.weight}")
         Text(stringResource(R.string.orig_record_fmt, state.strHi), Modifier.padding(top = 12.dp))
         Button(onClick = onTrain, modifier = Modifier.padding(top = 12.dp)) { Text(stringResource(R.string.orig_train_str)) }
+        Text(
+            "${stringResource(R.string.personality_title)}: ${personalityLabel(PetEngine.personality(state))}",
+            modifier = Modifier.padding(top = 16.dp),
+        )
+        Text(
+            "${stringResource(R.string.orig_battle)}: ${state.battleWins}W / ${state.battleLosses}L (streak ${state.battleStreak}, best ${state.bestBattleStreak})",
+        )
+        Button(onClick = onWildBattle, modifier = Modifier.padding(top = 12.dp)) { Text(stringResource(R.string.battle_start)) }
     }
+}
+
+@Composable
+private fun personalityLabel(p: PetPersonality): String = when (p) {
+    PetPersonality.BALANCED -> stringResource(R.string.personality_balanced)
+    PetPersonality.PLAYFUL -> stringResource(R.string.personality_playful)
+    PetPersonality.BRAVE -> stringResource(R.string.personality_brave)
+    PetPersonality.CALM -> stringResource(R.string.personality_calm)
+    PetPersonality.LAZY -> stringResource(R.string.personality_lazy)
 }
 
 private val ALL_MEDALS = Medal.entries
@@ -152,6 +178,50 @@ private fun MedalsTab(state: PetState) {
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun GoalsTab(state: PetState) {
+    Column(Modifier.fillMaxSize().padding(20.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+        Text(stringResource(R.string.daily_goals_title), style = MaterialTheme.typography.titleMedium)
+        for (i in 0 until 3) {
+            val typeOrdinal = state.dailyGoalType.getOrNull(i) ?: continue
+            val goalType = DailyGoalType.entries.getOrNull(typeOrdinal) ?: continue
+            val progress = state.dailyGoalProgress.getOrNull(i) ?: 0
+            val target = PetEngine.dailyGoalTarget(goalType)
+            val done = PetEngine.dailyGoalComplete(state, i)
+            Text(
+                "${if (done) "✅" else "▫️"} ${dailyGoalLabel(goalType)}: " +
+                    stringResource(R.string.daily_goal_progress_fmt, progress, target),
+            )
+        }
+    }
+}
+
+@Composable
+private fun dailyGoalLabel(type: DailyGoalType): String = when (type) {
+    DailyGoalType.CARE -> stringResource(R.string.daily_goal_care)
+    DailyGoalType.PLAY -> stringResource(R.string.daily_goal_play)
+    DailyGoalType.BATTLE -> stringResource(R.string.daily_goal_battle)
+    DailyGoalType.CATCH -> stringResource(R.string.daily_goal_catch)
+    DailyGoalType.MEMO -> stringResource(R.string.daily_goal_memo)
+}
+
+@Composable
+private fun GamesTab(
+    state: PetState,
+    onCatchGame: () -> Unit,
+    onMemoGame: () -> Unit,
+    onCleanGame: () -> Unit,
+    onTypeGame: () -> Unit,
+) {
+    Column(Modifier.fillMaxSize().padding(20.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+        Text(stringResource(R.string.minigame_menu_title), style = MaterialTheme.typography.titleMedium)
+        Button(onClick = onCatchGame) { Text("${stringResource(R.string.minigame_catch_title)} (best ${state.catchHi})") }
+        Button(onClick = onMemoGame) { Text("${stringResource(R.string.minigame_memo_title)} (best ${state.memoHi})") }
+        Button(onClick = onCleanGame) { Text("${stringResource(R.string.minigame_clean_title)} (best ${state.cleanHi})") }
+        Button(onClick = onTypeGame) { Text("${stringResource(R.string.minigame_type_title)} (best ${state.typeHi})") }
     }
 }
 

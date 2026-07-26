@@ -56,6 +56,21 @@ data class PetEntity(
     val neglectTicks: Int,
     val goodTicks: Int,
     val bondToday: Int,
+    val dexCaught: Set<Int> = emptySet(),
+    val catchHi: Int = 0,
+    val memoHi: Int = 0,
+    val cleanHi: Int = 0,
+    val typeHi: Int = 0,
+    val battleWins: Int = 0,
+    val battleLosses: Int = 0,
+    val battleStreak: Int = 0,
+    val bestBattleStreak: Int = 0,
+    val lastPetInteractMinute: Long = 0,
+    val dexRewardMask: Int = 0,
+    val dailyGoalDay: Long = 0,
+    val dailyGoalType: List<Int> = listOf(0, 1, 3),
+    val dailyGoalProgress: List<Int> = listOf(0, 0, 0),
+    val dailyGoalDone: Int = 0,
 ) {
     companion object {
         const val SINGLETON_ID = 0
@@ -75,6 +90,11 @@ fun PetState.toEntity(): PetEntity = PetEntity(
     mistakeCooldown = mistakeCooldown, evoDeclinedLevel = evoDeclinedLevel,
     farewellDeclinedAgeMinutes = farewellDeclinedAgeMinutes, neglectTicks = neglectTicks,
     goodTicks = goodTicks, bondToday = bondToday,
+    dexCaught = dexCaught, catchHi = catchHi, memoHi = memoHi, cleanHi = cleanHi, typeHi = typeHi,
+    battleWins = battleWins, battleLosses = battleLosses, battleStreak = battleStreak,
+    bestBattleStreak = bestBattleStreak, lastPetInteractMinute = lastPetInteractMinute,
+    dexRewardMask = dexRewardMask, dailyGoalDay = dailyGoalDay, dailyGoalType = dailyGoalType,
+    dailyGoalProgress = dailyGoalProgress, dailyGoalDone = dailyGoalDone,
 )
 
 fun PetEntity.toState(): PetState = PetState(
@@ -90,4 +110,9 @@ fun PetEntity.toState(): PetState = PetState(
     mistakeCooldown = mistakeCooldown, evoDeclinedLevel = evoDeclinedLevel,
     farewellDeclinedAgeMinutes = farewellDeclinedAgeMinutes, neglectTicks = neglectTicks,
     goodTicks = goodTicks, bondToday = bondToday,
+    dexCaught = dexCaught, catchHi = catchHi, memoHi = memoHi, cleanHi = cleanHi, typeHi = typeHi,
+    battleWins = battleWins, battleLosses = battleLosses, battleStreak = battleStreak,
+    bestBattleStreak = bestBattleStreak, lastPetInteractMinute = lastPetInteractMinute,
+    dexRewardMask = dexRewardMask, dailyGoalDay = dailyGoalDay, dailyGoalType = dailyGoalType,
+    dailyGoalProgress = dailyGoalProgress, dailyGoalDone = dailyGoalDone,
 )

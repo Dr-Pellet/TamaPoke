@@ -9,6 +9,10 @@
     <string name="action_sleep">Sleep</string>
     <string name="action_wake">Wake</string>
     <string name="settings_sound">Sound</string>
+    <string name="sound_off">Off</string>
+    <string name="sound_low">Low</string>
+    <string name="sound_med">Medium</string>
+    <string name="sound_full">Full</string>
     <string name="settings_language">Language</string>
     <string name="mood_sleeping">Sleeping</string>
     <string name="medals_total_fmt">Total earned across all pets: %1$d</string>
@@ -17,4 +21,52 @@
     <string name="settings_save_data">Save data</string>
     <string name="settings_export">Export</string>
     <string name="settings_import">Import</string>
+
+    <!-- Wild battle (ShadowEnemy expanded fork) -->
+    <string name="battle_wild_appeared">A wild %1$s (Lv. %2$d) appeared!</string>
+    <string name="battle_you">You</string>
+    <string name="battle_attack">Attack</string>
+    <string name="battle_quick">Quick</string>
+    <string name="battle_heavy">Heavy</string>
+    <string name="battle_dodge">Dodge</string>
+    <string name="battle_rest_fmt">Rest (%1$d)</string>
+    <string name="battle_win">You won!</string>
+    <string name="battle_lose">You lost…</string>
+    <string name="battle_reward_fmt">%1$s training +%2$d</string>
+    <string name="battle_catch">Catch!</string>
+    <string name="battle_respect_catch">Respect catch</string>
+    <string name="battle_catch_chance_fmt">%1$d%% chance</string>
+    <string name="battle_caught">Caught it!</string>
+    <string name="battle_escaped">It got away.</string>
+    <string name="battle_close">Close</string>
+    <string name="battle_start">Wild battle</string>
+
+    <!-- Personality (ShadowEnemy expanded fork) -->
+    <string name="personality_title">Personality</string>
+    <string name="personality_balanced">Balanced</string>
+    <string name="personality_playful">Playful</string>
+    <string name="personality_brave">Brave</string>
+    <string name="personality_calm">Calm</string>
+    <string name="personality_lazy">Lazy</string>
+
+    <!-- Daily goals (ShadowEnemy expanded fork) -->
+    <string name="daily_goals_title">Daily goals</string>
+    <string name="daily_goal_care">Care</string>
+    <string name="daily_goal_play">Play</string>
+    <string name="daily_goal_battle">Battle</string>
+    <string name="daily_goal_catch">Catch</string>
+    <string name="daily_goal_memo">Memo</string>
+    <string name="daily_goal_progress_fmt">%1$d/%2$d</string>
+
+    <!-- Box: caught wild Pokemon (ShadowEnemy expanded fork) -->
+    <string name="box_title">Box</string>
+    <string name="box_empty">No wild Pokemon caught yet</string>
+    <string name="box_count_fmt">Caught: %1$d/151</string>
+
+    <!-- New minigames (ShadowEnemy expanded fork) -->
+    <string name="minigame_catch_title">Catch</string>
+    <string name="minigame_memo_title">Memo</string>
+    <string name="minigame_clean_title">Clean</string>
+    <string name="minigame_type_title">Type match</string>
+    <string name="minigame_menu_title">Games</string>
 </resources>

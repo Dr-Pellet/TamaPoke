@@ -15,7 +15,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -29,6 +28,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.tamapoke.app.R
+import com.tamapoke.app.audio.SoundMode
 import com.tamapoke.app.ui.device.RoundDeviceFrame
 import kotlinx.coroutines.launch
 
@@ -42,13 +42,20 @@ private val LANGUAGES = listOf(
     "pt" to "Portugues",
 )
 
+private val SOUND_MODES = listOf(
+    SoundMode.OFF to R.string.sound_off,
+    SoundMode.LOW to R.string.sound_low,
+    SoundMode.MED to R.string.sound_med,
+    SoundMode.FULL to R.string.sound_full,
+)
+
 @Composable
 fun SettingsScreen(
     viewModel: SettingsViewModel,
     onExportSave: ((String) -> Unit) -> Unit,
     onImportSave: (String, () -> Unit) -> Unit,
 ) {
-    val soundOn by viewModel.soundOn.collectAsState(initial = true)
+    val soundMode by viewModel.soundMode.collectAsState(initial = SoundMode.FULL)
     val language by viewModel.language.collectAsState(initial = "en")
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
@@ -89,13 +96,20 @@ fun SettingsScreen(
             Box(Modifier.fillMaxSize().background(Color(0xFF10131A))) {
                 CompositionLocalProvider(LocalContentColor provides Color.White) {
                     Column(Modifier.fillMaxSize().padding(28.dp)) {
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            Text(
-                                stringResource(R.string.settings_sound),
-                                style = MaterialTheme.typography.titleMedium,
-                                modifier = Modifier.padding(end = 12.dp),
-                            )
-                            Switch(checked = soundOn, onCheckedChange = viewModel::setSoundOn)
+                        Text(
+                            stringResource(R.string.settings_sound),
+                            style = MaterialTheme.typography.titleMedium,
+                            modifier = Modifier.padding(bottom = 8.dp),
+                        )
+                        Row {
+                            SOUND_MODES.forEach { (mode, labelRes) ->
+                                FilterChip(
+                                    selected = soundMode == mode,
+                                    onClick = { viewModel.setSoundMode(mode) },
+                                    label = { Text(stringResource(labelRes)) },
+                                    modifier = Modifier.padding(end = 8.dp),
+                                )
+                            }
                         }
 
                         Text(

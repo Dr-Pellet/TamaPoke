@@ -8,6 +8,10 @@
     <string name="action_sleep">Dormir</string>
     <string name="action_wake">Reveiller</string>
     <string name="settings_sound">Son</string>
+    <string name="sound_off">Desactive</string>
+    <string name="sound_low">Faible</string>
+    <string name="sound_med">Moyen</string>
+    <string name="sound_full">Complet</string>
     <string name="settings_language">Langue</string>
     <string name="mood_sleeping">Endormi</string>
     <string name="medals_total_fmt">Total gagne sur tous les animaux: %1$d</string>
@@ -16,4 +20,47 @@
     <string name="settings_save_data">Sauvegarde</string>
     <string name="settings_export">Exporter</string>
     <string name="settings_import">Importer</string>
+
+    <string name="battle_wild_appeared">Un %1$s sauvage (Niv. %2$d) apparait!</string>
+    <string name="battle_you">Toi</string>
+    <string name="battle_attack">Attaque</string>
+    <string name="battle_quick">Rapide</string>
+    <string name="battle_heavy">Lourde</string>
+    <string name="battle_dodge">Esquive</string>
+    <string name="battle_rest_fmt">Repos (%1$d)</string>
+    <string name="battle_win">Victoire!</string>
+    <string name="battle_lose">Defaite…</string>
+    <string name="battle_reward_fmt">Entrainement %1$s +%2$d</string>
+    <string name="battle_catch">Capturer!</string>
+    <string name="battle_respect_catch">Capture de respect</string>
+    <string name="battle_catch_chance_fmt">%1$d%% de chance</string>
+    <string name="battle_caught">Capture!</string>
+    <string name="battle_escaped">Il s\'est enfui.</string>
+    <string name="battle_close">Fermer</string>
+    <string name="battle_start">Combat sauvage</string>
+
+    <string name="personality_title">Personnalite</string>
+    <string name="personality_balanced">Equilibre</string>
+    <string name="personality_playful">Joueur</string>
+    <string name="personality_brave">Courageux</string>
+    <string name="personality_calm">Calme</string>
+    <string name="personality_lazy">Paresseux</string>
+
+    <string name="daily_goals_title">Objectifs du jour</string>
+    <string name="daily_goal_care">Soin</string>
+    <string name="daily_goal_play">Jouer</string>
+    <string name="daily_goal_battle">Combat</string>
+    <string name="daily_goal_catch">Capture</string>
+    <string name="daily_goal_memo">Memo</string>
+    <string name="daily_goal_progress_fmt">%1$d/%2$d</string>
+
+    <string name="box_title">Boite</string>
+    <string name="box_empty">Aucun Pokemon sauvage capture</string>
+    <string name="box_count_fmt">Captures: %1$d/151</string>
+
+    <string name="minigame_catch_title">Capture</string>
+    <string name="minigame_memo_title">Memo</string>
+    <string name="minigame_clean_title">Nettoyage</string>
+    <string name="minigame_type_title">Types</string>
+    <string name="minigame_menu_title">Jeux</string>
 </resources>

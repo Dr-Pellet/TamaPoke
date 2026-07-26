@@ -12,7 +12,9 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
-from dex_data import DEX, TYPE_ACCENTS, CLASSIC, RARE, LEGENDARY
+from dex_data import DEX, TYPE_ACCENTS, CLASSIC, RARE, LEGENDARY, BATTLE_TYPES, LOCALIZED_NAMES
+
+LANGS = ['es', 'en', 'fr', 'de', 'it', 'pt']
 from dex_stats import BASE_STATS
 from gen_dex import TYPE_BIOME, BIOME_OVERRIDE
 
@@ -33,6 +35,8 @@ def main():
             rarity = 1
         hp, atk, df, spe = BASE_STATS[num]
         bio = BIOME_OVERRIDE.get(num, TYPE_BIOME[typ])
+        t1, t2 = BATTLE_TYPES.get(num, (None, None))
+        names = LOCALIZED_NAMES.get(num)
         entries.append({
             "id": num,
             "slug": slug,
@@ -44,6 +48,9 @@ def main():
             "rarity": RARITY_NAMES[rarity],
             "baseStats": {"hp": hp, "atk": atk, "def": df, "spe": spe},
             "biome": bio,
+            "type1": t1,
+            "type2": t2,
+            "names": dict(zip(LANGS, names)) if names else None,
         })
 
     out = {

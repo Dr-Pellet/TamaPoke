@@ -1,9 +1,15 @@
 package com.tamapoke.core
 
+import com.tamapoke.core.battle.BattleStats
+import com.tamapoke.core.dex.DexEntry
 import com.tamapoke.core.dex.DexTable
+import com.tamapoke.core.enums.BattleRewardStat
 import com.tamapoke.core.enums.Ceremony
+import com.tamapoke.core.enums.DailyGoalType
 import com.tamapoke.core.enums.Medal
+import com.tamapoke.core.enums.PetEventType
 import com.tamapoke.core.enums.PetMood
+import com.tamapoke.core.enums.PetPersonality
 import com.tamapoke.core.enums.Rarity
 import kotlin.random.Random
 
@@ -350,6 +356,20 @@ object PetEngine {
     fun speStat(state: PetState, dex: DexTable): Int =
         if (state.isEgg) 0 else calcStat(dex[state.speciesId].baseSpe, state.geneSpe, state.level(), state.trSpe)
 
+    /** Ported from TamaPoke.ino's petBattleStats(): the pet's current fighting stats/typing. */
+    fun petBattleStats(state: PetState, dex: DexTable): BattleStats {
+        if (state.isEgg) return BattleStats(atk = 0, def = 0, spe = 0, level = state.level())
+        val entry = dex[state.speciesId]
+        return BattleStats(
+            atk = atkStat(state, dex),
+            def = defStat(state, dex),
+            spe = speStat(state, dex),
+            level = state.level(),
+            type1 = entry.battleType1,
+            type2 = entry.battleType2,
+        )
+    }
+
     fun eggRarity(state: PetState, dex: DexTable): Rarity =
         if (state.eggTarget in 1..dex.count) dex[state.eggTarget].rarity else Rarity.COMMON
 
@@ -398,6 +418,263 @@ object PetEngine {
             }
         }
         return dex.classicStarters[rng.nextInt(dex.classicStarters.size)]
+    }
+
+    // ---- personality, daily goals, extra minigames, pet events, battle rewards ----
+    // (ported from the ShadowEnemy expanded fork: github.com/ShadowEnemyx/TamaPoke, tamapoke-expanded-update)
+
+    fun personality(state: PetState): PetPersonality {
+        if (state.isEgg) return PetPersonality.BALANCED
+        if (state.weight >= 72 || state.energy <= 20) return PetPersonality.LAZY
+        if (state.battleWins >= 8 || state.bestBattleStreak >= 4) return PetPersonality.BRAVE
+        if (state.catchHi >= 18 || state.memoHi >= 8 || state.gameHi >= 24 || state.trSpe >= 55) return PetPersonality.PLAYFUL
+        if ((state.bond >= 45 && state.careMistakes <= 1) || (state.streak >= 5 && state.careMistakes == 0)) return PetPersonality.CALM
+        return PetPersonality.BALANCED
+    }
+
+    fun dailyGoalTarget(goalType: DailyGoalType): Int = when (goalType) {
+        DailyGoalType.CATCH -> 5
+        DailyGoalType.MEMO -> 3
+        else -> 1
+    }
+
+    fun dailyGoalComplete(state: PetState, index: Int): Boolean =
+        index in 0..2 && (state.dailyGoalDone and (1 shl index)) != 0
+
+    private val DAILY_GOAL_POOL = listOf(
+        DailyGoalType.CARE, DailyGoalType.PLAY, DailyGoalType.CATCH, DailyGoalType.MEMO, DailyGoalType.BATTLE,
+    )
+
+    /** Rolls today's 3 daily goals if a new day has started (player-wide, like the streak). */
+    fun ensureDailyGoals(state: PetState): PetState {
+        if (state.isEgg || state.ceremony != Ceremony.NONE) return state
+        val d = today(state.lastSeenEpochSeconds)
+        if (d == 0L || d == state.dailyGoalDay) return state
+        val seed = ((d + (if (state.speciesId > 0) state.speciesId else 0)) % 5).toInt()
+        val types = (0 until 3).map { i -> DAILY_GOAL_POOL[(seed + i) % 5].ordinal }
+        return state.copy(dailyGoalType = types, dailyGoalProgress = listOf(0, 0, 0), dailyGoalDone = 0, dailyGoalDay = d)
+    }
+
+    private fun applyDailyReward(state: PetState): PetState = addBond(state.copy(joy = clamp100(state.joy + 4)), 1)
+
+    /** Advances progress on any daily-goal slot matching [goalType]; rewards once if a slot completes. */
+    fun noteDailyGoal(state: PetState, goalType: DailyGoalType, amount: Int): PetState {
+        if (state.isEgg || state.ceremony != Ceremony.NONE || amount <= 0) return state
+        var s = ensureDailyGoals(state)
+        if (s.dailyGoalDay == 0L) return s
+        val progress = s.dailyGoalProgress.toMutableList()
+        var done = s.dailyGoalDone
+        for (i in 0 until 3) {
+            if (s.dailyGoalType.getOrNull(i) != goalType.ordinal || dailyGoalComplete(s, i)) continue
+            val target = dailyGoalTarget(goalType)
+            progress[i] = (progress[i] + amount).coerceAtMost(target)
+            if (progress[i] >= target) done = done or (1 shl i)
+        }
+        s = s.copy(dailyGoalProgress = progress, dailyGoalDone = done)
+        if (done != state.dailyGoalDone) s = applyDailyReward(s)
+        return s
+    }
+
+    /** Catch minigame: tap the target before it vanishes. Trains SPEED. */
+    fun applyCatchResult(state: PetState, score: Int): Pair<PetState, Int> {
+        if (state.ceremony != Ceremony.NONE || state.isEgg) return state to 0
+        val gain = minOf(12, score / 3)
+        val trSpe = minOf(100, state.trSpe + gain)
+        val joy = clamp100(state.joy + 4 + (if (score > 12) 20 else score))
+        val energy = dropTo(state.energy, 8 + score / 3, 5)
+        val fullness = dropTo(state.fullness, 4, 5)
+        val weight = maxOf(0, state.weight - score)
+        val catchHi = maxOf(state.catchHi, score)
+        var s = state.copy(trSpe = trSpe, joy = joy, energy = energy, fullness = fullness, weight = weight, catchHi = catchHi)
+        s = addBond(s, 1)
+        s = registerCare(s)
+        s = noteDailyGoal(s, DailyGoalType.CATCH, score)
+        return s to gain
+    }
+
+    /** Memo (Simon-says) minigame. Trains DEFENSE. */
+    fun applyMemoResult(state: PetState, rounds: Int): Pair<PetState, Int> {
+        if (state.ceremony != Ceremony.NONE || state.isEgg) return state to 0
+        val gain = minOf(10, rounds / 2)
+        val trDef = minOf(100, state.trDef + gain)
+        val joy = clamp100(state.joy + 5 + (if (rounds > 8) 18 else rounds * 2))
+        val energy = dropTo(state.energy, 6 + rounds / 2, 5)
+        val fullness = dropTo(state.fullness, 3, 5)
+        val memoHi = maxOf(state.memoHi, rounds)
+        var s = state.copy(trDef = trDef, joy = joy, energy = energy, fullness = fullness, memoHi = memoHi)
+        s = addBond(s, 2)
+        s = registerCare(s)
+        s = noteDailyGoal(s, DailyGoalType.MEMO, rounds)
+        return s to gain
+    }
+
+    /** Clean minigame: an extra way to clear poops/raise hygiene beyond a plain bath. */
+    fun applyCleanResult(state: PetState, score: Int): Pair<PetState, Int> {
+        if (state.ceremony != Ceremony.NONE || state.isEgg) return state to 0
+        val gain = minOf(18, score / 2)
+        val hygiene = clamp100(state.hygiene + 20 + score * 3)
+        val joy = clamp100(state.joy + 3 + (if (score > 10) 12 else score))
+        val energy = dropTo(state.energy, 4 + score / 4, 8)
+        val poops = if (state.poops > 0 && score >= 4) state.poops - 1 else state.poops
+        val cleanHi = maxOf(state.cleanHi, score)
+        var s = state.copy(hygiene = hygiene, joy = joy, energy = energy, poops = poops, cleanHi = cleanHi)
+        s = addBond(s, 1)
+        s = registerCare(s)
+        s = noteDailyGoal(s, DailyGoalType.CARE, 1)
+        return s to gain
+    }
+
+    /** Type-match minigame: teaches the same type logic used in battle. Trains STRENGTH. */
+    fun applyTypeResult(state: PetState, score: Int): Pair<PetState, Int> {
+        if (state.ceremony != Ceremony.NONE || state.isEgg) return state to 0
+        val gain = minOf(10, score / 4)
+        val trAtk = minOf(100, state.trAtk + gain)
+        val joy = clamp100(state.joy + 4 + (if (score > 12) 18 else score))
+        val energy = dropTo(state.energy, 5 + score / 3, 8)
+        val fullness = dropTo(state.fullness, 2, 5)
+        val typeHi = maxOf(state.typeHi, score)
+        var s = state.copy(trAtk = trAtk, joy = joy, energy = energy, fullness = fullness, typeHi = typeHi)
+        s = addBond(s, 1)
+        s = registerCare(s)
+        s = noteDailyGoal(s, DailyGoalType.PLAY, 1)
+        return s to gain
+    }
+
+    /** A spontaneous pet event (favorite-berry find, affectionate nuzzle, or a lucky sparkle). */
+    fun applyPetEvent(state: PetState, eventType: PetEventType): PetState {
+        if (state.ceremony != Ceremony.NONE || state.isEgg) return state
+        var s = when (eventType) {
+            PetEventType.BERRY -> state.copy(fullness = clamp100(state.fullness + 10), joy = clamp100(state.joy + 4))
+            PetEventType.HEART -> addBond(state.copy(joy = clamp100(state.joy + 6)), 1)
+            PetEventType.SPARKLE -> {
+                val joy = clamp100(state.joy + 5)
+                if (state.energy <= state.hygiene) {
+                    state.copy(joy = joy, energy = clamp100(state.energy + 3))
+                } else {
+                    state.copy(joy = joy, hygiene = clamp100(state.hygiene + 3))
+                }
+            }
+        }
+        s = registerCare(s)
+        return noteDailyGoal(s, DailyGoalType.CARE, 1)
+    }
+
+    /**
+     * A gentle pet (distinct from [caress]): rate-limited to once per 10 game-minutes,
+     * personality-flavored joy/energy/bond gains. [eveningBonus] is caller-supplied (real
+     * wall-clock time of day), since the engine has no clock of its own.
+     */
+    fun interactPet(state: PetState, eveningBonus: Boolean): Pair<PetState, PetInteractResult> {
+        if (state.ceremony != Ceremony.NONE || state.isEgg || state.sleeping) return state to PetInteractResult()
+        val nowMinute = if (state.ageMinutes > 0) state.ageMinutes else 1
+        if (state.lastPetInteractMinute != 0L && nowMinute < state.lastPetInteractMinute + 10) {
+            return state to PetInteractResult()
+        }
+        val p = personality(state)
+        val joyGain = if (p == PetPersonality.PLAYFUL) 4 else 2
+        var s = state.copy(lastPetInteractMinute = nowMinute, joy = clamp100(state.joy + joyGain))
+        var energyGained = false
+        if (p == PetPersonality.LAZY) {
+            s = s.copy(energy = clamp100(s.energy + 2))
+            energyGained = true
+        }
+        val bondEligible = eveningBonus || p == PetPersonality.CALM || (p == PetPersonality.BRAVE && state.battleWins > 0)
+        var bondGained = false
+        if (bondEligible) {
+            val before = s.bond
+            s = addBond(s, 1)
+            bondGained = s.bond > before
+        }
+        s = registerCare(s)
+        s = noteDailyGoal(s, DailyGoalType.CARE, 1)
+        return s to PetInteractResult(joyGained = true, bondGained = bondGained, energyGained = energyGained)
+    }
+
+    fun nextDexGoal(state: PetState): Int {
+        val goals = intArrayOf(10, 25, 50, 100, 151)
+        val known = state.knownDexCount()
+        return goals.firstOrNull { known < it } ?: 151
+    }
+
+    /** Registers a battle-caught wild Pokemon (separate from bred [PetState.dexRegistered]); may trigger dex-milestone rewards. */
+    fun registerCaught(state: PetState, dexId: Int): PetState {
+        if (dexId !in 1..151) return state
+        val wasKnown = state.isRegistered(dexId) || state.isCaught(dexId)
+        var s = state.copy(dexCaught = state.dexCaught + dexId)
+        s = noteDailyGoal(s, DailyGoalType.CATCH, 1)
+        if (!wasKnown) s = applyDexRewards(s)
+        return s
+    }
+
+    /** Milestone rewards for 10/25/50/100/151 known species (bred + caught combined). */
+    fun applyDexRewards(state: PetState): PetState {
+        if (state.ceremony != Ceremony.NONE || state.isEgg) return state
+        val goals = intArrayOf(10, 25, 50, 100, 151)
+        val known = state.knownDexCount()
+        var s = state
+        for ((i, goal) in goals.withIndex()) {
+            val bit = 1 shl i
+            if (known < goal || (s.dexRewardMask and bit) != 0) continue
+            s = s.copy(dexRewardMask = s.dexRewardMask or bit)
+            s = when (goal) {
+                10 -> s.copy(joy = clamp100(s.joy + 5))
+                25 -> addBond(s, 2)
+                50 -> when {
+                    s.trAtk <= s.trDef && s.trAtk <= s.trSpe -> s.copy(trAtk = clamp100(s.trAtk + 1))
+                    s.trDef <= s.trAtk && s.trDef <= s.trSpe -> s.copy(trDef = clamp100(s.trDef + 1))
+                    else -> s.copy(trSpe = clamp100(s.trSpe + 1))
+                }
+                100 -> addBond(s, 4)
+                else -> s
+            }
+        }
+        return s
+    }
+
+    /** Wild-battle win: trains whichever stat the wild's dominant base-stat corresponds to. */
+    fun applyBattleWin(state: PetState, wild: DexEntry, closeWin: Boolean): Pair<PetState, BattleReward> {
+        if (state.ceremony != Ceremony.NONE || state.isEgg) return state to BattleReward()
+        var amount = if (wild.rarity == Rarity.RARE) 2 else 1
+        if (closeWin) amount++
+        var s = state
+        val stat: BattleRewardStat
+        s = when {
+            wild.baseAtk >= wild.baseDef && wild.baseAtk >= wild.baseSpe -> {
+                stat = BattleRewardStat.DEF
+                s.copy(trDef = clamp100(s.trDef + amount))
+            }
+            wild.baseDef >= wild.baseAtk && wild.baseDef >= wild.baseSpe -> {
+                stat = BattleRewardStat.ATK
+                s.copy(trAtk = clamp100(s.trAtk + amount))
+            }
+            else -> {
+                stat = BattleRewardStat.SPE
+                s.copy(trSpe = clamp100(s.trSpe + amount))
+            }
+        }
+        s = s.copy(
+            battleWins = s.battleWins + 1,
+            battleStreak = s.battleStreak + 1,
+            joy = clamp100(s.joy + 8 + (if (closeWin) 4 else 0)),
+            energy = dropTo(s.energy, 8, 20),
+            fullness = dropTo(s.fullness, 3, 10),
+        )
+        s = s.copy(bestBattleStreak = maxOf(s.bestBattleStreak, s.battleStreak))
+        s = addBond(s, if (closeWin) 3 else 2)
+        s = registerCare(s)
+        s = noteDailyGoal(s, DailyGoalType.BATTLE, 1)
+        return s to BattleReward(stat, amount)
+    }
+
+    fun applyBattleLoss(state: PetState): PetState {
+        if (state.ceremony != Ceremony.NONE || state.isEgg) return state
+        return state.copy(
+            battleLosses = state.battleLosses + 1,
+            battleStreak = 0,
+            joy = dropTo(state.joy, 12, 20),
+            energy = dropTo(state.energy, 18, 20),
+            fullness = dropTo(state.fullness, 4, 10),
+        )
     }
 
     // ---- internal helpers ----

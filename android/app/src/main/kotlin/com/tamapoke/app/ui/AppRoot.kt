@@ -20,20 +20,25 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.tamapoke.app.R
+import com.tamapoke.app.ui.battle.BattleScreen
 import com.tamapoke.app.ui.main.CeremonyDialog
 import com.tamapoke.app.ui.main.EvolutionOverlay
 import com.tamapoke.app.ui.main.MainScreen
 import com.tamapoke.app.ui.main.MainViewModel
 import com.tamapoke.app.ui.main.StarterPickerScreen
+import com.tamapoke.app.ui.minigame.CatchMinigameScreen
+import com.tamapoke.app.ui.minigame.CleanMinigameScreen
+import com.tamapoke.app.ui.minigame.MemoMinigameScreen
 import com.tamapoke.app.ui.minigame.MinigameScreen
 import com.tamapoke.app.ui.minigame.TrainingBagScreen
+import com.tamapoke.app.ui.minigame.TypeMinigameScreen
 import com.tamapoke.app.ui.pokedex.PokedexScreen
 import com.tamapoke.app.ui.settings.SettingsScreen
 import com.tamapoke.app.ui.settings.SettingsViewModel
 import com.tamapoke.app.ui.stats.StatCardScreen
 import com.tamapoke.core.enums.Ceremony
 
-private enum class Overlay { NONE, MINIGAME, TRAINING }
+private enum class Overlay { NONE, MINIGAME, TRAINING, BATTLE, CATCH_GAME, MEMO_GAME, CLEAN_GAME, TYPE_GAME }
 
 @Composable
 fun AppRoot(mainViewModel: MainViewModel, settingsViewModel: SettingsViewModel) {
@@ -85,6 +90,11 @@ fun AppRoot(mainViewModel: MainViewModel, settingsViewModel: SettingsViewModel) 
                         mainViewModel.dex,
                         onRename = mainViewModel::rename,
                         onTrain = { overlay = Overlay.TRAINING },
+                        onWildBattle = { mainViewModel.startWildBattle(); overlay = Overlay.BATTLE },
+                        onCatchGame = { overlay = Overlay.CATCH_GAME },
+                        onMemoGame = { overlay = Overlay.MEMO_GAME },
+                        onCleanGame = { overlay = Overlay.CLEAN_GAME },
+                        onTypeGame = { overlay = Overlay.TYPE_GAME },
                     )
                     Screen.SETTINGS -> SettingsScreen(
                         settingsViewModel,
@@ -110,6 +120,54 @@ fun AppRoot(mainViewModel: MainViewModel, settingsViewModel: SettingsViewModel) 
             Surface(Modifier.fillMaxSize()) {
                 TrainingBagScreen(onFinish = { hits ->
                     mainViewModel.trainStrength(hits)
+                    overlay = Overlay.NONE
+                })
+            }
+        }
+        if (overlay == Overlay.BATTLE) {
+            val battleState by mainViewModel.battle.collectAsState()
+            battleState?.let { b ->
+                Surface(Modifier.fillMaxSize()) {
+                    BattleScreen(
+                        battle = b,
+                        dex = mainViewModel.dex,
+                        playerSpeciesId = current?.speciesId ?: 1,
+                        playerShiny = current?.shiny ?: false,
+                        onAct = mainViewModel::battleAct,
+                        onCatch = mainViewModel::attemptCatch,
+                        onClose = { mainViewModel.closeBattle(); overlay = Overlay.NONE },
+                    )
+                }
+            }
+        }
+        if (overlay == Overlay.CATCH_GAME) {
+            Surface(Modifier.fillMaxSize()) {
+                CatchMinigameScreen(onFinish = { score ->
+                    mainViewModel.catchMinigameResult(score)
+                    overlay = Overlay.NONE
+                })
+            }
+        }
+        if (overlay == Overlay.MEMO_GAME) {
+            Surface(Modifier.fillMaxSize()) {
+                MemoMinigameScreen(onFinish = { rounds ->
+                    mainViewModel.memoMinigameResult(rounds)
+                    overlay = Overlay.NONE
+                })
+            }
+        }
+        if (overlay == Overlay.CLEAN_GAME) {
+            Surface(Modifier.fillMaxSize()) {
+                CleanMinigameScreen(onFinish = { score ->
+                    mainViewModel.cleanMinigameResult(score)
+                    overlay = Overlay.NONE
+                })
+            }
+        }
+        if (overlay == Overlay.TYPE_GAME) {
+            Surface(Modifier.fillMaxSize()) {
+                TypeMinigameScreen(onFinish = { score ->
+                    mainViewModel.typeMinigameResult(score)
                     overlay = Overlay.NONE
                 })
             }

@@ -67,14 +67,37 @@ data class PetState(
     val neglectTicks: Int = 0,
     val goodTicks: Int = 0,
     val bondToday: Int = 0,
+
+    // --- ported from the ShadowEnemy expanded fork (battle/catch/minigames/daily goals) ---
+    /** Wild Pokemon caught via battle - separate from [dexRegistered] (bred), doesn't replace the active pet. */
+    val dexCaught: Set<Int> = emptySet(),
+    val catchHi: Int = 0,
+    val memoHi: Int = 0,
+    val cleanHi: Int = 0,
+    val typeHi: Int = 0,
+    val battleWins: Int = 0,
+    val battleLosses: Int = 0,
+    val battleStreak: Int = 0,
+    val bestBattleStreak: Int = 0,
+    val lastPetInteractMinute: Long = 0,
+    /** Bitmask over the 5 dex-count milestones (10/25/50/100/151) already rewarded. */
+    val dexRewardMask: Int = 0,
+    val dailyGoalDay: Long = 0,
+    /** Always 3 entries; ordinals into [com.tamapoke.core.enums.DailyGoalType]. */
+    val dailyGoalType: List<Int> = listOf(0, 1, 3),
+    val dailyGoalProgress: List<Int> = listOf(0, 0, 0),
+    /** Bitmask over the 3 daily goal slots. */
+    val dailyGoalDone: Int = 0,
 ) {
     val isEgg: Boolean get() = speciesId < 0
 
     fun isRegistered(dex: Int): Boolean = dex in dexRegistered
     fun isShinyRegistered(dex: Int): Boolean = dex in dexShinyRegistered
+    fun isCaught(dex: Int): Boolean = dex in dexCaught
     fun lowestStat(): Int = minOf(fullness, joy, energy, hygiene)
     fun level(): Int = (1 + ageMinutes / MINUTES_PER_LEVEL).toInt()
     fun registeredCount(): Int = dexRegistered.size
+    fun knownDexCount(): Int = (dexRegistered + dexCaught).size
 
     companion object {
         const val MINUTES_PER_LEVEL = 60L

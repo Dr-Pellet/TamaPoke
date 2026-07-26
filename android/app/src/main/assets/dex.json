@@ -28,7 +28,17 @@
         "def": 49,
         "spe": 45
       },
-      "biome": 2
+      "biome": 2,
+      "type1": "grass",
+      "type2": "poison",
+      "names": {
+        "es": "BULBASAUR",
+        "en": "BULBASAUR",
+        "fr": "BULBIZARRE",
+        "de": "BISASAM",
+        "it": "BULBASAUR",
+        "pt": "BULBASAUR"
+      }
     },
     {
       "id": 2,
@@ -45,7 +55,17 @@
         "def": 63,
         "spe": 60
       },
-      "biome": 2
+      "biome": 2,
+      "type1": "grass",
+      "type2": "poison",
+      "names": {
+        "es": "IVYSAUR",
+        "en": "IVYSAUR",
+        "fr": "HERBIZARRE",
+        "de": "BISAKNOSP",
+        "it": "IVYSAUR",
+        "pt": "IVYSAUR"
+      }
     },
     {
       "id": 3,
@@ -62,7 +82,17 @@
         "def": 83,
         "spe": 80
       },
-      "biome": 2
+      "biome": 2,
+      "type1": "grass",
+      "type2": "poison",
+      "names": {
+        "es": "VENUSAUR",
+        "en": "VENUSAUR",
+        "fr": "FLORIZARRE",
+        "de": "BISAFLOR",
+        "it": "VENUSAUR",
+        "pt": "VENUSAUR"
+      }
     },
     {
       "id": 4,
@@ -79,7 +109,17 @@
         "def": 43,
         "spe": 65
       },
-      "biome": 3
+      "biome": 3,
+      "type1": "fire",
+      "type2": null,
+      "names": {
+        "es": "CHARMANDER",
+        "en": "CHARMANDER",
+        "fr": "SALAMECHE",
+        "de": "GLUMANDA",
+        "it": "CHARMANDER",
+        "pt": "CHARMANDER"
+      }
     },
     {
       "id": 5,
@@ -96,7 +136,17 @@
         "def": 58,
         "spe": 80
       },
-      "biome": 3
+      "biome": 3,
+      "type1": "fire",
+      "type2": null,
+      "names": {
+        "es": "CHARMELEON",
+        "en": "CHARMELEON",
+        "fr": "REPTINCEL",
+        "de": "GLUTEXO",
+        "it": "CHARMELEON",
+        "pt": "CHARMELEON"
+      }
     },
     {
       "id": 6,
@@ -113,7 +163,17 @@
         "def": 78,
         "spe": 100
       },
-      "biome": 3
+      "biome": 3,
+      "type1": "fire",
+      "type2": "flying",
+      "names": {
+        "es": "CHARIZARD",
+        "en": "CHARIZARD",
+        "fr": "DRACAUFEU",
+        "de": "GLURAK",
+        "it": "CHARIZARD",
+        "pt": "CHARIZARD"
+      }
     },
     {
       "id": 7,
@@ -130,7 +190,17 @@
         "def": 65,
         "spe": 43
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": null,
+      "names": {
+        "es": "SQUIRTLE",
+        "en": "SQUIRTLE",
+        "fr": "CARAPUCE",
+        "de": "SCHIGGY",
+        "it": "SQUIRTLE",
+        "pt": "SQUIRTLE"
+      }
     },
     {
       "id": 8,
@@ -147,7 +217,17 @@
         "def": 80,
         "spe": 58
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": null,
+      "names": {
+        "es": "WARTORTLE",
+        "en": "WARTORTLE",
+        "fr": "CARABAFFE",
+        "de": "SCHILLOK",
+        "it": "WARTORTLE",
+        "pt": "WARTORTLE"
+      }
     },
     {
       "id": 9,
@@ -164,7 +244,17 @@
         "def": 100,
         "spe": 78
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": null,
+      "names": {
+        "es": "BLASTOISE",
+        "en": "BLASTOISE",
+        "fr": "TORTANK",
+        "de": "TURTOK",
+        "it": "BLASTOISE",
+        "pt": "BLASTOISE"
+      }
     },
     {
       "id": 10,
@@ -181,7 +271,17 @@
         "def": 35,
         "spe": 45
       },
-      "biome": 2
+      "biome": 2,
+      "type1": "bug",
+      "type2": null,
+      "names": {
+        "es": "CATERPIE",
+        "en": "CATERPIE",
+        "fr": "CHENIPAN",
+        "de": "RAUPY",
+        "it": "CATERPIE",
+        "pt": "CATERPIE"
+      }
     },
     {
       "id": 11,
@@ -198,7 +298,17 @@
         "def": 55,
         "spe": 30
       },
-      "biome": 2
+      "biome": 2,
+      "type1": "bug",
+      "type2": null,
+      "names": {
+        "es": "METAPOD",
+        "en": "METAPOD",
+        "fr": "CHRYSACIER",
+        "de": "SAFCON",
+        "it": "METAPOD",
+        "pt": "METAPOD"
+      }
     },
     {
       "id": 12,
@@ -215,7 +325,17 @@
         "def": 50,
         "spe": 70
       },
-      "biome": 2
+      "biome": 2,
+      "type1": "bug",
+      "type2": "flying",
+      "names": {
+        "es": "BUTTERFREE",
+        "en": "BUTTERFREE",
+        "fr": "PAPILUSION",
+        "de": "SMETTBO",
+        "it": "BUTTERFREE",
+        "pt": "BUTTERFREE"
+      }
     },
     {
       "id": 13,
@@ -232,7 +352,17 @@
         "def": 30,
         "spe": 50
       },
-      "biome": 2
+      "biome": 2,
+      "type1": "bug",
+      "type2": "poison",
+      "names": {
+        "es": "WEEDLE",
+        "en": "WEEDLE",
+        "fr": "ASPICOT",
+        "de": "HORNLIU",
+        "it": "WEEDLE",
+        "pt": "WEEDLE"
+      }
     },
     {
       "id": 14,
@@ -249,7 +379,17 @@
         "def": 50,
         "spe": 35
       },
-      "biome": 2
+      "biome": 2,
+      "type1": "bug",
+      "type2": "poison",
+      "names": {
+        "es": "KAKUNA",
+        "en": "KAKUNA",
+        "fr": "COCONFORT",
+        "de": "KOKUNA",
+        "it": "KAKUNA",
+        "pt": "KAKUNA"
+      }
     },
     {
       "id": 15,
@@ -266,7 +406,17 @@
         "def": 40,
         "spe": 75
       },
-      "biome": 2
+      "biome": 2,
+      "type1": "bug",
+      "type2": "poison",
+      "names": {
+        "es": "BEEDRILL",
+        "en": "BEEDRILL",
+        "fr": "DARDARGNAN",
+        "de": "BIBOR",
+        "it": "BEEDRILL",
+        "pt": "BEEDRILL"
+      }
     },
     {
       "id": 16,
@@ -283,7 +433,17 @@
         "def": 40,
         "spe": 56
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "normal",
+      "type2": "flying",
+      "names": {
+        "es": "PIDGEY",
+        "en": "PIDGEY",
+        "fr": "ROUCOOL",
+        "de": "TAUBSI",
+        "it": "PIDGEY",
+        "pt": "PIDGEY"
+      }
     },
     {
       "id": 17,
@@ -300,7 +460,17 @@
         "def": 55,
         "spe": 71
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "normal",
+      "type2": "flying",
+      "names": {
+        "es": "PIDGEOTTO",
+        "en": "PIDGEOTTO",
+        "fr": "ROUCOUPS",
+        "de": "TAUBOGA",
+        "it": "PIDGEOTTO",
+        "pt": "PIDGEOTTO"
+      }
     },
     {
       "id": 18,
@@ -317,7 +487,17 @@
         "def": 75,
         "spe": 101
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "normal",
+      "type2": "flying",
+      "names": {
+        "es": "PIDGEOT",
+        "en": "PIDGEOT",
+        "fr": "ROUCARNAGE",
+        "de": "TAUBOSS",
+        "it": "PIDGEOT",
+        "pt": "PIDGEOT"
+      }
     },
     {
       "id": 19,
@@ -334,7 +514,17 @@
         "def": 35,
         "spe": 72
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "normal",
+      "type2": null,
+      "names": {
+        "es": "RATTATA",
+        "en": "RATTATA",
+        "fr": "RATTATA",
+        "de": "RATTFRATZ",
+        "it": "RATTATA",
+        "pt": "RATTATA"
+      }
     },
     {
       "id": 20,
@@ -351,7 +541,17 @@
         "def": 60,
         "spe": 97
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "normal",
+      "type2": null,
+      "names": {
+        "es": "RATICATE",
+        "en": "RATICATE",
+        "fr": "RATTATAC",
+        "de": "RATTIKARL",
+        "it": "RATICATE",
+        "pt": "RATICATE"
+      }
     },
     {
       "id": 21,
@@ -368,7 +568,17 @@
         "def": 30,
         "spe": 70
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "normal",
+      "type2": "flying",
+      "names": {
+        "es": "SPEAROW",
+        "en": "SPEAROW",
+        "fr": "PIAFABEC",
+        "de": "HABITAK",
+        "it": "SPEAROW",
+        "pt": "SPEAROW"
+      }
     },
     {
       "id": 22,
@@ -385,7 +595,17 @@
         "def": 65,
         "spe": 100
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "normal",
+      "type2": "flying",
+      "names": {
+        "es": "FEAROW",
+        "en": "FEAROW",
+        "fr": "RAPASDEPIC",
+        "de": "IBITAK",
+        "it": "FEAROW",
+        "pt": "FEAROW"
+      }
     },
     {
       "id": 23,
@@ -402,7 +622,17 @@
         "def": 44,
         "spe": 55
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "poison",
+      "type2": null,
+      "names": {
+        "es": "EKANS",
+        "en": "EKANS",
+        "fr": "ABO",
+        "de": "RETTAN",
+        "it": "EKANS",
+        "pt": "EKANS"
+      }
     },
     {
       "id": 24,
@@ -419,7 +649,17 @@
         "def": 69,
         "spe": 80
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "poison",
+      "type2": null,
+      "names": {
+        "es": "ARBOK",
+        "en": "ARBOK",
+        "fr": "ARBOK",
+        "de": "ARBOK",
+        "it": "ARBOK",
+        "pt": "ARBOK"
+      }
     },
     {
       "id": 25,
@@ -436,7 +676,17 @@
         "def": 40,
         "spe": 90
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "electric",
+      "type2": null,
+      "names": {
+        "es": "PIKACHU",
+        "en": "PIKACHU",
+        "fr": "PIKACHU",
+        "de": "PIKACHU",
+        "it": "PIKACHU",
+        "pt": "PIKACHU"
+      }
     },
     {
       "id": 26,
@@ -453,7 +703,17 @@
         "def": 55,
         "spe": 110
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "electric",
+      "type2": null,
+      "names": {
+        "es": "RAICHU",
+        "en": "RAICHU",
+        "fr": "RAICHU",
+        "de": "RAICHU",
+        "it": "RAICHU",
+        "pt": "RAICHU"
+      }
     },
     {
       "id": 27,
@@ -470,7 +730,17 @@
         "def": 85,
         "spe": 40
       },
-      "biome": 4
+      "biome": 4,
+      "type1": "ground",
+      "type2": null,
+      "names": {
+        "es": "SANDSHREW",
+        "en": "SANDSHREW",
+        "fr": "SABELETTE",
+        "de": "SANDAN",
+        "it": "SANDSHREW",
+        "pt": "SANDSHREW"
+      }
     },
     {
       "id": 28,
@@ -487,7 +757,17 @@
         "def": 110,
         "spe": 65
       },
-      "biome": 4
+      "biome": 4,
+      "type1": "ground",
+      "type2": null,
+      "names": {
+        "es": "SANDSLASH",
+        "en": "SANDSLASH",
+        "fr": "SABLAIREAU",
+        "de": "SANDAMER",
+        "it": "SANDSLASH",
+        "pt": "SANDSLASH"
+      }
     },
     {
       "id": 29,
@@ -504,7 +784,17 @@
         "def": 52,
         "spe": 41
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "poison",
+      "type2": null,
+      "names": {
+        "es": "NIDORAN F",
+        "en": "NIDORAN F",
+        "fr": "NIDORAN F",
+        "de": "NIDORAN F",
+        "it": "NIDORAN F",
+        "pt": "NIDORAN F"
+      }
     },
     {
       "id": 30,
@@ -521,7 +811,17 @@
         "def": 67,
         "spe": 56
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "poison",
+      "type2": null,
+      "names": {
+        "es": "NIDORINA",
+        "en": "NIDORINA",
+        "fr": "NIDORINA",
+        "de": "NIDORINA",
+        "it": "NIDORINA",
+        "pt": "NIDORINA"
+      }
     },
     {
       "id": 31,
@@ -538,7 +838,17 @@
         "def": 87,
         "spe": 76
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "poison",
+      "type2": "ground",
+      "names": {
+        "es": "NIDOQUEEN",
+        "en": "NIDOQUEEN",
+        "fr": "NIDOQUEEN",
+        "de": "NIDOQUEEN",
+        "it": "NIDOQUEEN",
+        "pt": "NIDOQUEEN"
+      }
     },
     {
       "id": 32,
@@ -555,7 +865,17 @@
         "def": 40,
         "spe": 50
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "poison",
+      "type2": null,
+      "names": {
+        "es": "NIDORAN M",
+        "en": "NIDORAN M",
+        "fr": "NIDORAN M",
+        "de": "NIDORAN M",
+        "it": "NIDORAN M",
+        "pt": "NIDORAN M"
+      }
     },
     {
       "id": 33,
@@ -572,7 +892,17 @@
         "def": 57,
         "spe": 65
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "poison",
+      "type2": null,
+      "names": {
+        "es": "NIDORINO",
+        "en": "NIDORINO",
+        "fr": "NIDORINO",
+        "de": "NIDORINO",
+        "it": "NIDORINO",
+        "pt": "NIDORINO"
+      }
     },
     {
       "id": 34,
@@ -589,7 +919,17 @@
         "def": 77,
         "spe": 85
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "poison",
+      "type2": "ground",
+      "names": {
+        "es": "NIDOKING",
+        "en": "NIDOKING",
+        "fr": "NIDOKING",
+        "de": "NIDOKING",
+        "it": "NIDOKING",
+        "pt": "NIDOKING"
+      }
     },
     {
       "id": 35,
@@ -606,7 +946,17 @@
         "def": 48,
         "spe": 35
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "fairy",
+      "type2": null,
+      "names": {
+        "es": "CLEFAIRY",
+        "en": "CLEFAIRY",
+        "fr": "MELOFEE",
+        "de": "PIEPI",
+        "it": "CLEFAIRY",
+        "pt": "CLEFAIRY"
+      }
     },
     {
       "id": 36,
@@ -623,7 +973,17 @@
         "def": 73,
         "spe": 60
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "fairy",
+      "type2": null,
+      "names": {
+        "es": "CLEFABLE",
+        "en": "CLEFABLE",
+        "fr": "MELODELFE",
+        "de": "PIXI",
+        "it": "CLEFABLE",
+        "pt": "CLEFABLE"
+      }
     },
     {
       "id": 37,
@@ -640,7 +1000,17 @@
         "def": 40,
         "spe": 65
       },
-      "biome": 3
+      "biome": 3,
+      "type1": "fire",
+      "type2": null,
+      "names": {
+        "es": "VULPIX",
+        "en": "VULPIX",
+        "fr": "GOUPIX",
+        "de": "VULPIX",
+        "it": "VULPIX",
+        "pt": "VULPIX"
+      }
     },
     {
       "id": 38,
@@ -657,7 +1027,17 @@
         "def": 75,
         "spe": 100
       },
-      "biome": 3
+      "biome": 3,
+      "type1": "fire",
+      "type2": null,
+      "names": {
+        "es": "NINETALES",
+        "en": "NINETALES",
+        "fr": "FEUNARD",
+        "de": "VULNONA",
+        "it": "NINETALES",
+        "pt": "NINETALES"
+      }
     },
     {
       "id": 39,
@@ -674,7 +1054,17 @@
         "def": 20,
         "spe": 20
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "normal",
+      "type2": "fairy",
+      "names": {
+        "es": "JIGGLYPUFF",
+        "en": "JIGGLYPUFF",
+        "fr": "RONDOUDOU",
+        "de": "PUMMELUFF",
+        "it": "JIGGLYPUFF",
+        "pt": "JIGGLYPUFF"
+      }
     },
     {
       "id": 40,
@@ -691,7 +1081,17 @@
         "def": 45,
         "spe": 45
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "normal",
+      "type2": "fairy",
+      "names": {
+        "es": "WIGGLYTUFF",
+        "en": "WIGGLYTUFF",
+        "fr": "GRODOUDOU",
+        "de": "KNUDDELUFF",
+        "it": "WIGGLYTUFF",
+        "pt": "WIGGLYTUFF"
+      }
     },
     {
       "id": 41,
@@ -708,7 +1108,17 @@
         "def": 35,
         "spe": 55
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "poison",
+      "type2": "flying",
+      "names": {
+        "es": "ZUBAT",
+        "en": "ZUBAT",
+        "fr": "NOSFERAPTI",
+        "de": "ZUBAT",
+        "it": "ZUBAT",
+        "pt": "ZUBAT"
+      }
     },
     {
       "id": 42,
@@ -725,7 +1135,17 @@
         "def": 70,
         "spe": 90
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "poison",
+      "type2": "flying",
+      "names": {
+        "es": "GOLBAT",
+        "en": "GOLBAT",
+        "fr": "NOSFERALTO",
+        "de": "GOLBAT",
+        "it": "GOLBAT",
+        "pt": "GOLBAT"
+      }
     },
     {
       "id": 43,
@@ -742,7 +1162,17 @@
         "def": 55,
         "spe": 30
       },
-      "biome": 2
+      "biome": 2,
+      "type1": "grass",
+      "type2": "poison",
+      "names": {
+        "es": "ODDISH",
+        "en": "ODDISH",
+        "fr": "MYSTHERBE",
+        "de": "MYRAPLA",
+        "it": "ODDISH",
+        "pt": "ODDISH"
+      }
     },
     {
       "id": 44,
@@ -759,7 +1189,17 @@
         "def": 70,
         "spe": 40
       },
-      "biome": 2
+      "biome": 2,
+      "type1": "grass",
+      "type2": "poison",
+      "names": {
+        "es": "GLOOM",
+        "en": "GLOOM",
+        "fr": "ORTIDE",
+        "de": "DUFLOR",
+        "it": "GLOOM",
+        "pt": "GLOOM"
+      }
     },
     {
       "id": 45,
@@ -776,7 +1216,17 @@
         "def": 85,
         "spe": 50
       },
-      "biome": 2
+      "biome": 2,
+      "type1": "grass",
+      "type2": "poison",
+      "names": {
+        "es": "VILEPLUME",
+        "en": "VILEPLUME",
+        "fr": "RAFFLESIA",
+        "de": "GIFLOR",
+        "it": "VILEPLUME",
+        "pt": "VILEPLUME"
+      }
     },
     {
       "id": 46,
@@ -793,7 +1243,17 @@
         "def": 55,
         "spe": 25
       },
-      "biome": 2
+      "biome": 2,
+      "type1": "bug",
+      "type2": "grass",
+      "names": {
+        "es": "PARAS",
+        "en": "PARAS",
+        "fr": "PARAS",
+        "de": "PARAS",
+        "it": "PARAS",
+        "pt": "PARAS"
+      }
     },
     {
       "id": 47,
@@ -810,7 +1270,17 @@
         "def": 80,
         "spe": 30
       },
-      "biome": 2
+      "biome": 2,
+      "type1": "bug",
+      "type2": "grass",
+      "names": {
+        "es": "PARASECT",
+        "en": "PARASECT",
+        "fr": "PARASECT",
+        "de": "PARASEK",
+        "it": "PARASECT",
+        "pt": "PARASECT"
+      }
     },
     {
       "id": 48,
@@ -827,7 +1297,17 @@
         "def": 50,
         "spe": 45
       },
-      "biome": 2
+      "biome": 2,
+      "type1": "bug",
+      "type2": "poison",
+      "names": {
+        "es": "VENONAT",
+        "en": "VENONAT",
+        "fr": "MIMITOSS",
+        "de": "BLUZUK",
+        "it": "VENONAT",
+        "pt": "VENONAT"
+      }
     },
     {
       "id": 49,
@@ -844,7 +1324,17 @@
         "def": 60,
         "spe": 90
       },
-      "biome": 2
+      "biome": 2,
+      "type1": "bug",
+      "type2": "poison",
+      "names": {
+        "es": "VENOMOTH",
+        "en": "VENOMOTH",
+        "fr": "AEROMITE",
+        "de": "OMOT",
+        "it": "VENOMOTH",
+        "pt": "VENOMOTH"
+      }
     },
     {
       "id": 50,
@@ -861,7 +1351,17 @@
         "def": 25,
         "spe": 95
       },
-      "biome": 4
+      "biome": 4,
+      "type1": "ground",
+      "type2": null,
+      "names": {
+        "es": "DIGLETT",
+        "en": "DIGLETT",
+        "fr": "TAUPIQUEUR",
+        "de": "DIGDA",
+        "it": "DIGLETT",
+        "pt": "DIGLETT"
+      }
     },
     {
       "id": 51,
@@ -878,7 +1378,17 @@
         "def": 50,
         "spe": 120
       },
-      "biome": 4
+      "biome": 4,
+      "type1": "ground",
+      "type2": null,
+      "names": {
+        "es": "DUGTRIO",
+        "en": "DUGTRIO",
+        "fr": "TRIOPIKEUR",
+        "de": "DIGDRI",
+        "it": "DUGTRIO",
+        "pt": "DUGTRIO"
+      }
     },
     {
       "id": 52,
@@ -895,7 +1405,17 @@
         "def": 35,
         "spe": 90
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "normal",
+      "type2": null,
+      "names": {
+        "es": "MEOWTH",
+        "en": "MEOWTH",
+        "fr": "MIAOUSS",
+        "de": "MAUZI",
+        "it": "MEOWTH",
+        "pt": "MEOWTH"
+      }
     },
     {
       "id": 53,
@@ -912,7 +1432,17 @@
         "def": 60,
         "spe": 115
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "normal",
+      "type2": null,
+      "names": {
+        "es": "PERSIAN",
+        "en": "PERSIAN",
+        "fr": "PERSIAN",
+        "de": "SNOBILIKAT",
+        "it": "PERSIAN",
+        "pt": "PERSIAN"
+      }
     },
     {
       "id": 54,
@@ -929,7 +1459,17 @@
         "def": 48,
         "spe": 55
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": null,
+      "names": {
+        "es": "PSYDUCK",
+        "en": "PSYDUCK",
+        "fr": "PSYKOKWAK",
+        "de": "ENTON",
+        "it": "PSYDUCK",
+        "pt": "PSYDUCK"
+      }
     },
     {
       "id": 55,
@@ -946,7 +1486,17 @@
         "def": 78,
         "spe": 85
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": null,
+      "names": {
+        "es": "GOLDUCK",
+        "en": "GOLDUCK",
+        "fr": "AKWAKWAK",
+        "de": "ENTORON",
+        "it": "GOLDUCK",
+        "pt": "GOLDUCK"
+      }
     },
     {
       "id": 56,
@@ -963,7 +1513,17 @@
         "def": 35,
         "spe": 70
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "fighting",
+      "type2": null,
+      "names": {
+        "es": "MANKEY",
+        "en": "MANKEY",
+        "fr": "FEROSINGE",
+        "de": "MENKI",
+        "it": "MANKEY",
+        "pt": "MANKEY"
+      }
     },
     {
       "id": 57,
@@ -980,7 +1540,17 @@
         "def": 60,
         "spe": 95
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "fighting",
+      "type2": null,
+      "names": {
+        "es": "PRIMEAPE",
+        "en": "PRIMEAPE",
+        "fr": "COLOSSINGE",
+        "de": "RASAFF",
+        "it": "PRIMEAPE",
+        "pt": "PRIMEAPE"
+      }
     },
     {
       "id": 58,
@@ -997,7 +1567,17 @@
         "def": 45,
         "spe": 60
       },
-      "biome": 3
+      "biome": 3,
+      "type1": "fire",
+      "type2": null,
+      "names": {
+        "es": "GROWLITHE",
+        "en": "GROWLITHE",
+        "fr": "CANINOS",
+        "de": "FUKANO",
+        "it": "GROWLITHE",
+        "pt": "GROWLITHE"
+      }
     },
     {
       "id": 59,
@@ -1014,7 +1594,17 @@
         "def": 80,
         "spe": 95
       },
-      "biome": 3
+      "biome": 3,
+      "type1": "fire",
+      "type2": null,
+      "names": {
+        "es": "ARCANINE",
+        "en": "ARCANINE",
+        "fr": "ARCANIN",
+        "de": "ARKANI",
+        "it": "ARCANINE",
+        "pt": "ARCANINE"
+      }
     },
     {
       "id": 60,
@@ -1031,7 +1621,17 @@
         "def": 40,
         "spe": 90
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": null,
+      "names": {
+        "es": "POLIWAG",
+        "en": "POLIWAG",
+        "fr": "PTITARD",
+        "de": "QUAPSEL",
+        "it": "POLIWAG",
+        "pt": "POLIWAG"
+      }
     },
     {
       "id": 61,
@@ -1048,7 +1648,17 @@
         "def": 65,
         "spe": 90
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": null,
+      "names": {
+        "es": "POLIWHIRL",
+        "en": "POLIWHIRL",
+        "fr": "TETARTE",
+        "de": "QUAPUTZI",
+        "it": "POLIWHIRL",
+        "pt": "POLIWHIRL"
+      }
     },
     {
       "id": 62,
@@ -1065,7 +1675,17 @@
         "def": 95,
         "spe": 70
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": "fighting",
+      "names": {
+        "es": "POLIWRATH",
+        "en": "POLIWRATH",
+        "fr": "TARTARD",
+        "de": "QUAPPO",
+        "it": "POLIWRATH",
+        "pt": "POLIWRATH"
+      }
     },
     {
       "id": 63,
@@ -1082,7 +1702,17 @@
         "def": 15,
         "spe": 90
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "psychic",
+      "type2": null,
+      "names": {
+        "es": "ABRA",
+        "en": "ABRA",
+        "fr": "ABRA",
+        "de": "ABRA",
+        "it": "ABRA",
+        "pt": "ABRA"
+      }
     },
     {
       "id": 64,
@@ -1099,7 +1729,17 @@
         "def": 30,
         "spe": 105
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "psychic",
+      "type2": null,
+      "names": {
+        "es": "KADABRA",
+        "en": "KADABRA",
+        "fr": "KADABRA",
+        "de": "KADABRA",
+        "it": "KADABRA",
+        "pt": "KADABRA"
+      }
     },
     {
       "id": 65,
@@ -1116,7 +1756,17 @@
         "def": 45,
         "spe": 120
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "psychic",
+      "type2": null,
+      "names": {
+        "es": "ALAKAZAM",
+        "en": "ALAKAZAM",
+        "fr": "ALAKAZAM",
+        "de": "SIMSALA",
+        "it": "ALAKAZAM",
+        "pt": "ALAKAZAM"
+      }
     },
     {
       "id": 66,
@@ -1133,7 +1783,17 @@
         "def": 50,
         "spe": 35
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "fighting",
+      "type2": null,
+      "names": {
+        "es": "MACHOP",
+        "en": "MACHOP",
+        "fr": "MACHOC",
+        "de": "MACHOLLO",
+        "it": "MACHOP",
+        "pt": "MACHOP"
+      }
     },
     {
       "id": 67,
@@ -1150,7 +1810,17 @@
         "def": 70,
         "spe": 45
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "fighting",
+      "type2": null,
+      "names": {
+        "es": "MACHOKE",
+        "en": "MACHOKE",
+        "fr": "MACHOPEUR",
+        "de": "MASCHOCK",
+        "it": "MACHOKE",
+        "pt": "MACHOKE"
+      }
     },
     {
       "id": 68,
@@ -1167,7 +1837,17 @@
         "def": 80,
         "spe": 55
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "fighting",
+      "type2": null,
+      "names": {
+        "es": "MACHAMP",
+        "en": "MACHAMP",
+        "fr": "MACKOGNEUR",
+        "de": "MACHOMEI",
+        "it": "MACHAMP",
+        "pt": "MACHAMP"
+      }
     },
     {
       "id": 69,
@@ -1184,7 +1864,17 @@
         "def": 35,
         "spe": 40
       },
-      "biome": 2
+      "biome": 2,
+      "type1": "grass",
+      "type2": "poison",
+      "names": {
+        "es": "BELLSPROUT",
+        "en": "BELLSPROUT",
+        "fr": "CHETIFLOR",
+        "de": "KNOFENSA",
+        "it": "BELLSPROUT",
+        "pt": "BELLSPROUT"
+      }
     },
     {
       "id": 70,
@@ -1201,7 +1891,17 @@
         "def": 50,
         "spe": 55
       },
-      "biome": 2
+      "biome": 2,
+      "type1": "grass",
+      "type2": "poison",
+      "names": {
+        "es": "WEEPINBELL",
+        "en": "WEEPINBELL",
+        "fr": "BOUSTIFLOR",
+        "de": "ULTRIGARIA",
+        "it": "WEEPINBELL",
+        "pt": "WEEPINBELL"
+      }
     },
     {
       "id": 71,
@@ -1218,7 +1918,17 @@
         "def": 65,
         "spe": 70
       },
-      "biome": 2
+      "biome": 2,
+      "type1": "grass",
+      "type2": "poison",
+      "names": {
+        "es": "VICTREEBEL",
+        "en": "VICTREEBEL",
+        "fr": "EMPIFLOR",
+        "de": "SARZENIA",
+        "it": "VICTREEBEL",
+        "pt": "VICTREEBEL"
+      }
     },
     {
       "id": 72,
@@ -1235,7 +1945,17 @@
         "def": 35,
         "spe": 70
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": "poison",
+      "names": {
+        "es": "TENTACOOL",
+        "en": "TENTACOOL",
+        "fr": "TENTACOOL",
+        "de": "TENTACHA",
+        "it": "TENTACOOL",
+        "pt": "TENTACOOL"
+      }
     },
     {
       "id": 73,
@@ -1252,7 +1972,17 @@
         "def": 65,
         "spe": 100
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": "poison",
+      "names": {
+        "es": "TENTACRUEL",
+        "en": "TENTACRUEL",
+        "fr": "TENTACRUEL",
+        "de": "TENTOXA",
+        "it": "TENTACRUEL",
+        "pt": "TENTACRUEL"
+      }
     },
     {
       "id": 74,
@@ -1269,7 +1999,17 @@
         "def": 100,
         "spe": 20
       },
-      "biome": 4
+      "biome": 4,
+      "type1": "rock",
+      "type2": "ground",
+      "names": {
+        "es": "GEODUDE",
+        "en": "GEODUDE",
+        "fr": "RACAILLOU",
+        "de": "KLEINSTEIN",
+        "it": "GEODUDE",
+        "pt": "GEODUDE"
+      }
     },
     {
       "id": 75,
@@ -1286,7 +2026,17 @@
         "def": 115,
         "spe": 35
       },
-      "biome": 4
+      "biome": 4,
+      "type1": "rock",
+      "type2": "ground",
+      "names": {
+        "es": "GRAVELER",
+        "en": "GRAVELER",
+        "fr": "GRAVALANCH",
+        "de": "GEOROK",
+        "it": "GRAVELER",
+        "pt": "GRAVELER"
+      }
     },
     {
       "id": 76,
@@ -1303,7 +2053,17 @@
         "def": 130,
         "spe": 45
       },
-      "biome": 4
+      "biome": 4,
+      "type1": "rock",
+      "type2": "ground",
+      "names": {
+        "es": "GOLEM",
+        "en": "GOLEM",
+        "fr": "GROLEM",
+        "de": "GEOWAZ",
+        "it": "GOLEM",
+        "pt": "GOLEM"
+      }
     },
     {
       "id": 77,
@@ -1320,7 +2080,17 @@
         "def": 55,
         "spe": 90
       },
-      "biome": 3
+      "biome": 3,
+      "type1": "fire",
+      "type2": null,
+      "names": {
+        "es": "PONYTA",
+        "en": "PONYTA",
+        "fr": "PONYTA",
+        "de": "PONITA",
+        "it": "PONYTA",
+        "pt": "PONYTA"
+      }
     },
     {
       "id": 78,
@@ -1337,7 +2107,17 @@
         "def": 70,
         "spe": 105
       },
-      "biome": 3
+      "biome": 3,
+      "type1": "fire",
+      "type2": null,
+      "names": {
+        "es": "RAPIDASH",
+        "en": "RAPIDASH",
+        "fr": "GALOPA",
+        "de": "GALLOPA",
+        "it": "RAPIDASH",
+        "pt": "RAPIDASH"
+      }
     },
     {
       "id": 79,
@@ -1354,7 +2134,17 @@
         "def": 65,
         "spe": 15
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": "psychic",
+      "names": {
+        "es": "SLOWPOKE",
+        "en": "SLOWPOKE",
+        "fr": "RAMOLOSS",
+        "de": "FLEGMON",
+        "it": "SLOWPOKE",
+        "pt": "SLOWPOKE"
+      }
     },
     {
       "id": 80,
@@ -1371,7 +2161,17 @@
         "def": 110,
         "spe": 30
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": "psychic",
+      "names": {
+        "es": "SLOWBRO",
+        "en": "SLOWBRO",
+        "fr": "FLAGADOSS",
+        "de": "LAHMUS",
+        "it": "SLOWBRO",
+        "pt": "SLOWBRO"
+      }
     },
     {
       "id": 81,
@@ -1388,7 +2188,17 @@
         "def": 70,
         "spe": 45
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "electric",
+      "type2": "steel",
+      "names": {
+        "es": "MAGNEMITE",
+        "en": "MAGNEMITE",
+        "fr": "MAGNETI",
+        "de": "MAGNETILO",
+        "it": "MAGNEMITE",
+        "pt": "MAGNEMITE"
+      }
     },
     {
       "id": 82,
@@ -1405,7 +2215,17 @@
         "def": 95,
         "spe": 70
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "electric",
+      "type2": "steel",
+      "names": {
+        "es": "MAGNETON",
+        "en": "MAGNETON",
+        "fr": "MAGNETON",
+        "de": "MAGNETON",
+        "it": "MAGNETON",
+        "pt": "MAGNETON"
+      }
     },
     {
       "id": 83,
@@ -1422,7 +2242,17 @@
         "def": 55,
         "spe": 60
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "normal",
+      "type2": "flying",
+      "names": {
+        "es": "FARFETCHD",
+        "en": "FARFETCHD",
+        "fr": "CANARTICHO",
+        "de": "PORENTA",
+        "it": "FARFETCHD",
+        "pt": "FARFETCHD"
+      }
     },
     {
       "id": 84,
@@ -1439,7 +2269,17 @@
         "def": 45,
         "spe": 75
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "normal",
+      "type2": "flying",
+      "names": {
+        "es": "DODUO",
+        "en": "DODUO",
+        "fr": "DODUO",
+        "de": "DODU",
+        "it": "DODUO",
+        "pt": "DODUO"
+      }
     },
     {
       "id": 85,
@@ -1456,7 +2296,17 @@
         "def": 70,
         "spe": 110
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "normal",
+      "type2": "flying",
+      "names": {
+        "es": "DODRIO",
+        "en": "DODRIO",
+        "fr": "DODRIO",
+        "de": "DODRI",
+        "it": "DODRIO",
+        "pt": "DODRIO"
+      }
     },
     {
       "id": 86,
@@ -1473,7 +2323,17 @@
         "def": 55,
         "spe": 45
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": null,
+      "names": {
+        "es": "SEEL",
+        "en": "SEEL",
+        "fr": "OTARIA",
+        "de": "JUROB",
+        "it": "SEEL",
+        "pt": "SEEL"
+      }
     },
     {
       "id": 87,
@@ -1490,7 +2350,17 @@
         "def": 80,
         "spe": 70
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": "ice",
+      "names": {
+        "es": "DEWGONG",
+        "en": "DEWGONG",
+        "fr": "LAMANTINE",
+        "de": "JUGONG",
+        "it": "DEWGONG",
+        "pt": "DEWGONG"
+      }
     },
     {
       "id": 88,
@@ -1507,7 +2377,17 @@
         "def": 50,
         "spe": 25
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "poison",
+      "type2": null,
+      "names": {
+        "es": "GRIMER",
+        "en": "GRIMER",
+        "fr": "TADMORV",
+        "de": "SLEIMA",
+        "it": "GRIMER",
+        "pt": "GRIMER"
+      }
     },
     {
       "id": 89,
@@ -1524,7 +2404,17 @@
         "def": 75,
         "spe": 50
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "poison",
+      "type2": null,
+      "names": {
+        "es": "MUK",
+        "en": "MUK",
+        "fr": "GROTADMORV",
+        "de": "SLEIMOK",
+        "it": "MUK",
+        "pt": "MUK"
+      }
     },
     {
       "id": 90,
@@ -1541,7 +2431,17 @@
         "def": 100,
         "spe": 40
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": null,
+      "names": {
+        "es": "SHELLDER",
+        "en": "SHELLDER",
+        "fr": "KOKIYAS",
+        "de": "MUSCHAS",
+        "it": "SHELLDER",
+        "pt": "SHELLDER"
+      }
     },
     {
       "id": 91,
@@ -1558,7 +2458,17 @@
         "def": 180,
         "spe": 70
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": "ice",
+      "names": {
+        "es": "CLOYSTER",
+        "en": "CLOYSTER",
+        "fr": "CRUSTABRI",
+        "de": "AUSTOS",
+        "it": "CLOYSTER",
+        "pt": "CLOYSTER"
+      }
     },
     {
       "id": 92,
@@ -1575,7 +2485,17 @@
         "def": 30,
         "spe": 80
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "ghost",
+      "type2": "poison",
+      "names": {
+        "es": "GASTLY",
+        "en": "GASTLY",
+        "fr": "FANTOMINUS",
+        "de": "NEBULAK",
+        "it": "GASTLY",
+        "pt": "GASTLY"
+      }
     },
     {
       "id": 93,
@@ -1592,7 +2512,17 @@
         "def": 45,
         "spe": 95
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "ghost",
+      "type2": "poison",
+      "names": {
+        "es": "HAUNTER",
+        "en": "HAUNTER",
+        "fr": "SPECTRUM",
+        "de": "ALPOLLO",
+        "it": "HAUNTER",
+        "pt": "HAUNTER"
+      }
     },
     {
       "id": 94,
@@ -1609,7 +2539,17 @@
         "def": 60,
         "spe": 110
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "ghost",
+      "type2": "poison",
+      "names": {
+        "es": "GENGAR",
+        "en": "GENGAR",
+        "fr": "ECTOPLASMA",
+        "de": "GENGAR",
+        "it": "GENGAR",
+        "pt": "GENGAR"
+      }
     },
     {
       "id": 95,
@@ -1626,7 +2566,17 @@
         "def": 160,
         "spe": 70
       },
-      "biome": 4
+      "biome": 4,
+      "type1": "rock",
+      "type2": "ground",
+      "names": {
+        "es": "ONIX",
+        "en": "ONIX",
+        "fr": "ONIX",
+        "de": "ONIX",
+        "it": "ONIX",
+        "pt": "ONIX"
+      }
     },
     {
       "id": 96,
@@ -1643,7 +2593,17 @@
         "def": 45,
         "spe": 42
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "psychic",
+      "type2": null,
+      "names": {
+        "es": "DROWZEE",
+        "en": "DROWZEE",
+        "fr": "SOPORIFIK",
+        "de": "TRAUMATO",
+        "it": "DROWZEE",
+        "pt": "DROWZEE"
+      }
     },
     {
       "id": 97,
@@ -1660,7 +2620,17 @@
         "def": 70,
         "spe": 67
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "psychic",
+      "type2": null,
+      "names": {
+        "es": "HYPNO",
+        "en": "HYPNO",
+        "fr": "HYPNOMADE",
+        "de": "HYPNO",
+        "it": "HYPNO",
+        "pt": "HYPNO"
+      }
     },
     {
       "id": 98,
@@ -1677,7 +2647,17 @@
         "def": 90,
         "spe": 50
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": null,
+      "names": {
+        "es": "KRABBY",
+        "en": "KRABBY",
+        "fr": "KRABBY",
+        "de": "KRABBY",
+        "it": "KRABBY",
+        "pt": "KRABBY"
+      }
     },
     {
       "id": 99,
@@ -1694,7 +2674,17 @@
         "def": 115,
         "spe": 75
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": null,
+      "names": {
+        "es": "KINGLER",
+        "en": "KINGLER",
+        "fr": "KRABBOSS",
+        "de": "KINGLER",
+        "it": "KINGLER",
+        "pt": "KINGLER"
+      }
     },
     {
       "id": 100,
@@ -1711,7 +2701,17 @@
         "def": 50,
         "spe": 100
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "electric",
+      "type2": null,
+      "names": {
+        "es": "VOLTORB",
+        "en": "VOLTORB",
+        "fr": "VOLTORBE",
+        "de": "VOLTOBAL",
+        "it": "VOLTORB",
+        "pt": "VOLTORB"
+      }
     },
     {
       "id": 101,
@@ -1728,7 +2728,17 @@
         "def": 70,
         "spe": 150
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "electric",
+      "type2": null,
+      "names": {
+        "es": "ELECTRODE",
+        "en": "ELECTRODE",
+        "fr": "ELECTRODE",
+        "de": "LEKTROBAL",
+        "it": "ELECTRODE",
+        "pt": "ELECTRODE"
+      }
     },
     {
       "id": 102,
@@ -1745,7 +2755,17 @@
         "def": 80,
         "spe": 40
       },
-      "biome": 2
+      "biome": 2,
+      "type1": "grass",
+      "type2": "psychic",
+      "names": {
+        "es": "EXEGGCUTE",
+        "en": "EXEGGCUTE",
+        "fr": "NOEUNOEUF",
+        "de": "OWEI",
+        "it": "EXEGGCUTE",
+        "pt": "EXEGGCUTE"
+      }
     },
     {
       "id": 103,
@@ -1762,7 +2782,17 @@
         "def": 85,
         "spe": 55
       },
-      "biome": 2
+      "biome": 2,
+      "type1": "grass",
+      "type2": "psychic",
+      "names": {
+        "es": "EXEGGUTOR",
+        "en": "EXEGGUTOR",
+        "fr": "NOADKOKO",
+        "de": "KOKOWEI",
+        "it": "EXEGGUTOR",
+        "pt": "EXEGGUTOR"
+      }
     },
     {
       "id": 104,
@@ -1779,7 +2809,17 @@
         "def": 95,
         "spe": 35
       },
-      "biome": 4
+      "biome": 4,
+      "type1": "ground",
+      "type2": null,
+      "names": {
+        "es": "CUBONE",
+        "en": "CUBONE",
+        "fr": "OSSELAIT",
+        "de": "TRAGOSSO",
+        "it": "CUBONE",
+        "pt": "CUBONE"
+      }
     },
     {
       "id": 105,
@@ -1796,7 +2836,17 @@
         "def": 110,
         "spe": 45
       },
-      "biome": 4
+      "biome": 4,
+      "type1": "ground",
+      "type2": null,
+      "names": {
+        "es": "MAROWAK",
+        "en": "MAROWAK",
+        "fr": "OSSATUEUR",
+        "de": "KNOGGA",
+        "it": "MAROWAK",
+        "pt": "MAROWAK"
+      }
     },
     {
       "id": 106,
@@ -1813,7 +2863,17 @@
         "def": 53,
         "spe": 87
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "fighting",
+      "type2": null,
+      "names": {
+        "es": "HITMONLEE",
+        "en": "HITMONLEE",
+        "fr": "KICKLEE",
+        "de": "KICKLEE",
+        "it": "HITMONLEE",
+        "pt": "HITMONLEE"
+      }
     },
     {
       "id": 107,
@@ -1830,7 +2890,17 @@
         "def": 79,
         "spe": 76
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "fighting",
+      "type2": null,
+      "names": {
+        "es": "HITMONCHAN",
+        "en": "HITMONCHAN",
+        "fr": "TYGNON",
+        "de": "NOCKCHAN",
+        "it": "HITMONCHAN",
+        "pt": "HITMONCHAN"
+      }
     },
     {
       "id": 108,
@@ -1847,7 +2917,17 @@
         "def": 75,
         "spe": 30
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "normal",
+      "type2": null,
+      "names": {
+        "es": "LICKITUNG",
+        "en": "LICKITUNG",
+        "fr": "EXCELANGUE",
+        "de": "SCHLURP",
+        "it": "LICKITUNG",
+        "pt": "LICKITUNG"
+      }
     },
     {
       "id": 109,
@@ -1864,7 +2944,17 @@
         "def": 95,
         "spe": 35
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "poison",
+      "type2": null,
+      "names": {
+        "es": "KOFFING",
+        "en": "KOFFING",
+        "fr": "SMOGO",
+        "de": "SMOGON",
+        "it": "KOFFING",
+        "pt": "KOFFING"
+      }
     },
     {
       "id": 110,
@@ -1881,7 +2971,17 @@
         "def": 120,
         "spe": 60
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "poison",
+      "type2": null,
+      "names": {
+        "es": "WEEZING",
+        "en": "WEEZING",
+        "fr": "SMOGOGO",
+        "de": "SMOGMOG",
+        "it": "WEEZING",
+        "pt": "WEEZING"
+      }
     },
     {
       "id": 111,
@@ -1898,7 +2998,17 @@
         "def": 95,
         "spe": 25
       },
-      "biome": 4
+      "biome": 4,
+      "type1": "ground",
+      "type2": "rock",
+      "names": {
+        "es": "RHYHORN",
+        "en": "RHYHORN",
+        "fr": "RHINOCORNE",
+        "de": "RIHORN",
+        "it": "RHYHORN",
+        "pt": "RHYHORN"
+      }
     },
     {
       "id": 112,
@@ -1915,7 +3025,17 @@
         "def": 120,
         "spe": 40
       },
-      "biome": 4
+      "biome": 4,
+      "type1": "ground",
+      "type2": "rock",
+      "names": {
+        "es": "RHYDON",
+        "en": "RHYDON",
+        "fr": "RHINOFEROS",
+        "de": "RIZEROS",
+        "it": "RHYDON",
+        "pt": "RHYDON"
+      }
     },
     {
       "id": 113,
@@ -1932,7 +3052,17 @@
         "def": 5,
         "spe": 50
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "normal",
+      "type2": null,
+      "names": {
+        "es": "CHANSEY",
+        "en": "CHANSEY",
+        "fr": "LEVEINARD",
+        "de": "CHANEIRA",
+        "it": "CHANSEY",
+        "pt": "CHANSEY"
+      }
     },
     {
       "id": 114,
@@ -1949,7 +3079,17 @@
         "def": 115,
         "spe": 60
       },
-      "biome": 2
+      "biome": 2,
+      "type1": "grass",
+      "type2": null,
+      "names": {
+        "es": "TANGELA",
+        "en": "TANGELA",
+        "fr": "SAQUEDENEU",
+        "de": "TANGELA",
+        "it": "TANGELA",
+        "pt": "TANGELA"
+      }
     },
     {
       "id": 115,
@@ -1966,7 +3106,17 @@
         "def": 80,
         "spe": 90
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "normal",
+      "type2": null,
+      "names": {
+        "es": "KANGASKHAN",
+        "en": "KANGASKHAN",
+        "fr": "KANGOUREX",
+        "de": "KANGAMA",
+        "it": "KANGASKHAN",
+        "pt": "KANGASKHAN"
+      }
     },
     {
       "id": 116,
@@ -1983,7 +3133,17 @@
         "def": 70,
         "spe": 60
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": null,
+      "names": {
+        "es": "HORSEA",
+        "en": "HORSEA",
+        "fr": "HYPOTREMPE",
+        "de": "SEEPER",
+        "it": "HORSEA",
+        "pt": "HORSEA"
+      }
     },
     {
       "id": 117,
@@ -2000,7 +3160,17 @@
         "def": 95,
         "spe": 85
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": null,
+      "names": {
+        "es": "SEADRA",
+        "en": "SEADRA",
+        "fr": "HYPOCEAN",
+        "de": "SEEMON",
+        "it": "SEADRA",
+        "pt": "SEADRA"
+      }
     },
     {
       "id": 118,
@@ -2017,7 +3187,17 @@
         "def": 60,
         "spe": 63
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": null,
+      "names": {
+        "es": "GOLDEEN",
+        "en": "GOLDEEN",
+        "fr": "POISSIRENE",
+        "de": "GOLDINI",
+        "it": "GOLDEEN",
+        "pt": "GOLDEEN"
+      }
     },
     {
       "id": 119,
@@ -2034,7 +3214,17 @@
         "def": 65,
         "spe": 68
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": null,
+      "names": {
+        "es": "SEAKING",
+        "en": "SEAKING",
+        "fr": "POISSOROY",
+        "de": "GOLKING",
+        "it": "SEAKING",
+        "pt": "SEAKING"
+      }
     },
     {
       "id": 120,
@@ -2051,7 +3241,17 @@
         "def": 55,
         "spe": 85
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": null,
+      "names": {
+        "es": "STARYU",
+        "en": "STARYU",
+        "fr": "STARI",
+        "de": "STERNDU",
+        "it": "STARYU",
+        "pt": "STARYU"
+      }
     },
     {
       "id": 121,
@@ -2068,7 +3268,17 @@
         "def": 85,
         "spe": 115
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": "psychic",
+      "names": {
+        "es": "STARMIE",
+        "en": "STARMIE",
+        "fr": "STAROSS",
+        "de": "STARMIE",
+        "it": "STARMIE",
+        "pt": "STARMIE"
+      }
     },
     {
       "id": 122,
@@ -2085,7 +3295,17 @@
         "def": 65,
         "spe": 90
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "psychic",
+      "type2": "fairy",
+      "names": {
+        "es": "MR. MIME",
+        "en": "MR. MIME",
+        "fr": "M. MIME",
+        "de": "PANTIMOS",
+        "it": "MR. MIME",
+        "pt": "MR. MIME"
+      }
     },
     {
       "id": 123,
@@ -2102,7 +3322,17 @@
         "def": 80,
         "spe": 105
       },
-      "biome": 2
+      "biome": 2,
+      "type1": "bug",
+      "type2": "flying",
+      "names": {
+        "es": "SCYTHER",
+        "en": "SCYTHER",
+        "fr": "INSECATEUR",
+        "de": "SICHLOR",
+        "it": "SCYTHER",
+        "pt": "SCYTHER"
+      }
     },
     {
       "id": 124,
@@ -2119,7 +3349,17 @@
         "def": 35,
         "spe": 95
       },
-      "biome": 5
+      "biome": 5,
+      "type1": "ice",
+      "type2": "psychic",
+      "names": {
+        "es": "JYNX",
+        "en": "JYNX",
+        "fr": "LIPPOUTOU",
+        "de": "ROSSANA",
+        "it": "JYNX",
+        "pt": "JYNX"
+      }
     },
     {
       "id": 125,
@@ -2136,7 +3376,17 @@
         "def": 57,
         "spe": 105
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "electric",
+      "type2": null,
+      "names": {
+        "es": "ELECTABUZZ",
+        "en": "ELECTABUZZ",
+        "fr": "ELEKTEK",
+        "de": "ELEKTEK",
+        "it": "ELECTABUZZ",
+        "pt": "ELECTABUZZ"
+      }
     },
     {
       "id": 126,
@@ -2153,7 +3403,17 @@
         "def": 57,
         "spe": 93
       },
-      "biome": 3
+      "biome": 3,
+      "type1": "fire",
+      "type2": null,
+      "names": {
+        "es": "MAGMAR",
+        "en": "MAGMAR",
+        "fr": "MAGMAR",
+        "de": "MAGMAR",
+        "it": "MAGMAR",
+        "pt": "MAGMAR"
+      }
     },
     {
       "id": 127,
@@ -2170,7 +3430,17 @@
         "def": 100,
         "spe": 85
       },
-      "biome": 2
+      "biome": 2,
+      "type1": "bug",
+      "type2": null,
+      "names": {
+        "es": "PINSIR",
+        "en": "PINSIR",
+        "fr": "SCARABRUTE",
+        "de": "PINSIR",
+        "it": "PINSIR",
+        "pt": "PINSIR"
+      }
     },
     {
       "id": 128,
@@ -2187,7 +3457,17 @@
         "def": 95,
         "spe": 110
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "normal",
+      "type2": null,
+      "names": {
+        "es": "TAUROS",
+        "en": "TAUROS",
+        "fr": "TAUROS",
+        "de": "TAUROS",
+        "it": "TAUROS",
+        "pt": "TAUROS"
+      }
     },
     {
       "id": 129,
@@ -2204,7 +3484,17 @@
         "def": 55,
         "spe": 80
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": null,
+      "names": {
+        "es": "MAGIKARP",
+        "en": "MAGIKARP",
+        "fr": "MAGICARPE",
+        "de": "KARPADOR",
+        "it": "MAGIKARP",
+        "pt": "MAGIKARP"
+      }
     },
     {
       "id": 130,
@@ -2221,7 +3511,17 @@
         "def": 79,
         "spe": 81
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": "flying",
+      "names": {
+        "es": "GYARADOS",
+        "en": "GYARADOS",
+        "fr": "LEVIATOR",
+        "de": "GARADOS",
+        "it": "GYARADOS",
+        "pt": "GYARADOS"
+      }
     },
     {
       "id": 131,
@@ -2238,7 +3538,17 @@
         "def": 80,
         "spe": 60
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": "ice",
+      "names": {
+        "es": "LAPRAS",
+        "en": "LAPRAS",
+        "fr": "LOKHLASS",
+        "de": "LAPRAS",
+        "it": "LAPRAS",
+        "pt": "LAPRAS"
+      }
     },
     {
       "id": 132,
@@ -2255,7 +3565,17 @@
         "def": 48,
         "spe": 48
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "normal",
+      "type2": null,
+      "names": {
+        "es": "DITTO",
+        "en": "DITTO",
+        "fr": "METAMORPH",
+        "de": "DITTO",
+        "it": "DITTO",
+        "pt": "DITTO"
+      }
     },
     {
       "id": 133,
@@ -2272,7 +3592,17 @@
         "def": 50,
         "spe": 55
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "normal",
+      "type2": null,
+      "names": {
+        "es": "EEVEE",
+        "en": "EEVEE",
+        "fr": "EVOLI",
+        "de": "EVOLI",
+        "it": "EEVEE",
+        "pt": "EEVEE"
+      }
     },
     {
       "id": 134,
@@ -2289,7 +3619,17 @@
         "def": 60,
         "spe": 65
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "water",
+      "type2": null,
+      "names": {
+        "es": "VAPOREON",
+        "en": "VAPOREON",
+        "fr": "AQUALI",
+        "de": "AQUANA",
+        "it": "VAPOREON",
+        "pt": "VAPOREON"
+      }
     },
     {
       "id": 135,
@@ -2306,7 +3646,17 @@
         "def": 60,
         "spe": 130
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "electric",
+      "type2": null,
+      "names": {
+        "es": "JOLTEON",
+        "en": "JOLTEON",
+        "fr": "VOLTALI",
+        "de": "BLITZA",
+        "it": "JOLTEON",
+        "pt": "JOLTEON"
+      }
     },
     {
       "id": 136,
@@ -2323,7 +3673,17 @@
         "def": 60,
         "spe": 65
       },
-      "biome": 3
+      "biome": 3,
+      "type1": "fire",
+      "type2": null,
+      "names": {
+        "es": "FLAREON",
+        "en": "FLAREON",
+        "fr": "PYROLI",
+        "de": "FLAMARA",
+        "it": "FLAREON",
+        "pt": "FLAREON"
+      }
     },
     {
       "id": 137,
@@ -2340,7 +3700,17 @@
         "def": 70,
         "spe": 40
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "normal",
+      "type2": null,
+      "names": {
+        "es": "PORYGON",
+        "en": "PORYGON",
+        "fr": "PORYGON",
+        "de": "PORYGON",
+        "it": "PORYGON",
+        "pt": "PORYGON"
+      }
     },
     {
       "id": 138,
@@ -2357,7 +3727,17 @@
         "def": 100,
         "spe": 35
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "rock",
+      "type2": "water",
+      "names": {
+        "es": "OMANYTE",
+        "en": "OMANYTE",
+        "fr": "AMONITA",
+        "de": "AMONITAS",
+        "it": "OMANYTE",
+        "pt": "OMANYTE"
+      }
     },
     {
       "id": 139,
@@ -2374,7 +3754,17 @@
         "def": 125,
         "spe": 55
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "rock",
+      "type2": "water",
+      "names": {
+        "es": "OMASTAR",
+        "en": "OMASTAR",
+        "fr": "AMONISTAR",
+        "de": "AMOROSO",
+        "it": "OMASTAR",
+        "pt": "OMASTAR"
+      }
     },
     {
       "id": 140,
@@ -2391,7 +3781,17 @@
         "def": 90,
         "spe": 55
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "rock",
+      "type2": "water",
+      "names": {
+        "es": "KABUTO",
+        "en": "KABUTO",
+        "fr": "KABUTO",
+        "de": "KABUTO",
+        "it": "KABUTO",
+        "pt": "KABUTO"
+      }
     },
     {
       "id": 141,
@@ -2408,7 +3808,17 @@
         "def": 105,
         "spe": 80
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "rock",
+      "type2": "water",
+      "names": {
+        "es": "KABUTOPS",
+        "en": "KABUTOPS",
+        "fr": "KABUTOPS",
+        "de": "KABUTOPS",
+        "it": "KABUTOPS",
+        "pt": "KABUTOPS"
+      }
     },
     {
       "id": 142,
@@ -2425,7 +3835,17 @@
         "def": 65,
         "spe": 130
       },
-      "biome": 4
+      "biome": 4,
+      "type1": "rock",
+      "type2": "flying",
+      "names": {
+        "es": "AERODACTYL",
+        "en": "AERODACTYL",
+        "fr": "PTERA",
+        "de": "AERODACTYL",
+        "it": "AERODACTYL",
+        "pt": "AERODACTYL"
+      }
     },
     {
       "id": 143,
@@ -2442,7 +3862,17 @@
         "def": 65,
         "spe": 30
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "normal",
+      "type2": null,
+      "names": {
+        "es": "SNORLAX",
+        "en": "SNORLAX",
+        "fr": "RONFLEX",
+        "de": "RELAXO",
+        "it": "SNORLAX",
+        "pt": "SNORLAX"
+      }
     },
     {
       "id": 144,
@@ -2459,7 +3889,17 @@
         "def": 100,
         "spe": 85
       },
-      "biome": 5
+      "biome": 5,
+      "type1": "ice",
+      "type2": "flying",
+      "names": {
+        "es": "ARTICUNO",
+        "en": "ARTICUNO",
+        "fr": "ARTIKODIN",
+        "de": "ARKTOS",
+        "it": "ARTICUNO",
+        "pt": "ARTICUNO"
+      }
     },
     {
       "id": 145,
@@ -2476,7 +3916,17 @@
         "def": 85,
         "spe": 100
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "electric",
+      "type2": "flying",
+      "names": {
+        "es": "ZAPDOS",
+        "en": "ZAPDOS",
+        "fr": "ELECTHOR",
+        "de": "ZAPDOS",
+        "it": "ZAPDOS",
+        "pt": "ZAPDOS"
+      }
     },
     {
       "id": 146,
@@ -2493,7 +3943,17 @@
         "def": 90,
         "spe": 90
       },
-      "biome": 3
+      "biome": 3,
+      "type1": "fire",
+      "type2": "flying",
+      "names": {
+        "es": "MOLTRES",
+        "en": "MOLTRES",
+        "fr": "SULFURA",
+        "de": "LAVADOS",
+        "it": "MOLTRES",
+        "pt": "MOLTRES"
+      }
     },
     {
       "id": 147,
@@ -2510,7 +3970,17 @@
         "def": 45,
         "spe": 50
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "dragon",
+      "type2": null,
+      "names": {
+        "es": "DRATINI",
+        "en": "DRATINI",
+        "fr": "MINIDRACO",
+        "de": "DRATINI",
+        "it": "DRATINI",
+        "pt": "DRATINI"
+      }
     },
     {
       "id": 148,
@@ -2527,7 +3997,17 @@
         "def": 65,
         "spe": 70
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "dragon",
+      "type2": null,
+      "names": {
+        "es": "DRAGONAIR",
+        "en": "DRAGONAIR",
+        "fr": "DRACO",
+        "de": "DRAGONIR",
+        "it": "DRAGONAIR",
+        "pt": "DRAGONAIR"
+      }
     },
     {
       "id": 149,
@@ -2544,7 +4024,17 @@
         "def": 95,
         "spe": 80
       },
-      "biome": 1
+      "biome": 1,
+      "type1": "dragon",
+      "type2": "flying",
+      "names": {
+        "es": "DRAGONITE",
+        "en": "DRAGONITE",
+        "fr": "DRACOLOSSE",
+        "de": "DRAGORAN",
+        "it": "DRAGONITE",
+        "pt": "DRAGONITE"
+      }
     },
     {
       "id": 150,
@@ -2561,7 +4051,17 @@
         "def": 90,
         "spe": 130
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "psychic",
+      "type2": null,
+      "names": {
+        "es": "MEWTWO",
+        "en": "MEWTWO",
+        "fr": "MEWTWO",
+        "de": "MEWTU",
+        "it": "MEWTWO",
+        "pt": "MEWTWO"
+      }
     },
     {
       "id": 151,
@@ -2578,7 +4078,17 @@
         "def": 100,
         "spe": 100
       },
-      "biome": 0
+      "biome": 0,
+      "type1": "psychic",
+      "type2": null,
+      "names": {
+        "es": "MEW",
+        "en": "MEW",
+        "fr": "MEW",
+        "de": "MEW",
+        "it": "MEW",
+        "pt": "MEW"
+      }
     }
   ]
 }
