@@ -1,30 +1,40 @@
 package com.tamapoke.app.ui.stats
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.Button
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.tamapoke.app.R
+import com.tamapoke.app.ui.device.RoundDeviceFrame
 import com.tamapoke.core.PetEngine
 import com.tamapoke.core.PetState
 import com.tamapoke.core.dex.DexTable
@@ -41,21 +51,34 @@ fun StatCardScreen(
 ) {
     var tab by remember { mutableIntStateOf(0) }
 
-    Column(Modifier.fillMaxSize()) {
-        TabRow(selectedTabIndex = tab) {
-            TABS.forEachIndexed { i, label ->
-                Tab(selected = tab == i, onClick = { tab = i }, text = { Text(label) })
+    BoxWithConstraints(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+        val diameter = minOf(maxWidth, maxHeight) * 0.94f
+        RoundDeviceFrame(Modifier.size(diameter)) {
+            Box(Modifier.fillMaxSize().background(Color(0xFF10131A))) {
+                CompositionLocalProvider(LocalContentColor provides Color.White) {
+                    Column(Modifier.fillMaxSize().padding(top = 30.dp)) {
+                        TabRow(
+                            selectedTabIndex = tab,
+                            containerColor = Color.Transparent,
+                            contentColor = Color.White,
+                        ) {
+                            TABS.forEachIndexed { i, label ->
+                                Tab(selected = tab == i, onClick = { tab = i }, text = { Text(label) })
+                            }
+                        }
+                        if (state == null || state.isEgg) {
+                            Text(stringResource(R.string.no_pet_yet), Modifier.padding(16.dp))
+                        } else {
+                            when (tab) {
+                                0 -> ProfileTab(state, dex, onRename)
+                                1 -> BattleTab(state, dex, onTrain)
+                                2 -> MedalsTab(state)
+                                3 -> ProgressTab(state, dex)
+                            }
+                        }
+                    }
+                }
             }
-        }
-        if (state == null || state.isEgg) {
-            Text(stringResource(R.string.no_pet_yet), Modifier.padding(16.dp))
-            return
-        }
-        when (tab) {
-            0 -> ProfileTab(state, dex, onRename)
-            1 -> BattleTab(state, dex, onTrain)
-            2 -> MedalsTab(state)
-            3 -> ProgressTab(state, dex)
         }
     }
 }
@@ -66,14 +89,23 @@ private fun ProfileTab(state: PetState, dex: DexTable, onRename: (String) -> Uni
     var name by remember(state.speciesId) { mutableStateOf(state.nickname) }
     val ageDays = state.ageMinutes / 1440
 
-    Column(Modifier.fillMaxSize().padding(16.dp)) {
+    Column(Modifier.fillMaxSize().padding(20.dp)) {
         Text("${entry.name}${if (state.shiny) " ✨ SHINY" else ""}   AGE ${ageDays}d", style = MaterialTheme.typography.titleMedium)
-        Row(Modifier.padding(top = 12.dp), verticalAlignment = androidx.compose.ui.Alignment.CenterVertically) {
+        Row(Modifier.padding(top = 12.dp), verticalAlignment = Alignment.CenterVertically) {
             OutlinedTextField(
                 value = name,
                 onValueChange = { name = it.take(11) },
                 label = { Text(stringResource(R.string.orig_name)) },
                 modifier = Modifier.weight(1f),
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedTextColor = Color.White,
+                    unfocusedTextColor = Color.White,
+                    focusedLabelColor = Color.White,
+                    unfocusedLabelColor = Color.White,
+                    focusedBorderColor = Color.White,
+                    unfocusedBorderColor = Color(0xFF888888),
+                    cursorColor = Color.White,
+                ),
             )
             Button(onClick = { onRename(name) }, modifier = Modifier.padding(start = 8.dp)) { Text("Save") }
         }
@@ -87,7 +119,7 @@ private fun ProfileTab(state: PetState, dex: DexTable, onRename: (String) -> Uni
 
 @Composable
 private fun BattleTab(state: PetState, dex: DexTable, onTrain: () -> Unit) {
-    Column(Modifier.fillMaxSize().padding(16.dp)) {
+    Column(Modifier.fillMaxSize().padding(20.dp)) {
         Text(stringResource(R.string.orig_battle), style = MaterialTheme.typography.titleMedium)
         Text("${stringResource(R.string.orig_stat_atk)} ${PetEngine.atkStat(state, dex)}")
         Text("${stringResource(R.string.orig_stat_def)} ${PetEngine.defStat(state, dex)}")
@@ -102,7 +134,7 @@ private val ALL_MEDALS = Medal.entries
 
 @Composable
 private fun MedalsTab(state: PetState) {
-    Column(Modifier.fillMaxSize().padding(16.dp)) {
+    Column(Modifier.fillMaxSize().padding(20.dp)) {
         Text(
             stringResource(R.string.orig_medals_fmt, state.medals.size, ALL_MEDALS.size),
             style = MaterialTheme.typography.titleMedium,
@@ -113,7 +145,7 @@ private fun MedalsTab(state: PetState) {
                 val earned = medal in state.medals
                 Column(
                     Modifier.fillMaxWidth().padding(8.dp),
-                    horizontalAlignment = androidx.compose.ui.Alignment.CenterHorizontally,
+                    horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Text(if (earned) "🏅" else "▫️", style = MaterialTheme.typography.headlineMedium)
                     Text(medal.name, style = MaterialTheme.typography.labelSmall)
@@ -129,7 +161,7 @@ private fun ProgressTab(state: PetState, dex: DexTable) {
     val level = state.level()
     val minutesToNextLevel = PetState.MINUTES_PER_LEVEL - (state.ageMinutes % PetState.MINUTES_PER_LEVEL)
 
-    Column(Modifier.fillMaxSize().padding(16.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+    Column(Modifier.fillMaxSize().padding(20.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
         Text(stringResource(R.string.orig_progress), style = MaterialTheme.typography.titleMedium)
         Text(stringResource(R.string.orig_lvl_fmt, level))
         Text(stringResource(R.string.orig_next_lvl_fmt, minutesToNextLevel, level + 1))

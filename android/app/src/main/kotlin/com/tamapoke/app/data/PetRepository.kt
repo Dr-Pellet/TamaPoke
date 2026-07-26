@@ -77,6 +77,12 @@ class PetRepository private constructor(
     /** One live game-minute tick, for the foreground "watch it happen in real time" loop. */
     suspend fun tickOnce() = mutate { PetEngine.tickOnce(it, dex).state }
 
+    /** Serializes the current save to JSON, for exporting to a user-chosen local file. */
+    suspend fun exportSave(): String = SaveFileCodec.encode(ensureLoaded())
+
+    /** Overwrites the current save with one imported from a local file. */
+    suspend fun importSave(json: String) = mutate { SaveFileCodec.decode(json) }
+
     companion object {
         @Volatile private var instance: PetRepository? = null
 

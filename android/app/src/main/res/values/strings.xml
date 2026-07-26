@@ -14,4 +14,7 @@
     <string name="medals_total_fmt">Total earned across all pets: %1$d</string>
     <string name="no_pet_yet">No pet yet</string>
     <string name="loading">…</string>
+    <string name="settings_save_data">Save data</string>
+    <string name="settings_export">Export</string>
+    <string name="settings_import">Import</string>
 </resources>

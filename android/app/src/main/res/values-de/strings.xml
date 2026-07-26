@@ -13,4 +13,7 @@
     <string name="medals_total_fmt">Insgesamt bei allen Tieren verdient: %1$d</string>
     <string name="no_pet_yet">Noch kein Tier</string>
     <string name="loading">…</string>
+    <string name="settings_save_data">Spielstand</string>
+    <string name="settings_export">Exportieren</string>
+    <string name="settings_import">Importieren</string>
 </resources>

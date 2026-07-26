@@ -27,6 +27,13 @@ class MainViewModel(
     private val _lastStrengthGain = MutableStateFlow<Int?>(null)
     val lastStrengthGain: StateFlow<Int?> = _lastStrengthGain
 
+    private val _evolutionEvent = MutableStateFlow<EvolutionEvent?>(null)
+    val evolutionEvent: StateFlow<EvolutionEvent?> = _evolutionEvent
+
+    fun clearEvolutionEvent() {
+        _evolutionEvent.value = null
+    }
+
     init {
         viewModelScope.launch { repository.catchUp() }
         // Detects transitions (level up, medal, hatch, evolve, ceremony start) purely from
@@ -43,7 +50,10 @@ class MainViewModel(
         when {
             prev.ceremony == Ceremony.NONE && next.ceremony != Ceremony.NONE -> sfx.play(Sfx.BYE)
             prev.isEgg && !next.isEgg -> sfx.play(Sfx.HATCH)
-            !prev.isEgg && !next.isEgg && prev.speciesId != next.speciesId -> sfx.play(Sfx.EVOLVE)
+            !prev.isEgg && !next.isEgg && prev.speciesId != next.speciesId -> {
+                sfx.play(Sfx.EVOLVE)
+                _evolutionEvent.value = EvolutionEvent(prev.speciesId, next.speciesId, next.shiny)
+            }
             next.medals.size > prev.medals.size -> sfx.play(Sfx.MEDAL)
             !next.isEgg && next.level() > prev.level() -> sfx.play(Sfx.LEVEL)
         }
@@ -85,6 +95,15 @@ class MainViewModel(
     fun declineEvolve() = viewModelScope.launch { repository.declineEvolve() }
     fun declineFarewell() = viewModelScope.launch { repository.declineFarewell() }
     fun resolveCeremony() = viewModelScope.launch { repository.resolveCeremony() }
+
+    /** Exports the current save as JSON for the caller to write to a user-chosen file. */
+    fun exportSave(onResult: (String) -> Unit) = viewModelScope.launch { onResult(repository.exportSave()) }
+
+    /** Imports a save previously produced by [exportSave], overwriting the current one. */
+    fun importSave(json: String, onDone: () -> Unit = {}) = viewModelScope.launch {
+        repository.importSave(json)
+        onDone()
+    }
 
     class Factory(
         private val repository: PetRepository,

@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.tamapoke.app.R
 import com.tamapoke.app.ui.main.CeremonyDialog
+import com.tamapoke.app.ui.main.EvolutionOverlay
 import com.tamapoke.app.ui.main.MainScreen
 import com.tamapoke.app.ui.main.MainViewModel
 import com.tamapoke.app.ui.main.StarterPickerScreen
@@ -85,7 +86,11 @@ fun AppRoot(mainViewModel: MainViewModel, settingsViewModel: SettingsViewModel) 
                         onRename = mainViewModel::rename,
                         onTrain = { overlay = Overlay.TRAINING },
                     )
-                    Screen.SETTINGS -> SettingsScreen(settingsViewModel)
+                    Screen.SETTINGS -> SettingsScreen(
+                        settingsViewModel,
+                        onExportSave = mainViewModel::exportSave,
+                        onImportSave = mainViewModel::importSave,
+                    )
                 }
             }
         }
@@ -109,6 +114,11 @@ fun AppRoot(mainViewModel: MainViewModel, settingsViewModel: SettingsViewModel) 
 
         if (current != null && current.ceremony != Ceremony.NONE) {
             CeremonyDialog(current, mainViewModel.dex, onDismiss = mainViewModel::resolveCeremony)
+        }
+
+        val evolutionEvent by mainViewModel.evolutionEvent.collectAsState()
+        evolutionEvent?.let { event ->
+            EvolutionOverlay(event, onDone = mainViewModel::clearEvolutionEvent)
         }
     }
 }

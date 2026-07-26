@@ -13,4 +13,7 @@
     <string name="medals_total_fmt">Total gagne sur tous les animaux: %1$d</string>
     <string name="no_pet_yet">Pas encore d\'animal</string>
     <string name="loading">…</string>
+    <string name="settings_save_data">Sauvegarde</string>
+    <string name="settings_export">Exporter</string>
+    <string name="settings_import">Importer</string>
 </resources>

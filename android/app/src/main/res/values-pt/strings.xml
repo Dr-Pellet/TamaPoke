@@ -13,4 +13,7 @@
     <string name="medals_total_fmt">Total ganho em todos os bichinhos: %1$d</string>
     <string name="no_pet_yet">Ainda sem bichinho</string>
     <string name="loading">…</string>
+    <string name="settings_save_data">Dados salvos</string>
+    <string name="settings_export">Exportar</string>
+    <string name="settings_import">Importar</string>
 </resources>

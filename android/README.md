@@ -91,16 +91,32 @@ just trust CI, which checks out to a clean path.
   languages now cover every string the app displays, including the
   training bag's "STR +N" feedback (shown as a Snackbar, matching the
   firmware's on-screen confirmation).
-- **Phase 5 (visual, in progress)**: the app started out as generic
-  Material3 chrome, which looks nothing like the device's round 466x466
-  AMOLED UI. First step: `ui/device/RoundDeviceFrame.kt` clips the main
-  screen into a circular bezel, and `ui/device/BiomeBackground.kt` renders
-  the sky/ground using the *exact* hex colors from `TamaPoke.ino`'s
-  `drawScene()`/`BIOME_SOIL` (time-of-day sky gradient + per-species biome
-  ground color, night-tinted). `ui/device/ArcButtonBar.kt` replaces the
-  text Feed/Play/Bath/Sleep buttons with icon-only round buttons near the
-  bottom of the circle (a straight row rather than a literal curved arc -
-  good enough at this size, real trig placement would be the next
-  refinement). Not yet done: swipe-based navigation (currently a Material
-  bottom nav bar instead of the original's swipe gestures), evolution/
-  ceremony animations, and applying the round frame to the other screens.
+- **Phase 5 (visual)**: `ui/device/RoundDeviceFrame.kt` clips every screen
+  (Main, Pokedex, Stat card, Settings) into a circular bezel echoing the
+  device's round 466x466 AMOLED display, sized to fit whichever of
+  width/height is smaller (`BoxWithConstraints`) so it works in any
+  screen's available space, not just the compact main screen. Content-heavy
+  screens (Pokedex grid, tabbed stat card) get a plain dark background
+  inside the circle since they don't have a biome to render; `MainScreen`
+  keeps `ui/device/BiomeBackground.kt`'s sky/ground gradient (exact hex
+  values from `TamaPoke.ino`'s `drawScene()`/`BIOME_SOIL`) and
+  `ui/device/ArcButtonBar.kt`'s icon-only round buttons (a straight row
+  near the bottom rather than a literal curved arc - good enough at this
+  size). `ui/main/EvolutionOverlay.kt` and the reworked `CeremonyDialog.kt`
+  add full-screen animated overlays (halo/rotating rays/sprite-flicker for
+  evolution; themed floating particles - hearts/rain/doves - for Farewell/
+  Runaway/Release) instead of static dialogs, auto-advancing after a few
+  seconds. Not yet done: swipe-based navigation (still a Material bottom
+  nav bar instead of the original's swipe gestures - explicitly deferred
+  per user preference, kept as a possible future step).
+
+## Save data export/import
+
+Settings > Save data lets you export the current save to a JSON file you
+choose the location for (Storage Access Framework - any provider: local
+storage, cloud drive, etc.) and import one back, overwriting the current
+save. `data/SaveFileCodec.kt` is a full-fidelity JSON (de)serialization of
+`PetState` (every field, not just a subset), versioned via a
+`formatVersion` field for future migrations. This is purely an
+Android-side convenience - the original firmware only has on-device NVS
+storage with no export path.
