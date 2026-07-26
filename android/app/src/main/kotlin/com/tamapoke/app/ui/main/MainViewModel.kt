@@ -9,6 +9,7 @@ import com.tamapoke.app.data.PetRepository
 import com.tamapoke.core.PetState
 import com.tamapoke.core.dex.DexTable
 import com.tamapoke.core.enums.Ceremony
+import com.tamapoke.core.enums.Medal
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collect
@@ -34,6 +35,26 @@ class MainViewModel(
         _evolutionEvent.value = null
     }
 
+    /** Bumped on every caress() - UI plays a heart-burst animation keyed on this value. */
+    private val _heartBurstTrigger = MutableStateFlow(0)
+    val heartBurstTrigger: StateFlow<Int> = _heartBurstTrigger
+
+    /** Newly-earned medals (checkMedals()'s "MEDAL!" banner); UI clears it after showing. */
+    private val _medalBanner = MutableStateFlow<Set<Medal>?>(null)
+    val medalBanner: StateFlow<Set<Medal>?> = _medalBanner
+
+    fun clearMedalBanner() {
+        _medalBanner.value = null
+    }
+
+    /** Newly-reached streak milestone (3/7/30/100 days); UI clears it after showing. */
+    private val _streakMilestone = MutableStateFlow<Int?>(null)
+    val streakMilestone: StateFlow<Int?> = _streakMilestone
+
+    fun clearStreakMilestone() {
+        _streakMilestone.value = null
+    }
+
     init {
         viewModelScope.launch { repository.catchUp() }
         // Detects transitions (level up, medal, hatch, evolve, ceremony start) purely from
@@ -54,8 +75,14 @@ class MainViewModel(
                 sfx.play(Sfx.EVOLVE)
                 _evolutionEvent.value = EvolutionEvent(prev.speciesId, next.speciesId, next.shiny)
             }
-            next.medals.size > prev.medals.size -> sfx.play(Sfx.MEDAL)
+            next.medals.size > prev.medals.size -> {
+                sfx.play(Sfx.MEDAL)
+                _medalBanner.value = next.medals - prev.medals
+            }
             !next.isEgg && next.level() > prev.level() -> sfx.play(Sfx.LEVEL)
+        }
+        if (next.lastMilestone > prev.lastMilestone) {
+            _streakMilestone.value = next.lastMilestone
         }
     }
 
@@ -83,7 +110,11 @@ class MainViewModel(
     }
 
     fun clean() = viewModelScope.launch { repository.clean() }
-    fun caress() = viewModelScope.launch { repository.caress(); sfx.play(Sfx.HEART) }
+    fun caress() = viewModelScope.launch {
+        repository.caress()
+        sfx.play(Sfx.HEART)
+        _heartBurstTrigger.value++
+    }
     fun toggleLight() = viewModelScope.launch { repository.toggleLight(); sfx.play(Sfx.TAP) }
     fun eggTap() = viewModelScope.launch { repository.eggTap(); sfx.play(Sfx.TAP) }
     fun evolve() = viewModelScope.launch { repository.evolve() }

@@ -97,10 +97,13 @@ fun AppRoot(mainViewModel: MainViewModel, settingsViewModel: SettingsViewModel) 
 
         if (overlay == Overlay.MINIGAME) {
             Surface(Modifier.fillMaxSize()) {
-                MinigameScreen(onFinish = { score ->
-                    mainViewModel.playResult(score)
-                    overlay = Overlay.NONE
-                })
+                MinigameScreen(
+                    bestScore = current?.gameHi ?: 0,
+                    onFinish = { score ->
+                        mainViewModel.playResult(score)
+                        overlay = Overlay.NONE
+                    },
+                )
             }
         }
         if (overlay == Overlay.TRAINING) {

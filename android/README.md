@@ -109,6 +109,16 @@ just trust CI, which checks out to a clean path.
   seconds. Not yet done: swipe-based navigation (still a Material bottom
   nav bar instead of the original's swipe gestures - explicitly deferred
   per user preference, kept as a possible future step).
+- **Remaining UI gaps closed**: long-press-3s on the pet now releases it
+  (`Ceremony.RELEASE` had no trigger before - shows a countdown ring while
+  held, cancels if released early), poop icons render from `state.poops`,
+  a heart pops on every caress, the creature now wanders between Idle/
+  Walk-L/Walk-R sprites while awake instead of standing still, a "MEDAL!"
+  banner and a streak-milestone ("🔥 N DAY STREAK!") banner appear on the
+  relevant state transitions (plus a persistent 🔥-streak badge next to the
+  name), the egg screen shows tap-crack progress (●●○), and the minigame
+  shows the live best score / a "NEW RECORD!" flash (`gameHi`, previously
+  displayed nowhere).
 
 ## Save data export/import
 

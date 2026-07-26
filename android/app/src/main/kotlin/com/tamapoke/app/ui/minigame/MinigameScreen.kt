@@ -3,6 +3,7 @@ package com.tamapoke.app.ui.minigame
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -37,9 +38,10 @@ private const val GAME_OVER_PAUSE_MS = 1500L
  * on the device.
  */
 @Composable
-fun MinigameScreen(onFinish: (score: Int) -> Unit) {
+fun MinigameScreen(bestScore: Int, onFinish: (score: Int) -> Unit) {
     var state by remember { mutableStateOf(PokeballGame.newGame()) }
     var quit by remember { mutableStateOf(false) }
+    val isNewRecord = state.score > bestScore
 
     LaunchedEffect(Unit) {
         while (!state.gameOver && !quit) {
@@ -60,11 +62,18 @@ fun MinigameScreen(onFinish: (score: Int) -> Unit) {
     }
 
     Box(Modifier.fillMaxSize().padding(16.dp)) {
-        Text(
-            stringResource(R.string.orig_score_fmt, state.score) + "   ${state.misses}/${PokeballGame.MAX_MISSES}",
-            style = MaterialTheme.typography.titleMedium,
-        )
-        Box(Modifier.fillMaxSize().padding(top = 48.dp)) {
+        Column {
+            Text(
+                stringResource(R.string.orig_score_fmt, state.score) + "   ${state.misses}/${PokeballGame.MAX_MISSES}",
+                style = MaterialTheme.typography.titleMedium,
+            )
+            Text(
+                if (isNewRecord) stringResource(R.string.orig_new_record) else stringResource(R.string.orig_rec_fmt, bestScore),
+                style = MaterialTheme.typography.labelLarge,
+                color = if (isNewRecord) Color(0xFFFFD54A) else Color.Unspecified,
+            )
+        }
+        Box(Modifier.fillMaxSize().padding(top = 68.dp)) {
             Canvas(
                 Modifier
                     .fillMaxWidth()
